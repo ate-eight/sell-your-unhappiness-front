@@ -36,7 +36,7 @@ test : 테스트 코드 ( jest, storybook(UI 테스트) )
 
 ```javascript
 // style.ts
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Container = styled.div`
     // ...
