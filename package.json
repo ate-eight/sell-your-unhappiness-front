@@ -7,7 +7,7 @@
         "dev": "vite --port 3000",
         "build": "tsc && vite build",
         "lint": "npm run lint:format & npm run lint:fix",
-        "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
+        "lint:fix": "eslint --fix  \"./src/**/*.{ts,tsx,js,jsx}\"",
         "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
@@ -16,7 +16,8 @@
     "dependencies": {
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.21.2"
+        "react-router-dom": "^6.21.2",
+        "yarn": "^1.22.21"
     },
     "devDependencies": {
         "@emotion/react": "^11.11.3",
@@ -34,7 +35,7 @@
         "@typescript-eslint/eslint-plugin": "^6.14.0",
         "@typescript-eslint/parser": "^6.14.0",
         "@vitejs/plugin-react": "^4.2.1",
-        "eslint": "^8.55.0",
+        "eslint": "^8.56.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-jsx-a11y": "^6.8.0",
         "eslint-plugin-prettier": "^5.1.3",
