@@ -11,7 +11,9 @@
         "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "test": "vitest",
+        "test ui": "yarn vitest --ui"
     },
     "dependencies": {
         "react": "^18.2.0",
@@ -30,11 +32,16 @@
         "@storybook/react": "^7.6.7",
         "@storybook/react-vite": "^7.6.7",
         "@storybook/test": "^7.6.7",
+        "@testing-library/jest-dom": "^6.2.0",
+        "@testing-library/react": "^14.1.2",
+        "@types/jest": "^29.5.11",
+        "@types/node": "^20.11.5",
         "@types/react": "^18.2.43",
         "@types/react-dom": "^18.2.17",
         "@typescript-eslint/eslint-plugin": "^6.14.0",
         "@typescript-eslint/parser": "^6.14.0",
         "@vitejs/plugin-react": "^4.2.1",
+        "@vitest/ui": "^1.2.1",
         "eslint": "^8.56.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-jsx-a11y": "^6.8.0",
@@ -44,11 +51,13 @@
         "eslint-plugin-react-refresh": "^0.4.5",
         "eslint-plugin-simple-import-sort": "^10.0.0",
         "eslint-plugin-storybook": "^0.6.15",
+        "jsdom": "^23.2.0",
         "pre-commit": "^1.2.2",
         "prettier": "^3.1.1",
         "storybook": "^7.6.7",
         "typescript": "^5.2.2",
-        "vite": "^5.0.8"
+        "vite": "^5.0.8",
+        "vitest": "^1.2.1"
     },
     "pre-commit": "lint"
 }
