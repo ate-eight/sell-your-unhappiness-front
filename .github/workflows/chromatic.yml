@@ -22,12 +22,13 @@ jobs:
         run: npm ci
 
       - name: Publish to Chromatic
+        id: chromatic
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       
-     - name: Comment PR
+      - name: Comment PR
         if: success()
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: "🎨 storybook-deploy"
+          message: "🎨 storybook-deploy ${{ steps.chromatic.outputs.storybookUrl }}"
