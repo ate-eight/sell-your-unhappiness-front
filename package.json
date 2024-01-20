@@ -51,5 +51,7 @@
         "typescript": "^5.2.2",
         "vite": "^4.4.5"
     },
-    "pre-commit": "lint"
+    "pre-commit": "lint",
+    "readme": "ERROR: No README data found!",
+    "_id": "ate-frontend@0.0.0"
 }
