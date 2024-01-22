@@ -59,5 +59,7 @@
         "vite": "^4.4.5",
         "vitest": "^1.2.1"
     },
-    "pre-commit": "lint"
+    "pre-commit": "lint",
+    "readme": "ERROR: No README data found!",
+    "_id": "ate-frontend@0.0.0"
 }
