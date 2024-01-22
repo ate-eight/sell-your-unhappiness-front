@@ -1,0 +1,37 @@
+# .github/workflows/chromatic.yml
+
+name: "Chromatic Storybook Deploy"
+
+on: 
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  storybook_deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      status: ${{ job.status }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Depenency Install
+      - name: Install dependencies
+        run: npm ci
+
+      # Storybook Chromatic Deploy
+      - name: Publish to Chromatic
+        id: chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      
+      # PR Comment 작성
+      - name: Comment PR
+        if: success()
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: "🎨 storybook-deploy ${{ steps.chromatic.outputs.storybookUrl }}"
