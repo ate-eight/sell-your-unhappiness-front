@@ -1,4 +1,8 @@
 import React from 'react';
+import { ThemeProvider } from '@emotion/react';
+
+import theme from '../src/styles/theme';
+
 import type { Preview } from '@storybook/react';
 
 const preview: Preview = {
@@ -15,7 +19,9 @@ const preview: Preview = {
         (Story) => {
             return (
                 <div style={{ minWidth: '475px' }}>
-                    <Story />
+                    <ThemeProvider theme={theme}>
+                        <Story />
+                    </ThemeProvider>
                 </div>
             );
         },

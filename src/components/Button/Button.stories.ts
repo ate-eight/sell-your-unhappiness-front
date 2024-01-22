@@ -10,7 +10,9 @@ const meta = {
     },
     tags: ['autodocs'],
     argTypes: {
-        backgroundColor: { control: 'color' },
+        label: {
+            description: '버튼 텍스트',
+        },
     },
 } satisfies Meta<typeof Button>;
 
@@ -19,7 +21,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
-        primary: true,
         label: 'Button',
     },
 };

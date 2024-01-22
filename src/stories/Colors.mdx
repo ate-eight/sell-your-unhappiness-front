@@ -1,32 +1,18 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import { color } from '../styles/theme';
 
 <Meta title='Palette/Colors' />
 
 <h1>Color Palette</h1>
 
 <ColorPalette>
-    <ColorItem
-        title='Primary'
-        subtitle='purple color'
-        colors={{ purple800: '#4700B9', purple100: '#D4C9FF' }}
-    />
-    <ColorItem
-        title='Secondary'
-        subtitle='navy color'
-        colors={{ navy900: '#10004F', navy400: '#4E4994' }}
-    />
-    <ColorItem
-        title='Gray Scale'
-        subtitle='gray color'
-        colors={{
-            black: '#1A1A1A',
-            gray800: '#2F2F2F',
-            gray700: '#5C5C5C',
-            gray400: '#B6B6B6',
-            gray300: '#E4E4E4',
-            gray200: '#F9F9F9',
-            white: '#FFFFFF',
-        }}
-    />
+
+    {Object.entries(color).map((item) => (
+        <ColorItem
+            title={item[0] + ' scale'}
+            subtitle={item[0] + ' color'}
+            colors={{ ...item[1] }}
+        />
+    ))}
 
 </ColorPalette>
