@@ -41,6 +41,7 @@
         "@typescript-eslint/parser": "^6.14.0",
         "@vitejs/plugin-react": "^4.2.1",
         "@vitest/ui": "^1.2.1",
+        "chromatic": "^10.3.1",
         "eslint": "^8.56.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-jsx-a11y": "^6.8.0",
@@ -59,5 +60,7 @@
         "vite": "^4.4.5",
         "vitest": "^1.2.1"
     },
-    "pre-commit": "lint"
+    "pre-commit": "lint",
+    "readme": "ERROR: No README data found!",
+    "_id": "ate-frontend@0.0.0"
 }
