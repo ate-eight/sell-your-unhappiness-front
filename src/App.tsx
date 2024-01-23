@@ -1,8 +1,8 @@
-import MainPage from '@pages/MainPage';
-import LoginPage from '@pages/LoginPage';
 import CreatePage from '@pages/contents/CreatePage';
 import DetailPage from '@pages/contents/DetailPage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginPage from '@pages/LoginPage';
+import MainPage from '@pages/MainPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
     return (
