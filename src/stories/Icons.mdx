@@ -1,0 +1,16 @@
+import { Meta, Title, IconGallery, IconItem } from '@storybook/blocks';
+import Icon, { IconList } from '@components/icon/Icon';
+
+<Meta title='Components/Icon/Icons' />
+
+<h1>Icon List</h1>
+
+<br />
+
+<IconGallery>
+    {Object.keys(IconList).map((name) => (
+        <IconItem name={name} key={name}>
+            <Icon name={name} />
+        </IconItem>
+    ))}
+</IconGallery>
