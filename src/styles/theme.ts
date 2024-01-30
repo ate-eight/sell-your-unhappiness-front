@@ -1,3 +1,5 @@
+import { css } from '@emotion/react';
+
 import PretendardBlack from '../fonts/Pretendard-Black.woff';
 import PretendardBold from '../fonts/Pretendard-Bold.woff';
 import PretendardExtraBold from '../fonts/Pretendard-ExtraBold.woff';
@@ -59,6 +61,29 @@ export const typography = {
         Regular: PretendardRegular,
         SemiBold: PretendardSemiBold,
         Thin: PretendardThin,
+    },
+    weight: {
+        regular: '400',
+        bold: '700',
+        extrabold: '800',
+        black: '900',
+    },
+    lineHeight: {
+        l2: 40,
+        l1: 32,
+        m2: 26,
+        m1: 24,
+        s3: 20,
+        s2: 18,
+        s1: 12,
+    },
+    size: {
+        s1: 12,
+        s2: 14,
+        m1: 16,
+        m2: 18,
+        l1: 24,
+        l2: 28,
     },
 };
 
