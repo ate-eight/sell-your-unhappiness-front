@@ -1,5 +1,3 @@
-import { css } from '@emotion/react';
-
 import PretendardBlack from '../fonts/Pretendard-Black.woff';
 import PretendardBold from '../fonts/Pretendard-Bold.woff';
 import PretendardExtraBold from '../fonts/Pretendard-ExtraBold.woff';
