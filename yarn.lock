@@ -3775,11 +3775,24 @@
   "resolved" "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz"
   "version" "2.0.0"
 
+<<<<<<< HEAD
 "ci-info@^3.2.0":
   "integrity" "sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ=="
   "resolved" "https://registry.npmjs.org/ci-info/-/ci-info-3.9.0.tgz"
   "version" "3.9.0"
 
+=======
+"chromatic@^10.3.1":
+  "integrity" "sha512-IHczKH3K3vVeZGE3XyCy/T8EQH2mGUEyQ9QUuULrWlYCfo760cnzehdTjrpuIUetkHtv7noA5Hmn6joQlz3Ufw=="
+  "resolved" "https://registry.npmjs.org/chromatic/-/chromatic-10.3.1.tgz"
+  "version" "10.3.1"
+
+"ci-info@^3.2.0":
+  "integrity" "sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ=="
+  "resolved" "https://registry.npmjs.org/ci-info/-/ci-info-3.9.0.tgz"
+  "version" "3.9.0"
+
+>>>>>>> cd7d908 (style : design system 생성)
 "citty@^0.1.5":
   "integrity" "sha512-AS7n5NSc0OQVMV9v6wt3ByujNIrne0/cTjiC2MYqhvao57VNfiuVksTSr2p17nVOhEr2KtqiAkGwHcgMC/qUuQ=="
   "resolved" "https://registry.npmjs.org/citty/-/citty-0.1.5.tgz"
@@ -5125,10 +5138,14 @@
   "version" "1.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cd7d908 (style : design system 생성)
 "function-bind@^1.1.1", "function-bind@^1.1.2":
   "integrity" "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA=="
   "resolved" "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz"
   "version" "1.1.2"
+<<<<<<< HEAD
 
 "function.prototype.name@^1.1.5", "function.prototype.name@^1.1.6":
   "integrity" "sha512-Z5kx79swU5P27WEayXM1tBi5Ze/lbIyiNgU3qyXUOf9b2rgXYyF9Dy9Cx+IQv/Lc8WCG6L82zwUPpSS9hGehIg=="
@@ -5145,6 +5162,13 @@ function.prototype.name@^1.1.5, function.prototype.name@^1.1.6:
   resolved "https://registry.npmjs.org/function.prototype.name/-/function.prototype.name-1.1.6.tgz"
   integrity sha512-Z5kx79swU5P27WEayXM1tBi5Ze/lbIyiNgU3qyXUOf9b2rgXYyF9Dy9Cx+IQv/Lc8WCG6L82zwUPpSS9hGehIg==
 >>>>>>> 4cd26d2 (feat : router setup)
+=======
+
+"function.prototype.name@^1.1.5", "function.prototype.name@^1.1.6":
+  "integrity" "sha512-Z5kx79swU5P27WEayXM1tBi5Ze/lbIyiNgU3qyXUOf9b2rgXYyF9Dy9Cx+IQv/Lc8WCG6L82zwUPpSS9hGehIg=="
+  "resolved" "https://registry.npmjs.org/function.prototype.name/-/function.prototype.name-1.1.6.tgz"
+  "version" "1.1.6"
+>>>>>>> cd7d908 (style : design system 생성)
   dependencies:
     "call-bind" "^1.0.2"
     "define-properties" "^1.2.0"
@@ -7404,6 +7428,7 @@ function.prototype.name@^1.1.5, function.prototype.name@^1.1.6:
     "use-sidecar" "^1.1.2"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "react-router-dom@^6.21.2":
   "integrity" "sha512-tE13UukgUOh2/sqYr6jPzZTzmzc70aGRP4pAjG2if0IP3aUT+sBtAKUJh0qMh0zylJHGLmzS+XWVaON4UklHeg=="
   "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.21.2.tgz"
@@ -7421,15 +7446,28 @@ react-router-dom@^6.21.3:
   version "6.21.3"
   resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.21.3.tgz"
   integrity sha512-kNzubk7n4YHSrErzjLK72j0B5i969GsuCGazRl3G6j1zqZBLjuSlYBdVdkDOgzGdPIffUOc9nmgiadTEVoq91g==
+=======
+"react-router-dom@^6.21.3":
+  "integrity" "sha512-kNzubk7n4YHSrErzjLK72j0B5i969GsuCGazRl3G6j1zqZBLjuSlYBdVdkDOgzGdPIffUOc9nmgiadTEVoq91g=="
+  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.21.3.tgz"
+  "version" "6.21.3"
+>>>>>>> cd7d908 (style : design system 생성)
   dependencies:
     "@remix-run/router" "1.14.2"
-    react-router "6.21.3"
+    "react-router" "6.21.3"
 
+<<<<<<< HEAD
 react-router@6.21.3:
   version "6.21.3"
   resolved "https://registry.npmjs.org/react-router/-/react-router-6.21.3.tgz"
   integrity sha512-a0H638ZXULv1OdkmiK6s6itNhoy33ywxmUFT/xtSoVyf9VnC7n7+VT4LjVzdIHSaF5TIh9ylUgxMXksHTgGrKg==
 >>>>>>> 4cd26d2 (feat : router setup)
+=======
+"react-router@6.21.3":
+  "integrity" "sha512-a0H638ZXULv1OdkmiK6s6itNhoy33ywxmUFT/xtSoVyf9VnC7n7+VT4LjVzdIHSaF5TIh9ylUgxMXksHTgGrKg=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.21.3.tgz"
+  "version" "6.21.3"
+>>>>>>> cd7d908 (style : design system 생성)
   dependencies:
     "@remix-run/router" "1.14.2"
 
