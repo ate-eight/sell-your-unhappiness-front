@@ -1,0 +1,26 @@
+import { Meta, Typeset } from '@storybook/blocks';
+import { typography } from '../styles/theme';
+
+<Meta title='Palette/Typography/With Font Type' />
+
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+# Typography
+
+**Font:** Pretendard
+
+**Size:** s1: 10, s2: 12, s3: 14, m1: 16, m2: 18, l1: 24, l2: 28,
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.s1),
+        Number(typography.size.s2),
+        Number(typography.size.m1),
+        Number(typography.size.m2),
+        Number(typography.size.l1),
+        Number(typography.size.l2),
+    ]}
+    fontWeight={typography.weight.black}
+    sampleText={SampleText}
+    fontFamily={typography.type.SemiBold}
+/>
