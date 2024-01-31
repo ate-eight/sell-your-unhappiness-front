@@ -18,7 +18,7 @@ export const H2 = styled.h2<{ color?: string }>`
     line-height: ${(props) => props.theme.typography.lineHeight.l1}px;
 `;
 
-export const H3 = styled.h3<{ color?: string }>`
+export const H4_ENG = styled.h3<{ color?: string }>`
     color: ${(props) => (props.color ? props.color : props.theme.color.gray[900])};
     font-family: ${(props) => props.theme.typography.type.SemiBold};
     font-size: ${(props) => props.theme.typography.size.m2}px;
@@ -27,7 +27,7 @@ export const H3 = styled.h3<{ color?: string }>`
     line-height: ${(props) => props.theme.typography.lineHeight.m2}px;
 `;
 
-export const H4 = styled.h4<{ color?: string }>`
+export const H4_KR = styled.h4<{ color?: string }>`
     color: ${(props) => (props.color ? props.color : props.theme.color.gray[900])};
     font-family: ${(props) => props.theme.typography.type.Medium};
     font-size: ${(props) => props.theme.typography.size.m2}px;

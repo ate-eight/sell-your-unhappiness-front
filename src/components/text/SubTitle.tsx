@@ -1,15 +1,15 @@
 import * as S from './style';
 interface Props {
-    as: 'h3' | 'h4';
+    lan: 'KR' | 'ENG';
     text: string;
     color: string;
 }
-const SubTitle = ({ text, color, as }: Props) => {
-    if (as === 'h3') {
-        return <S.H3 color={color}>{text}</S.H3>;
+const SubTitle = ({ text, color, lan }: Props) => {
+    if (lan === 'ENG') {
+        return <S.H4_ENG color={color}>{text}</S.H4_ENG>;
     }
-    if (as === 'h4') {
-        return <S.H4 color={color}>{text}</S.H4>;
+    if (lan === 'KR') {
+        return <S.H4_KR color={color}>{text}</S.H4_KR>;
     }
 };
 
