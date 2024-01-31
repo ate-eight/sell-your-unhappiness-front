@@ -5,22 +5,122 @@ import { typography } from '../styles/theme';
 
 export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
-# Typography
+# Text Style
 
 **Font:** Pretendard
 
-**Size:** s1: 10, s2: 12, s3: 14, m1: 16, m2: 18, l1: 24, l2: 28,
+**How to use:** 각 Text Style별 쓰임새와 구성된 화면입니다.
+
+<table>
+    <tr>
+        <th scope='col'>날짜</th>
+        <th scope='col'>이름</th>
+        <th scope='col'>성별</th>
+    </tr>
+    <tr>
+        <td>Heading1</td>
+        <td>최상위 위계의 타이틀에 사용합니다.</td>
+        <td>예시: 글 읽기 페이지의 글 제목</td>
+    </tr>
+    <tr>
+        <td>Heading2</td>
+        <td>상위 위계의 타이틀에 사용합니다.</td>
+        <td>예시: 홈 화면 네비게이션바2의 타이틀</td>
+    </tr>
+    <tr>
+        <td>Subtitle1_ENG</td>
+        <td>페이지 단위의 타이틀 쓰임새로 사용을 권장합니다.</td>
+        <td>예시: Large button 내 텍스트가 영문일 경우</td>
+    </tr>
+    <tr>
+        <td>Subtitle2_KR</td>
+        <td>페이지와 템플릿 단위의 타이틀 쓰임새로 사용을 권장합니다.</td>
+        <td>예시: Large button 내 텍스트가 국문일 경우</td>
+    </tr>
+    <tr>
+        <td>Body1</td>
+        <td>주로 본문의 쓰임새로 사용합니다.</td>
+        <td>예시: 사용자가 직접 입력 하는 영역 / 글의 본문</td>
+    </tr>
+    <tr>
+        <td>Body2</td>
+        <td>Heading과 조합하여 사용합니다.</td>
+        <td>예시: 칩 / 글 읽기 페이지의 카테고리</td>
+    </tr>
+    <tr>
+        <td>Caption1</td>
+        <td>정보 요소에 사용하거나 Heading 혹은 Body와 조합하여 사용합니다.</td>
+        <td>예시: 날짜와 시각 / notification / small button</td>
+    </tr>
+    <tr>
+        <td>Caption2</td>
+        <td>작은 요소를 설명하는 역할로 사용합니다.</td>
+        <td>예시: notification icon 하단</td>
+    </tr>
+</table>
+
+<br />
+<br />
 
 <Typeset
-    fontSizes={[
-        Number(typography.size.s1),
-        Number(typography.size.s2),
-        Number(typography.size.m1),
-        Number(typography.size.m2),
-        Number(typography.size.l1),
-        Number(typography.size.l2),
-    ]}
-    fontWeight={typography.weight.black}
-    sampleText={SampleText}
-    fontFamily={typography.type.SemiBold}
+    fontSizes={[Number(typography.size.l2)]}
+    fontWeight={typography.weight[600]}
+    lineHeight={typography.lineHeight.l2}
+    sampleText={'헤딩1  Heading1 Semibold 28 40'}
+    fontFamily={[typography.type.SemiBold]}
+/>
+<Typeset
+    fontSizes={[Number(typography.size.l1)]}
+    fontWeight={typography.weight[600]}
+    lineHeight={typography.lineHeight.l1}
+    sampleText={'헤딩2  Heading2 Semibold 24 32'}
+    fontFamily={[typography.type.SemiBold]}
+/>
+
+<Typeset
+    fontSizes={[Number(typography.size.m2)]}
+    fontWeight={typography.weight[600]}
+    lineHeight={typography.lineHeight.m2}
+    sampleText={'서브타이틀1_ENG  Subtitle1_ENG Semibold 18 26'}
+    fontFamily={[typography.type.SemiBold]}
+/>
+
+<Typeset
+    fontSizes={[Number(typography.size.m2)]}
+    fontWeight={typography.weight[600]}
+    lineHeight={typography.lineHeight.m2}
+    sampleText={'서브타이틀1_KR  Subtitle1_KR Semibold 18 26'}
+    fontFamily={[typography.type.Medium]}
+/>
+
+<Typeset
+    fontSizes={[Number(typography.size.m1)]}
+    fontWeight={typography.weight[400]}
+    lineHeight={typography.lineHeight.m1}
+    sampleText={'바디1  Body1  Regular 16 24'}
+    fontFamily={[typography.type.Regular]}
+/>
+
+<Typeset
+    fontSizes={[Number(typography.size.s3)]}
+    fontWeight={typography.weight[400]}
+    lineHeight={typography.lineHeight.s3}
+    sampleText={'바디1  Body1  Regular 14 20'}
+    fontFamily={[typography.type.Regular]}
+/>
+
+<Typeset
+    fontSizes={[Number(typography.size.s2)]}
+    fontWeight={typography.weight[400]}
+    lineHeight={typography.lineHeight.s2}
+    sampleText={'캡션1  Caption1  Regular 12 18'}
+    fontFamily={[typography.type.Regular]}
+/>
+
+<Typeset
+    fontSizes={[Number(typography.size.s1)]}
+    fontWeight={typography.weight[400]}
+    lineHeight={typography.lineHeight.s1}
+    sampleText={'캡션1  Caption1  Regular 10 12'}
+    fontFamily={[typography.type.Regular]}
 />

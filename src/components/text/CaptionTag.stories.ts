@@ -21,9 +21,9 @@ const meta = {
             description: 'caption 태그 color 선택',
         },
         as: {
-            control: 'select',
             description: 'caption 태그 중에서 text 사이즈 선택',
             options: ['M', 'S'],
+            control: { type: 'radio' },
         },
     },
 } satisfies Meta<typeof CaptionTag>;

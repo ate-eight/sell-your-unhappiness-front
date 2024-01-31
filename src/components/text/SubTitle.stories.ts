@@ -20,10 +20,10 @@ const meta = {
         color: {
             description: 'headline 태그 color 선택',
         },
-        as: {
-            control: 'select',
+        lan: {
             description: 'heading html 태그 중에서 선택해야함 <br/> h1 또는 h2',
-            options: ['h3', 'h4'],
+            options: ['ENG', 'KR'],
+            control: { type: 'radio' },
         },
     },
 } satisfies Meta<typeof SubTitle>;
@@ -35,7 +35,7 @@ export const Primary: Story = {
     args: {
         text: 'SubTitle1',
         color: '',
-        as: 'h3',
+        lan: 'ENG',
     },
 };
 
@@ -43,6 +43,6 @@ export const Secondary: Story = {
     args: {
         text: 'SubTitle2',
         color: '',
-        as: 'h4',
+        lan: 'KR',
     },
 };

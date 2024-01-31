@@ -21,9 +21,9 @@ const meta = {
             description: 'headline 태그 color 선택',
         },
         as: {
-            control: 'select',
             description: 'heading html 태그 중에서 선택해야함 <br/> h1 또는 h2',
             options: ['h1', 'h2'],
+            control: { type: 'radio' },
         },
     },
 } satisfies Meta<typeof Heading>;
