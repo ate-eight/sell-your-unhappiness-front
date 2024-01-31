@@ -1,12 +1,3 @@
-import PretendardBlack from '../fonts/Pretendard-Black.woff';
-import PretendardBold from '../fonts/Pretendard-Bold.woff';
-import PretendardExtraBold from '../fonts/Pretendard-ExtraBold.woff';
-import PretendardLight from '../fonts/Pretendard-Light.woff';
-import PretendardMedium from '../fonts/Pretendard-Medium.woff';
-import PretendardRegular from '../fonts/Pretendard-Regular.woff';
-import PretendardSemiBold from '../fonts/Pretendard-SemiBold.woff';
-import PretendardThin from '../fonts/Pretendard-Thin.woff';
-
 export const color = {
     purple: {
         50: '#EFE5F9',
@@ -51,20 +42,19 @@ export const color = {
 
 export const typography = {
     type: {
-        Black: PretendardBlack,
-        Bold: PretendardBold,
-        ExtraBold: PretendardExtraBold,
-        Light: PretendardLight,
-        Medium: PretendardMedium,
-        Regular: PretendardRegular,
-        SemiBold: PretendardSemiBold,
-        Thin: PretendardThin,
+        Black: 'Pretendard-Black',
+        Bold: 'Pretendard-Bold',
+        ExtraBold: 'Pretendard-ExtraBold',
+        Light: 'Pretendard-Light',
+        Medium: 'Pretendard-Medium',
+        Regular: 'Pretendard-Regular',
+        SemiBold: 'Pretendard-SemiBold',
+        Thin: 'Pretendard-Thin',
     },
     weight: {
-        regular: '400',
-        bold: '700',
-        extrabold: '800',
-        black: '900',
+        600: '600',
+        500: '500',
+        400: '400',
     },
     lineHeight: {
         l2: 40,
@@ -76,8 +66,9 @@ export const typography = {
         s1: 12,
     },
     size: {
-        s1: 12,
-        s2: 14,
+        s1: 10,
+        s2: 12,
+        s3: 14,
         m1: 16,
         m2: 18,
         l1: 24,
@@ -85,6 +76,6 @@ export const typography = {
     },
 };
 
-const theme = { color };
+const theme = { color, typography };
 
 export default theme;
