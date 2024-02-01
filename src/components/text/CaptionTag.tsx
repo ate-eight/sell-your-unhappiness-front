@@ -2,7 +2,7 @@ import * as S from './style';
 interface Props {
     as: 'M' | 'S';
     text: string;
-    color: string;
+    color?: string;
 }
 const CaptionTag = ({ text, color, as }: Props) => {
     if (as === 'M') {
