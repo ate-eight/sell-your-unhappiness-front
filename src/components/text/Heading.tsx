@@ -2,7 +2,7 @@ import * as S from './style';
 interface Props {
     as: 'h1' | 'h2';
     text: string;
-    color: string;
+    color?: string;
 }
 const Heading = ({ text, color, as }: Props) => {
     if (as === 'h1') {
