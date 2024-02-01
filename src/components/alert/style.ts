@@ -14,6 +14,7 @@ export const IconWrapper = styled.div`
     width: 44px;
     height: 44px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
@@ -30,4 +31,5 @@ export const ContentWrapper = styled.div`
 export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 3px;
 `;
