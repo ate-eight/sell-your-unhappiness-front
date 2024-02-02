@@ -4,6 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import theme from '../src/styles/theme';
 
 import type { Preview } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
 
 const preview: Preview = {
     parameters: {
@@ -20,7 +21,9 @@ const preview: Preview = {
             return (
                 <div style={{ minWidth: '475px' }}>
                     <ThemeProvider theme={theme}>
-                        <Story />
+                        <BrowserRouter>
+                            <Story />
+                        </BrowserRouter>
                     </ThemeProvider>
                 </div>
             );
