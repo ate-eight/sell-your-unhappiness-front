@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const Header = styled.div<{ type: 'Navigation' | 'Location' | 'Header' }>`
     width: 390px;
@@ -40,4 +41,15 @@ export const Button = styled.button`
     border: none;
     cursor: pointer;
     background: transparent;
+`;
+
+export const HeaderLink = styled(Link)`
+    width: auto;
+    height: auto;
+    text-decoration-line: none;
+`;
+
+export const LinkContainer = styled.div`
+    gap: 15px;
+    display: flex;
 `;

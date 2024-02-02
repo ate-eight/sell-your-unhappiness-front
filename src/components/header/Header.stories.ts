@@ -41,7 +41,11 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         type: 'Navigation',
-        LinkList: [{ to: '/Home' }, { to: '/New' }, { to: '/Soldout' }],
+        LinkList: [
+            { to: { pathname: '/Home', search: '', hash: '' }, loc: 'Home' },
+            { to: { pathname: '/New', search: '', hash: '' }, loc: 'New' },
+            { to: { pathname: '/Soldout', search: '', hash: '' }, loc: 'Sold Out' },
+        ],
     },
 };
 
