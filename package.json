@@ -16,6 +16,8 @@
         "test ui": "yarn vitest --ui"
     },
     "dependencies": {
+        "@esbuild/win32-x64": "^0.20.0",
+        "@storybook/addon-onboarding": "^1.0.11",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.21.3"
@@ -26,7 +28,6 @@
         "@storybook/addon-essentials": "^7.6.7",
         "@storybook/addon-interactions": "^7.6.7",
         "@storybook/addon-links": "^7.6.7",
-        "@storybook/addon-onboarding": "^1.0.10",
         "@storybook/blocks": "^7.6.7",
         "@storybook/react": "^7.6.7",
         "@storybook/react-vite": "^7.6.7",
