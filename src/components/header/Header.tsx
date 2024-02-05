@@ -2,9 +2,9 @@ import { Path, useLocation } from 'react-router-dom';
 
 import Icon from '../icon/Icon';
 import ContentTag from '../text/ContentTag';
+import Heading from '../text/Heading';
 import SubTitle from '../text/SubTitle';
 import * as S from './style';
-import Heading from '../text/Heading';
 
 interface Props {
     type: 'Navigation' | 'Location' | 'Header';
