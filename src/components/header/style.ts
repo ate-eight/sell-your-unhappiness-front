@@ -22,7 +22,7 @@ export const Header = styled.div<{ type: 'Navigation' | 'Location' | 'Header' }>
     }}
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
     width: 70px;
     height: 34px;
     display: flex;
@@ -35,12 +35,17 @@ export const ButContainer = styled.div`
     display: flex;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<{ cursor?: boolean }>`
     width: auto;
     height: auto;
     border: none;
     cursor: pointer;
     background: transparent;
+    ${(props) =>
+        props.cursor &&
+        `
+        cursor:unset;
+    `}
 `;
 
 export const HeaderLink = styled(Link)`
