@@ -42,9 +42,9 @@ export const color = {
 
 export const typography = {
     type: {
-        Black: 'Pretendard-Black',
+        Black: 'Pretendard_Black',
         Bold: 'Pretendard-Bold',
-        ExtraBold: 'Pretendard-ExtraBold',
+        ExtraBold: 'Pretendard_ExtraBold',
         Light: 'Pretendard-Light',
         Medium: 'Pretendard-Medium',
         Regular: 'Pretendard-Regular',
