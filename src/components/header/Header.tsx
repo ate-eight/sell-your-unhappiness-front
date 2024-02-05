@@ -4,6 +4,7 @@ import Icon from '../icon/Icon';
 import ContentTag from '../text/ContentTag';
 import SubTitle from '../text/SubTitle';
 import * as S from './style';
+import Heading from '../text/Heading';
 
 interface Props {
     type: 'Navigation' | 'Location' | 'Header';
@@ -12,13 +13,14 @@ interface Props {
     location?: string;
     onRegister: () => void;
     onBack: () => void;
+    onUrl: () => (url?: string) => void;
 }
-const Header = ({ type, logoUrl, location, onRegister, onBack, LinkList }: Props) => {
+const Header = ({ type, logoUrl, location, onRegister, onBack, LinkList, onUrl }: Props) => {
     const { pathname } = useLocation();
     if (type === 'Header') {
         return (
             <S.Header type='Header'>
-                <S.Logo>
+                <S.Logo to='/'>
                     {logoUrl ? (
                         <img src={logoUrl} alt='logo' />
                     ) : (
@@ -26,14 +28,16 @@ const Header = ({ type, logoUrl, location, onRegister, onBack, LinkList }: Props
                     )}
                 </S.Logo>
                 <S.ButContainer>
-                    <S.Button>
+                    {/* 알림 버튼 */}
+                    <S.Button onClick={onUrl}>
                         <Icon name='i-ball' color='#fff' />
                     </S.Button>
-                    <S.Button>
+                    {/* 이용자 버튼 */}
+                    <S.Button onClick={onUrl}>
                         <Icon name='i-user' color='#fff' />
                     </S.Button>
                     {/* 등록 버튼 */}
-                    <S.Button>
+                    <S.Button onClick={onRegister}>
                         <ContentTag text='등록' color='#fff' as='M' />
                     </S.Button>
                 </S.ButContainer>
@@ -48,16 +52,17 @@ const Header = ({ type, logoUrl, location, onRegister, onBack, LinkList }: Props
                         const { to, loc } = list;
                         return (
                             <S.HeaderLink key={loc} to={to.pathname}>
-                                <SubTitle
+                                <Heading
+                                    as='h2'
                                     text={loc}
-                                    lan='ENG'
                                     color={pathname === to.pathname ? '#fff' : '#4E4994'}
                                 />
                             </S.HeaderLink>
                         );
                     })}
                 </S.LinkContainer>
-                <S.Button>
+                {/* 링크 */}
+                <S.Button onClick={onUrl}>
                     <Icon name='i-list' color='#fff' />
                 </S.Button>
             </S.Header>
@@ -71,16 +76,16 @@ const Header = ({ type, logoUrl, location, onRegister, onBack, LinkList }: Props
                     <S.Button onClick={onBack}>
                         <ContentTag text='취소' color='#fff' as='M' />
                     </S.Button>
-                    <S.Button>
+                    <S.Button cursor={true}>
                         <Icon name='i-back' color='#fff' />
                     </S.Button>
-                    <S.Button>
+                    <S.Button onClick={onUrl}>
                         <Icon name='i-home' color='#fff' />
                     </S.Button>
                 </S.ButContainer>
                 <SubTitle text={location as string} lan='ENG' color='#fff' />
                 <S.ButContainer>
-                    <S.Button>
+                    <S.Button onClick={onUrl}>
                         <Icon name='i-user' color='#fff' />
                     </S.Button>
                     {/* 등록 버튼 */}
