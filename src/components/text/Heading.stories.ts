@@ -7,9 +7,6 @@ const meta = {
     component: Heading,
     parameters: {
         layout: 'padded',
-        viewport: {
-            defaultViewport: 'responsive',
-        },
     },
     //👇 Enables auto-generated documentation for the component story
     tags: ['autodocs'],
