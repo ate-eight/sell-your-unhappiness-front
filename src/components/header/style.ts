@@ -35,16 +35,15 @@ export const ButContainer = styled.div`
     display: flex;
 `;
 
-export const Button = styled.button<{ cursor?: boolean }>`
+export const Button = styled.button<{ cursor?: string }>`
     width: auto;
     height: auto;
     border: none;
     cursor: pointer;
     background: transparent;
     ${(props) =>
-        props.cursor &&
         `
-        cursor:unset;
+        cursor:${props.cursor};
     `}
 `;
 

@@ -76,7 +76,7 @@ const Header = ({ type, logoUrl, location, onRegister, onBack, LinkList, onUrl }
                     <S.Button onClick={onBack}>
                         <ContentTag text='취소' color='#fff' as='M' />
                     </S.Button>
-                    <S.Button cursor={true}>
+                    <S.Button cursor={'unset'}>
                         <Icon name='i-back' color='#fff' />
                     </S.Button>
                     <S.Button onClick={onUrl}>
