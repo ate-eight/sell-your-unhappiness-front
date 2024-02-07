@@ -2,7 +2,7 @@ import * as S from './style';
 
 interface Props {
     label: string;
-    color?: 'primary' | 'secondary' | string;
+    color?: 'primary' | 'secondary';
     full?: boolean;
     disabled?: boolean;
     handleOnClick?: () => void;
