@@ -18,7 +18,7 @@ const preview: Preview = {
     decorators: [
         (Story) => {
             return (
-                <div style={{ minWidth: '475px' }}>
+                <div style={{ minWidth: '390px' }}>
                     <ThemeProvider theme={theme}>
                         <Story />
                     </ThemeProvider>
