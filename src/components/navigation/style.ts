@@ -1,38 +1,14 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-export const Header = styled.div<{ type: 'Navigation' | 'Location' | 'Header' }>`
+export const LocationContainer = styled.div`
     width: 390px;
     height: 56px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: ${(props) => props.theme.color.navy[900]};
-    ${(props) => {
-        if (props.type === 'Header' || props.type === 'Location') {
-            return `
-                padding: 14px 20px 14px 20px;
-            `;
-        }
-        if (props.type === 'Navigation') {
-            return `
-                padding: 16px 20px 16px 20px;
-            `;
-        }
-    }}
-`;
-
-export const Logo = styled(Link)`
-    width: 70px;
-    height: 34px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-export const ButContainer = styled.div`
-    gap: 5px;
-    display: flex;
+    padding: 16px 20px 16px 20px;
 `;
 
 export const Button = styled.button<{ cursor?: string }>`
