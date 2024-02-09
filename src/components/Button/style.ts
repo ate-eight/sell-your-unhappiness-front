@@ -8,7 +8,6 @@ export const Button = styled.button<{ $color: string; $full: boolean; $disabled:
 
     padding: 13px 66.5px;
 
-    color: ${(props) => props.theme.color.gray[100]};
     font-family: Pretendard;
     font-size: 18px;
     font-weight: 500;
@@ -18,11 +17,39 @@ export const Button = styled.button<{ $color: string; $full: boolean; $disabled:
 
     ${(props) => {
         if (props.$color === 'primary') {
-            return `background-color : ${props.theme.color.purple[800]}`;
+            if (props.$disabled) {
+                return `
+                        background-color : ${props.theme.color.navy[50]};
+                        color: ${props.theme.color.gray[50]};
+                    `;
+            } else {
+                return `
+                        background-color : ${props.theme.color.purple[800]};
+                        color: ${props.theme.color.gray[50]};
+                    `;
+            }
         }
         if (props.$color === 'secondary') {
-            return `background-color : ${props.theme.color.navy[50]}`;
+            if (props.$disabled) {
+                return `
+                        background-color : ${props.theme.color.gray[50]};
+                        color: ${props.theme.color.navy[50]};
+                    `;
+            } else {
+                return `
+                        background-color : ${props.theme.color.gray[50]};
+                        color: ${props.theme.color.gray[700]};
+                    `;
+            }
         }
-        return `background-color : ${props.$color}`;
     }}
+
+    &:hover {
+        ${(props) =>
+            props.$disabled ||
+            `
+                background-color : ${props.theme.color.purple[900]};
+                color: ${props.theme.color.gray[50]};
+            `}
+    }
 `;
