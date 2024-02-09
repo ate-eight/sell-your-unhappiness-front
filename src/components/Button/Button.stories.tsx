@@ -76,12 +76,14 @@ export const Group: Story = {
                     <div>Primary</div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                         <Button {...args} color='primary' />
+                        <Button {...args} color='primary' disabled />
                     </div>
                 </div>
                 <div css={warrperCss}>
                     <div>Secondary</div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                         <Button {...args} color='secondary' />
+                        <Button {...args} color='secondary' disabled />
                     </div>
                 </div>
 
@@ -96,7 +98,9 @@ export const Group: Story = {
                         }}
                     >
                         <Button {...args} color='primary' full />
+                        <Button {...args} color='primary' full disabled />
                         <Button {...args} color='secondary' full />
+                        <Button {...args} color='secondary' full disabled />
                     </div>
                 </div>
             </div>
