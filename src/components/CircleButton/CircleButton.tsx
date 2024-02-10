@@ -2,19 +2,20 @@ import Icon, { IconNames } from '../icon/Icon';
 import * as S from './style';
 
 interface Props {
-    iconName?: IconNames;
+    iconName: IconNames;
     iconColor?: string;
-    iconSize?: number;
-    color?: 'primary' | 'secondary';
+    size?: 'lg' | 'sm';
     handleOnClick?: () => void;
 }
 
 const CircleButton = (props: Props) => {
-    const { handleOnClick } = props;
+    const { iconName, iconColor, size = 'lg', handleOnClick } = props;
+
+    const iconSize = size === 'lg' ? 48 : 18;
 
     return (
-        <S.Button $isPointer={!!handleOnClick}>
-            <Icon name='i-edit-fill' color={'#fff'} size={48} />
+        <S.Button $isPointer={!!handleOnClick} onClick={handleOnClick} $size={size}>
+            <Icon name={iconName} color={iconColor} size={iconSize} />
         </S.Button>
     );
 };
