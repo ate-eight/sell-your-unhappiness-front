@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Button = styled.button<{ $color: string; $full: boolean; $disabled: boolean }>`
+    box-sizing: border-box;
     cursor: ${(props) => (props.$disabled ? 'default' : 'pointer')};
 
     height: 48px;
@@ -40,11 +41,16 @@ export const Button = styled.button<{ $color: string; $full: boolean; $disabled:
                 return `
                         background-color : ${props.theme.color.gray[50]};
                         color: ${props.theme.color.navy[50]};
+
+                        border: 1px solid ${props.theme.color.navy[50]};
+
                     `;
             } else {
                 return `
                         background-color : ${props.theme.color.gray[50]};
                         color: ${props.theme.color.gray[700]};
+                        
+                        border: 1px solid ${props.theme.color.purple[800]};
                     `;
             }
         }
@@ -56,6 +62,8 @@ export const Button = styled.button<{ $color: string; $full: boolean; $disabled:
             `
                 background-color : ${props.theme.color.purple[900]};
                 color: ${props.theme.color.gray[50]};
+
+                border-color: ${props.theme.color.purple[900]};
             `}
     }
 `;
