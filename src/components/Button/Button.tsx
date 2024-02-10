@@ -8,11 +8,15 @@ interface Props {
     handleOnClick?: () => void;
 }
 
+const korean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+
 const Button = (props: Props) => {
     const { label, color = 'primary', full = false, disabled = false, handleOnClick } = props;
+    const strLangCheck = korean.test(label) ? 'ko' : 'en';
 
     return (
         <S.Button
+            lang={strLangCheck}
             $color={color}
             $full={full}
             onClick={handleOnClick}

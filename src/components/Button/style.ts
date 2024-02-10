@@ -8,9 +8,15 @@ export const Button = styled.button<{ $color: string; $full: boolean; $disabled:
 
     padding: 13px 66.5px;
 
+    color: #fff;
     font-family: Pretendard;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: ${(props) => props.theme.typography.size.m2}px;
+    font-weight: ${(props) => props.theme.typography.weight[500]};
+    white-space: nowrap;
+
+    &:lang(en) {
+        font-weight: ${(props) => props.theme.typography.weight[600]};
+    }
 
     border: none;
     border-radius: 6px;
