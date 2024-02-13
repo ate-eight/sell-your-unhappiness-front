@@ -1,6 +1,6 @@
 import ContentLayout from '@components/layout/ContentLayout';
 import MainLayout from '@components/layout/MainLayout';
-import { ThemeProvider } from '@emotion/react';
+import { Global, ThemeProvider } from '@emotion/react';
 import CommentPage from '@pages/contents/CommentPage';
 import CreatePage from '@pages/contents/CreatePage';
 import DetailPage from '@pages/contents/DetailPage';
@@ -8,12 +8,14 @@ import LoginPage from '@pages/LoginPage';
 import MainPage from '@pages/MainPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import reset from './styles/reset';
 import theme from './styles/theme';
 
 function App() {
     return (
         <>
             <ThemeProvider theme={theme}>
+                <Global styles={reset} />
                 <BrowserRouter>
                     <Routes>
                         <Route path='/login' element={<LoginPage />}></Route>
