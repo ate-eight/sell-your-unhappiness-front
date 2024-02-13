@@ -1,7 +1,5 @@
-import * as S from './style';
-
 const MainPage = () => {
-    return <S.Container>Main</S.Container>;
+    return <div>Main</div>;
 };
 
 export default MainPage;

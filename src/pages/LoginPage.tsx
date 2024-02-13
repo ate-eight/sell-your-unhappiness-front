@@ -1,4 +1,4 @@
-import * as S from './style';
+import * as S from '../components/layout/style';
 
 const LoginPage = () => {
     return <S.Container>Login</S.Container>;
