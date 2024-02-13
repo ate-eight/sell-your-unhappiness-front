@@ -1,5 +1,6 @@
 import { SVGAttributes } from 'react';
 
+import ArrowCircleUpIcon from './ArrowCircleUpIcon';
 import BackIcon from './BackIcon';
 import BallIcon from './BallIcon';
 import CloseIcon from './CloseIcon';
@@ -30,6 +31,7 @@ export const IconList = {
     'i-message': MessageIcon,
     'i-reply': ReplyIcon,
     'i-thumb-up': ThumbUpIcon,
+    'i-arrow-circle-up': ArrowCircleUpIcon,
 } as const;
 
 export type IconNames = keyof typeof IconList;
