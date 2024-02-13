@@ -76,6 +76,11 @@ export const typography = {
     },
 };
 
-const theme = { color, typography };
+const screen = {
+    maxWidth: '475px',
+    minWidth: '320px',
+};
+
+const theme = { color, typography, screen };
 
 export default theme;
