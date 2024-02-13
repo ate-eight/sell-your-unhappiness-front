@@ -6,10 +6,10 @@ const Header = () => {
         <S.Header>
             <h1>로고</h1>
             <S.TabBox>
-                <S.Tab>
+                <S.Tab to={'/alert'}>
                     <Icon name='i-ball' color='#fff' />
                 </S.Tab>
-                <S.Tab>
+                <S.Tab to={'/mypage'}>
                     <Icon name='i-user' color='#fff' />
                 </S.Tab>
             </S.TabBox>
