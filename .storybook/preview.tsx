@@ -1,7 +1,8 @@
 import React from 'react';
-import { ThemeProvider } from '@emotion/react';
+import { Global, ThemeProvider } from '@emotion/react';
 
 import theme from '../src/styles/theme';
+import reset from '../src/styles/reset';
 
 import type { Preview } from '@storybook/react';
 
@@ -20,6 +21,7 @@ const preview: Preview = {
             return (
                 <div style={{ minWidth: '390px' }}>
                     <ThemeProvider theme={theme}>
+                        <Global styles={reset} />
                         <Story />
                     </ThemeProvider>
                 </div>
