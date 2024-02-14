@@ -24,9 +24,3 @@ export const TextArea = styled.textarea`
         outline: none;
     }
 `;
-
-export const TextAreaWrapper = styled.div`
-    padding: 20px 14px;
-    border-radius: 10px;
-    background-color: ${(props) => props.theme.color.gray[100]};
-`;

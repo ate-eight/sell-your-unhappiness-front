@@ -10,6 +10,7 @@ export const Input = styled.input`
     font-style: normal;
     font-weight: ${(props) => props.theme.typography.weight[400]};
     border: none;
+    line-height: ${(props) => props.theme.typography.lineHeight.m1}px;
 
     ::placeholder {
         color: ${(props) => props.theme.color.gray[400]};

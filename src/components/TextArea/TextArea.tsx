@@ -1,15 +1,15 @@
+import * as S1 from '../Input/style';
 import * as S from './style';
-
 interface Props {
     placeholder: string;
     value: string;
 }
-const Input = ({ placeholder, value }: Props) => {
+const TextArea = ({ placeholder, value }: Props) => {
     return (
-        <S.TextAreaWrapper>
+        <S1.DefaultInputWrapper>
             <S.TextArea placeholder={placeholder} value={value} />
-        </S.TextAreaWrapper>
+        </S1.DefaultInputWrapper>
     );
 };
 
-export default Input;
+export default TextArea;
