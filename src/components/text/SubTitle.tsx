@@ -2,7 +2,7 @@ import * as S from './style';
 interface Props {
     lan: 'KR' | 'ENG';
     text: string;
-    color: string;
+    color?: string;
 }
 const SubTitle = ({ text, color, lan }: Props) => {
     if (lan === 'ENG') {

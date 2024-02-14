@@ -5,6 +5,7 @@ import theme from '../src/styles/theme';
 import reset from '../src/styles/reset';
 
 import type { Preview } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
 
 const preview: Preview = {
     parameters: {
@@ -22,7 +23,9 @@ const preview: Preview = {
                 <div style={{ minWidth: '390px' }}>
                     <ThemeProvider theme={theme}>
                         <Global styles={reset} />
-                        <Story />
+                        <BrowserRouter>
+                            <Story />
+                        </BrowserRouter>
                     </ThemeProvider>
                 </div>
             );
