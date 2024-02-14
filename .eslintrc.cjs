@@ -37,6 +37,7 @@ module.exports = {
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
         'react/react-in-jsx-scope': 'off',
         'react/no-unescaped-entities': 'off',
+        'react/no-unknown-property': ['error', { ignore: ['css'] }],
         'jsx-a11y/accessible-emoji': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
