@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MemoryRouter } from 'react-router-dom';
 
 import Header from './Header';
 
@@ -9,15 +8,6 @@ const meta = {
     parameters: {
         layout: 'centered',
     },
-    decorators: [
-        (Story) => {
-            return (
-                <MemoryRouter>
-                    <Story />
-                </MemoryRouter>
-            );
-        },
-    ],
 } satisfies Meta<typeof Header>;
 
 export default meta;
