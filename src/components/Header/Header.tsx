@@ -5,7 +5,6 @@ const Header = () => {
     return (
         <S.Header>
             <h1>로고</h1>
-            <h2>sdsd</h2>
             <S.TabBox>
                 <S.Tab to={'/alert'}>
                     <Icon name='i-ball' color='#fff' />
