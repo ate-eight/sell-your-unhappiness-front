@@ -1,7 +1,21 @@
-import * as S from './style';
+import { useNavigate } from 'react-router-dom';
+
+import CircleButton from '@/components/CircleButton/CircleButton';
 
 const MainPage = () => {
-    return <S.Container>Main</S.Container>;
+    const navigate = useNavigate();
+
+    return (
+        <div>
+            Main
+            <CircleButton
+                iconName={'i-edit-fill'}
+                iconColor='#fff'
+                size='lg'
+                handleOnClick={() => navigate('/contents/create')}
+            />
+        </div>
+    );
 };
 
 export default MainPage;

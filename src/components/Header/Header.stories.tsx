@@ -8,10 +8,11 @@ const meta = {
     parameters: {
         layout: 'centered',
     },
-    argTypes: {},
 } satisfies Meta<typeof Header>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+    args: {},
+};

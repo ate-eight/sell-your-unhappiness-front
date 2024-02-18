@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-import * as S from '../style';
+import * as S from '../../components/layout/style';
 
 const DetailPage = () => {
     const { id } = useParams();

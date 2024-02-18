@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
     box-sizing: border-box;
@@ -36,7 +37,7 @@ export const TabBox = styled.div`
     gap: 8px;
 `;
 
-export const Tab = styled.button`
+export const Tab = styled(Link)`
     cursor: pointer;
 
     padding: 0;
