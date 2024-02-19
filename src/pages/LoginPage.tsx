@@ -1,7 +1,11 @@
-import * as S from '../components/layout/style';
+import SignIn from '@/components/features/signin/SignIn';
 
 const LoginPage = () => {
-    return <S.Container>Login</S.Container>;
+    return (
+        <>
+            <SignIn />
+        </>
+    );
 };
 
 export default LoginPage;
