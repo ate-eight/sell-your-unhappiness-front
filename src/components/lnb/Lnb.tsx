@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Button from '../Button/Button';
 import * as S from './style';
 const Lnb = () => {
@@ -8,13 +10,16 @@ const Lnb = () => {
         { name: '친구', type: 'friend' },
         { name: '가족', type: 'family' },
     ];
+    const [isClick, setIsClick] = useState(LnbMenu[0].type);
+    const handleBut = (type: keyof typeof LnbMenu) => setIsClick(type.name);
+
     return (
         <S.LnbContainer>
             {LnbMenu.map((menu) => (
                 <Button
                     key={menu.type}
-                    color='secondary'
-                    handleOnClick={function iu() {}}
+                    color={isClick === menu.type ? 'primary' : 'secondary'}
+                    handleOnClick={handleBut}
                     label={menu.name}
                     styleProps={{
                         width: '61px',
