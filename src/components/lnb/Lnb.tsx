@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import Button from '../Button/Button';
 import * as S from './style';
+type LnbType = 'all' | 'company' | 'school' | 'friend' | 'family';
 const Lnb = () => {
     const LnbMenu = [
         { name: '전체', type: 'all' },
@@ -11,7 +12,12 @@ const Lnb = () => {
         { name: '가족', type: 'family' },
     ];
     const [isClick, setIsClick] = useState(LnbMenu[0].type);
-    const handleBut = (type: keyof typeof LnbMenu) => setIsClick(type.name);
+    const handleBut = useCallback(
+        (type: LnbType) => () => {
+            if (isClick !== type) setIsClick(type);
+        },
+        [isClick],
+    );
 
     return (
         <S.LnbContainer>
@@ -19,7 +25,7 @@ const Lnb = () => {
                 <Button
                     key={menu.type}
                     color={isClick === menu.type ? 'primary' : 'secondary'}
-                    handleOnClick={handleBut}
+                    handleOnClick={handleBut(menu.type as LnbType)}
                     label={menu.name}
                     styleProps={{
                         width: '61px',
