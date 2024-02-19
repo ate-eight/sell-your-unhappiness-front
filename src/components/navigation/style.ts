@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 export const LocationContainer = styled.div`
-    width: 390px;
-    height: 56px;
+    width: auto;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;

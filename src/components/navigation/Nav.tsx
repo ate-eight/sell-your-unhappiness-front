@@ -5,7 +5,7 @@ import Heading from '../text/Heading';
 import * as S from './style';
 
 interface Props {
-    LinkList?: Array<{ to: Path; loc: string }>;
+    LinkList?: Array<{ to: Partial<Path>; loc: string }>;
     onUrl: () => void;
 }
 const Nav = ({ LinkList, onUrl }: Props) => {
@@ -16,7 +16,7 @@ const Nav = ({ LinkList, onUrl }: Props) => {
                 {LinkList?.map((list) => {
                     const { to, loc } = list;
                     return (
-                        <S.HeaderLink key={loc} to={to.pathname}>
+                        <S.HeaderLink key={loc} to={to.pathname as string}>
                             <Heading
                                 as='h2'
                                 text={loc}
