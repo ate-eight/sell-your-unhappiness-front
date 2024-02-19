@@ -15,7 +15,7 @@ interface Props {
 }
 const Feed = ({ data }: Props) => {
     const { title, heart, comment, content, date } = data;
-    console.log('title', title);
+    console.log('title', heart, comment);
 
     return (
         <S.FeedContainer>
