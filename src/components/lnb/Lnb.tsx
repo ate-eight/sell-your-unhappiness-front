@@ -11,7 +11,8 @@ const Lnb = () => {
         { name: '친구', type: 'friend' },
         { name: '가족', type: 'family' },
     ];
-    const [isClick, setIsClick] = useState(LnbMenu[0].type);
+    const initialState = () => LnbMenu[0].type;
+    const [isClick, setIsClick] = useState(initialState);
     const handleBut = useCallback(
         (type: LnbType) => () => {
             if (isClick !== type) setIsClick(type);

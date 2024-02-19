@@ -11,4 +11,5 @@ export const LnbContainer = styled.div`
     gap: 5px;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid ${(props) => props.theme.color.gray[300]};
 `;
