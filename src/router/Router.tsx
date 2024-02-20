@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 
 import ContentLayout from '@/components/common/layout/ContentLayout';
 import Layout from '@/components/common/layout/Layout';
@@ -11,22 +12,32 @@ import LoginPage from '@/pages/LoginPage';
 import MainPage from '@/pages/MainPage';
 import MyPage from '@/pages/MyPage';
 import NotFoundPage from '@/pages/NotFoundPage';
+import { authState } from '@/store/atom/authState';
 
 const Paths = () => {
+    const auth = useRecoilValue(authState);
+
+    console.log(auth);
+
     return (
         <Routes>
             <Route element={<Layout />}>
-                <Route path='/' element={<LoginPage />} />
-                <Route path='/mypage' element={<MyPage />} />
-                <Route path='/alert' element={<AlertPage />} />
-                <Route element={<MainLayout />}>
-                    <Route path='/main' element={<MainPage />} />
-                </Route>
-                <Route element={<ContentLayout />}>
-                    <Route path='/contents/create' element={<CreatePage />} />
-                    <Route path='/contents/:id' element={<DetailPage />} />
-                    <Route path='/contents/:id/comment' element={<CommentPage />} />
-                </Route>
+                {!auth.isLogin ? (
+                    <Route path='/' element={<LoginPage />} />
+                ) : (
+                    <>
+                        <Route path='/mypage' element={<MyPage />} />
+                        <Route path='/alert' element={<AlertPage />} />
+                        <Route element={<MainLayout />}>
+                            <Route path='/main' element={<MainPage />} />
+                        </Route>
+                        <Route element={<ContentLayout />}>
+                            <Route path='/contents/create' element={<CreatePage />} />
+                            <Route path='/contents/:id' element={<DetailPage />} />
+                            <Route path='/contents/:id/comment' element={<CommentPage />} />
+                        </Route>
+                    </>
+                )}
                 <Route path='*' element={<NotFoundPage />} />
             </Route>
         </Routes>
