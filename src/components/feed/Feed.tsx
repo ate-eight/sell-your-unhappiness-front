@@ -15,13 +15,14 @@ export interface FeedType {
 }
 interface Props {
     data: FeedType;
+    isFeedUi: boolean;
 }
-const Feed = ({ data }: Props) => {
+const Feed = ({ data, isFeedUi }: Props) => {
     const { title, heart, comment, content, date } = data;
     console.log('title', heart, comment);
 
     return (
-        <S.FeedContainer>
+        <S.FeedContainer isFeedUi={isFeedUi}>
             <S.FeedWrapper>
                 <S.FeedTitleWrapper>
                     <SubTitle text={title} lan='KR' />
@@ -42,9 +43,11 @@ const Feed = ({ data }: Props) => {
                     </S.FeedBut>
                 </S.FeedButWrapper>
             </S.FeedWrapper>
-            <S.FeedContent>
-                <ContentTag as='M' text={content} />
-            </S.FeedContent>
+            {!isFeedUi && (
+                <S.FeedContent>
+                    <ContentTag as='M' text={content} />
+                </S.FeedContent>
+            )}
             <S.FeedDate>
                 <CaptionTag as='M' text={date} />
             </S.FeedDate>

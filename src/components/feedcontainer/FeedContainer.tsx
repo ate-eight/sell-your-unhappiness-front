@@ -7,7 +7,10 @@ export interface LnbObj {
     name: string;
     type: LnbType;
 }
-const FeedContainer = () => {
+export interface Props {
+    isFeedUi: boolean;
+}
+const FeedContainer = ({ isFeedUi }: Props) => {
     const LnbMenu: Array<LnbObj> = [
         { name: '전체', type: 'all' },
         { name: '회사', type: 'company' },
@@ -50,7 +53,7 @@ const FeedContainer = () => {
         <>
             <Lnb handleBut={handleBut} isClick={isClick as LnbType} LnbMenu={LnbMenu} />
             {feedArr.map((data) => (
-                <Feed key={data.index} data={data} />
+                <Feed key={data.index} data={data} isFeedUi={isFeedUi} />
             ))}
         </>
     );

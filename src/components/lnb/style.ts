@@ -18,6 +18,6 @@ export const ButWrapper = styled.div`
     display: flex;
     gap: 5px;
     position: relative;
-    left: 5%;
+    left: 10%;
     top: 3%;
 `;

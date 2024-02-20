@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import CircleButton from '@/components/CircleButton/CircleButton';
@@ -6,6 +7,8 @@ import Nav from '@/components/navigation/Nav';
 
 const MainPage = () => {
     const navigate = useNavigate();
+    const [isFeedUi, setIsFeedUi] = useState(false);
+    const handleFeedUi = useCallback(() => setIsFeedUi((prev) => !prev), [isFeedUi]);
 
     return (
         <>
@@ -30,10 +33,10 @@ const MainPage = () => {
                         },
                     },
                 ]}
-                onUrl={function iu() {}}
+                onHandleToggle={handleFeedUi}
             />
             {/* 피드 리스트 모아보기  */}
-            <FeedContainer />
+            <FeedContainer isFeedUi={isFeedUi} />
             <CircleButton
                 iconName={'i-edit-fill'}
                 iconColor='#fff'

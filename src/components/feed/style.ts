@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
-export const FeedContainer = styled.div`
+export const FeedContainer = styled.div<{ isFeedUi: boolean }>`
     width: auto;
-    height: 284px;
     display: flex;
     flex-direction: column;
     padding: 10px 10px;
-    gap: 30px;
+    gap: ${(props) => (props.isFeedUi ? '10px' : '30px')};
     border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
+    height: ${(props) => (props.isFeedUi ? '90px' : '284px')};
 `;
 
 export const FeedWrapper = styled.div`

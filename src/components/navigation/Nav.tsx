@@ -6,9 +6,9 @@ import * as S from './style';
 
 interface Props {
     LinkList?: Array<{ to: Partial<Path>; loc: string }>;
-    onUrl: () => void;
+    onHandleToggle: () => void;
 }
-const Nav = ({ LinkList, onUrl }: Props) => {
+const Nav = ({ LinkList, onHandleToggle }: Props) => {
     const { pathname } = useLocation();
     return (
         <S.LocationContainer>
@@ -27,7 +27,7 @@ const Nav = ({ LinkList, onUrl }: Props) => {
                 })}
             </S.LinkContainer>
             {/* 링크 */}
-            <S.Button onClick={onUrl}>
+            <S.Button onClick={onHandleToggle}>
                 <Icon name='i-list' color='#fff' />
             </S.Button>
         </S.LocationContainer>
