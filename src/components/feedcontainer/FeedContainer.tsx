@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 
 import Feed, { FeedType } from '../feed/Feed';
 import Lnb from '../lnb/Lnb';
-export type LnbType = 'all' | 'company' | 'school' | 'friend' | 'family';
+export type LnbType = 'all' | 'company' | 'school' | 'friend' | 'family' | 'etc';
 export interface LnbObj {
     name: string;
     type: LnbType;
@@ -14,6 +14,7 @@ const FeedContainer = () => {
         { name: '학교', type: 'school' },
         { name: '친구', type: 'friend' },
         { name: '가족', type: 'family' },
+        { name: '기타', type: 'etc' },
     ];
     const initialState = () => LnbMenu[0].type;
     const [isClick, setIsClick] = useState(initialState);
