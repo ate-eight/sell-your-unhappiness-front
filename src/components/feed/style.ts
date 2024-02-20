@@ -10,6 +10,30 @@ export const FeedContainer = styled.div`
     border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
 `;
 
+export const FeedWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const FeedButWrapper = styled.div`
+    width: auto;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    color: #d9d9d9;
+`;
+
+export const FeedBut = styled.button`
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #fff;
+`;
+
 export const FeedTitleWrapper = styled.div`
     width: auto;
     height: 48px;
