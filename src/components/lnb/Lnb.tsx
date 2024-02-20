@@ -1,25 +1,12 @@
-import { useCallback, useState } from 'react';
-
 import Button from '../Button/Button';
+import { LnbType } from '../feedcontainer/FeedContainer';
 import * as S from './style';
-type LnbType = 'all' | 'company' | 'school' | 'friend' | 'family';
-const Lnb = () => {
-    const LnbMenu = [
-        { name: '전체', type: 'all' },
-        { name: '회사', type: 'company' },
-        { name: '학교', type: 'school' },
-        { name: '친구', type: 'friend' },
-        { name: '가족', type: 'family' },
-    ];
-    const initialState = () => LnbMenu[0].type;
-    const [isClick, setIsClick] = useState(initialState);
-    const handleBut = useCallback(
-        (type: LnbType) => () => {
-            if (isClick !== type) setIsClick(type);
-        },
-        [isClick],
-    );
-
+interface Props {
+    handleBut: (type: LnbType) => () => void;
+    isClick: LnbType;
+    LnbMenu: Array<{ name: string; type: LnbType }>;
+}
+const Lnb = ({ handleBut, isClick, LnbMenu }: Props) => {
     return (
         <S.LnbContainer>
             {LnbMenu.map((menu) => (
