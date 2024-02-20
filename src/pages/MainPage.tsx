@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import CircleButton from '@/components/CircleButton/CircleButton';
+import CircleButton from '@/components/common/CircleButton/CircleButton';
 
 const MainPage = () => {
     const navigate = useNavigate();
