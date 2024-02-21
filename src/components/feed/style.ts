@@ -5,7 +5,7 @@ export const FeedContainer = styled.div<{ isFeedUi: boolean }>`
     display: flex;
     flex-direction: column;
     padding: 10px 10px;
-    gap: ${(props) => (props.isFeedUi ? '10px' : '30px')};
+    gap: ${(props) => (props.isFeedUi ? '0px' : '30px')};
     border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
     height: ${(props) => (props.isFeedUi ? '90px' : '284px')};
 `;
@@ -34,13 +34,18 @@ export const FeedBut = styled.button`
     background-color: #fff;
 `;
 
-export const FeedTitleWrapper = styled.div`
+export const FeedTitleWrapper = styled.div<{ isFeedUi: boolean }>`
     width: auto;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    border-bottom: 1px solid ${(props) => props.theme.color.gray[100]};
+    ${(props) => {
+        if (!props.isFeedUi) {
+            return `
+            border-bottom: 1px solid ${props.theme.color.gray[100]}`;
+        }
+    }}
 `;
 
 export const FeedTitle = styled.h2`

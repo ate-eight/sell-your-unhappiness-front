@@ -16,7 +16,7 @@ const ShortFeedTheme = ({ data }: Props) => {
     return (
         <S.FeedContainer isFeedUi={true}>
             <S.FeedWrapper>
-                <S.FeedTitleWrapper>
+                <S.FeedTitleWrapper isFeedUi={true}>
                     <SubTitle text={title} lan='KR' />
                 </S.FeedTitleWrapper>
                 <S.FeedButWrapper>
