@@ -1,9 +1,10 @@
+import Icon from '@common/icon/Icon';
+import CaptionTag from '@common/text/CaptionTag';
+import ContentTag from '@common/text/ContentTag';
+import SubTitle from '@common/text/SubTitle';
+
 import theme from '@/styles/theme';
 
-import Icon from '../icon/Icon';
-import CaptionTag from '../text/CaptionTag';
-import ContentTag from '../text/ContentTag';
-import SubTitle from '../text/SubTitle';
 import { FeedType } from './Feed';
 import * as S from './style';
 interface Props {

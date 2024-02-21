@@ -2,6 +2,7 @@ import { memo, useCallback, useMemo, useState } from 'react';
 
 import Feed, { FeedType } from '../feed/Feed';
 import Lnb from '../lnb/Lnb';
+import * as S from './style';
 export type LnbType = 'all' | 'company' | 'school' | 'friend' | 'family' | 'etc';
 export interface LnbObj {
     name: string;
@@ -11,7 +12,6 @@ export interface Props {
     isFeedUi: boolean;
 }
 const FeedContainer = memo(({ isFeedUi }: Props) => {
-    console.log('바뀌니');
     const LnbMenu: Array<LnbObj> = useMemo(
         () => [
             { name: '전체', type: 'all' },
@@ -56,12 +56,12 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
     ];
 
     return (
-        <>
+        <S.FeedContainer>
             <Lnb handleBut={handleBut} isClick={saveIsClick as LnbType} LnbMenu={LnbMenu} />
             {feedArr.map((data) => (
                 <Feed key={data.index} data={data} isFeedUi={isFeedUi} />
             ))}
-        </>
+        </S.FeedContainer>
     );
 });
 FeedContainer.displayName = 'FeedContainer';

@@ -29,6 +29,7 @@
         "paths": {
             "@/*": ["./src/*"],
             "@components/*": ["./src/components/*"],
+            "@common/*": ["./src/components/common/*"],
             "@pages/*": ["./src/pages/*"]
         }
     },

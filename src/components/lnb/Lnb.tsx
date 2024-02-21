@@ -1,8 +1,8 @@
+import Button from '@common/Button/Button';
 import { memo, useEffect, useRef } from 'react';
 
 import theme from '@/styles/theme';
 
-import Button from '../Button/Button';
 import { LnbType } from '../feedcontainer/FeedContainer';
 import * as S from './style';
 interface Props {
