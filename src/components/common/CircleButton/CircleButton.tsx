@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Icon, { IconNames } from '../icon/Icon';
 import * as S from './style';
 
@@ -8,7 +10,7 @@ interface Props {
     handleOnClick?: () => void;
 }
 
-const CircleButton = (props: Props) => {
+const CircleButton = memo((props: Props) => {
     const { iconName, iconColor, size = 'lg', handleOnClick } = props;
 
     const iconSize = size === 'lg' ? 48 : 18;
@@ -18,6 +20,7 @@ const CircleButton = (props: Props) => {
             <Icon name={iconName} color={iconColor} size={iconSize} />
         </S.Button>
     );
-};
+});
+CircleButton.displayName = 'CircleButton';
 
 export default CircleButton;
