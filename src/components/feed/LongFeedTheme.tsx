@@ -1,7 +1,7 @@
-import Icon from '@common/icon/Icon';
-import CaptionTag from '@common/text/CaptionTag';
-import ContentTag from '@common/text/ContentTag';
-import SubTitle from '@common/text/SubTitle';
+import Icon from '@components/common/icon/Icon';
+import CaptionTag from '@components/common/text/CaptionTag';
+import ContentTag from '@components/common/text/ContentTag';
+import SubTitle from '@components/common/text/SubTitle';
 
 import theme from '@/styles/theme';
 
@@ -16,7 +16,7 @@ const LongFeedTheme = ({ data }: Props) => {
     return (
         <S.FeedContainer isFeedUi={false}>
             <S.FeedWrapper>
-                <S.FeedTitleWrapper>
+                <S.FeedTitleWrapper isFeedUi={false}>
                     <SubTitle text={title} lan='KR' />
                 </S.FeedTitleWrapper>
                 <S.FeedButWrapper>

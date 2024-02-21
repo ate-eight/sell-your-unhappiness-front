@@ -1,6 +1,6 @@
-import Icon from '@common/icon/Icon';
-import CaptionTag from '@common/text/CaptionTag';
-import SubTitle from '@common/text/SubTitle';
+import Icon from '@components/common/icon/Icon';
+import CaptionTag from '@components/common/text/CaptionTag';
+import SubTitle from '@components/common/text/SubTitle';
 
 import theme from '@/styles/theme';
 

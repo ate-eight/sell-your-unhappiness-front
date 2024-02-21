@@ -9,7 +9,7 @@ export const LnbContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid ${(props) => props.theme.color.gray[300]};
+    border-bottom: 1px solid ${(props) => props.theme.color?.gray[300]};
 `;
 
 export const ButWrapper = styled.div`
