@@ -29,7 +29,6 @@ describe('MainPage', () => {
             const el = window.getComputedStyle(elements[0]);
             const restElems = [...elements].filter((v) => v !== elements[0]);
 
-            console.log('el', el.getPropertyValue('border'));
             fireEvent.click(elements[0]);
 
             await expect(el.getPropertyValue('border')).toEqual('');
