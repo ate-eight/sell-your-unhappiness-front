@@ -1,36 +1,22 @@
-import { Path, useLocation } from 'react-router-dom';
+import { memo } from 'react';
 
 import Icon from '../icon/Icon';
-import Heading from '../text/Heading';
+import LinkNav from './LinkNav';
 import * as S from './style';
 
 interface Props {
-    LinkList?: Array<{ to: Partial<Path>; loc: string }>;
     onHandleToggle: () => void;
 }
-const Nav = ({ LinkList, onHandleToggle }: Props) => {
-    const { pathname } = useLocation();
+const Nav = memo(({ onHandleToggle }: Props) => {
     return (
         <S.LocationContainer>
-            <S.LinkContainer>
-                {LinkList?.map((list) => {
-                    const { to, loc } = list;
-                    return (
-                        <S.HeaderLink key={loc} to={to.pathname as string}>
-                            <Heading
-                                as='h2'
-                                text={loc}
-                                color={pathname === to.pathname ? '#fff' : '#4E4994'}
-                            />
-                        </S.HeaderLink>
-                    );
-                })}
-            </S.LinkContainer>
+            <LinkNav />
             {/* 링크 */}
             <S.Button onClick={onHandleToggle}>
                 <Icon name='i-list' color='#fff' />
             </S.Button>
         </S.LocationContainer>
     );
-};
+});
+Nav.displayName = 'Nav';
 export default Nav;

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 
 import Feed, { FeedType } from '../feed/Feed';
 import Lnb from '../lnb/Lnb';
@@ -10,17 +10,23 @@ export interface LnbObj {
 export interface Props {
     isFeedUi: boolean;
 }
-const FeedContainer = ({ isFeedUi }: Props) => {
-    const LnbMenu: Array<LnbObj> = [
-        { name: '전체', type: 'all' },
-        { name: '회사', type: 'company' },
-        { name: '학교', type: 'school' },
-        { name: '친구', type: 'friend' },
-        { name: '가족', type: 'family' },
-        { name: '기타', type: 'etc' },
-    ];
+const FeedContainer = memo(({ isFeedUi }: Props) => {
+    console.log('바뀌니');
+    const LnbMenu: Array<LnbObj> = useMemo(
+        () => [
+            { name: '전체', type: 'all' },
+            { name: '회사', type: 'company' },
+            { name: '학교', type: 'school' },
+            { name: '친구', type: 'friend' },
+            { name: '가족', type: 'family' },
+            { name: '기타', type: 'etc' },
+        ],
+        [],
+    );
     const initialState = () => LnbMenu[0].type;
     const [isClick, setIsClick] = useState(initialState);
+
+    const saveIsClick = useMemo(() => isClick, [isClick]);
     const handleBut = useCallback(
         (type: LnbType) => () => {
             if (isClick !== type) setIsClick(type);
@@ -51,11 +57,12 @@ const FeedContainer = ({ isFeedUi }: Props) => {
 
     return (
         <>
-            <Lnb handleBut={handleBut} isClick={isClick as LnbType} LnbMenu={LnbMenu} />
+            <Lnb handleBut={handleBut} isClick={saveIsClick as LnbType} LnbMenu={LnbMenu} />
             {feedArr.map((data) => (
                 <Feed key={data.index} data={data} isFeedUi={isFeedUi} />
             ))}
         </>
     );
-};
+});
+FeedContainer.displayName = 'FeedContainer';
 export default FeedContainer;
