@@ -1,9 +1,8 @@
+import CircleButton from '@common/CircleButton/CircleButton';
+import Nav from '@common/navigation/Nav';
+import FeedContainer from '@components/feedcontainer/FeedContainer';
 import { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import CircleButton from '@/components/CircleButton/CircleButton';
-import FeedContainer from '@/components/feedcontainer/FeedContainer';
-import Nav from '@/components/navigation/Nav';
 
 const MainPage = () => {
     const navigate = useNavigate();

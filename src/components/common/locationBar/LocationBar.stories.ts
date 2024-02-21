@@ -28,8 +28,5 @@ export const Primary: Story = {
         onBack: () => {
             console.log('뒤로');
         },
-        onUrl: (url: string) => () => {
-            console.log('링크이동', url);
-        },
     },
 };

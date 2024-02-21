@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import ContentLayout from '@/components/layout/ContentLayout';
-import Layout from '@/components/layout/Layout';
-import MainLayout from '@/components/layout/MainLayout';
+import ContentLayout from '@/components/common/layout/ContentLayout';
+import Layout from '@/components/common/layout/Layout';
+import MainLayout from '@/components/common/layout/MainLayout';
 import AlertPage from '@/pages/AlertPage';
 import CommentPage from '@/pages/contents/CommentPage';
 import CreatePage from '@/pages/contents/CreatePage';

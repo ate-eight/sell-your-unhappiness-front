@@ -13,7 +13,7 @@ export const H1 = styled.h1<{ color?: string }>`
 
 export const H2 = styled.h2<{ color?: string }>`
     color: ${(props) => (props.color ? props.color : props.theme.color.gray[900])};
-    font-family: ${(props) => props.theme.typography.type.SemiBold}
+    font-family: ${(props) => props.theme.typography.type.SemiBold};
     font-size: ${(props) => props.theme.typography.size.l1}px;
     font-style: normal;
     margin: 0;
