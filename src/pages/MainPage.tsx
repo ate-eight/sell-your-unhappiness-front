@@ -22,6 +22,11 @@ const MainPage = () => {
                 iconColor='#fff'
                 size='lg'
                 handleOnClick={handleMoveWrite}
+                styleProps={{
+                    position: 'fixed',
+                    bottom: '3%',
+                    right: '3%',
+                }}
             />
         </>
     );
