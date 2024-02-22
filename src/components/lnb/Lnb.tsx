@@ -1,5 +1,5 @@
 import Button from '@components/common/Button/Button';
-import { memo, useEffect, useRef } from 'react';
+import { memo } from 'react';
 
 import theme from '@/styles/theme';
 
