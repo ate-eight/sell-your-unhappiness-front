@@ -11,35 +11,6 @@ interface Props {
     LnbMenu: Array<{ name: string; type: LnbType }>;
 }
 const Lnb = memo(({ handleBut, isClick, LnbMenu }: Props) => {
-    const isDown = useRef<boolean>(false);
-    const startX = useRef<number>(0);
-    const scrollLeftValue = useRef<number>(0);
-
-    useEffect(() => {
-        const slider = document.querySelector('#slider') as HTMLElement;
-        slider.addEventListener('mousedown', (e: MouseEvent) => {
-            isDown.current = true;
-            startX.current = e.pageX - slider.offsetLeft;
-            scrollLeftValue.current = slider.scrollLeft;
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            isDown.current = false;
-        });
-
-        slider.addEventListener('mouseup', () => {
-            isDown.current = false;
-        });
-
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown.current) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX.current) * 0.002;
-            slider.scrollLeft = scrollLeftValue.current + walk;
-        });
-    }, []);
-
     return (
         <S.LnbContainer>
             <S.ButWrapper id='slider'>
