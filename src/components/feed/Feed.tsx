@@ -1,7 +1,7 @@
 import LongFeedTheme from './LongFeedTheme';
 import ShortFeedTheme from './ShortFeedTheme';
 
-export interface FeedType {
+export interface IFeed {
     index: number;
     title: string;
     heart: number;
@@ -10,7 +10,7 @@ export interface FeedType {
     date: string;
 }
 interface Props {
-    data: FeedType;
+    data: IFeed;
     isFeedUi: boolean;
 }
 const Feed = ({ data, isFeedUi }: Props) => {

@@ -12,7 +12,7 @@ export const LnbContainer = styled.div`
     border-bottom: 1px solid ${(props) => props.theme.color?.gray[300]};
 `;
 
-export const ButWrapper = styled.div`
+export const ButtonWrapper = styled.div`
     display: flex;
     gap: 5px;
     position: relative;

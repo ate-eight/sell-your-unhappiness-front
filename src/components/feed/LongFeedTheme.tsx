@@ -5,10 +5,10 @@ import SubTitle from '@components/common/text/SubTitle';
 
 import theme from '@/styles/theme';
 
-import { FeedType } from './Feed';
+import { IFeed } from './Feed';
 import * as S from './style';
 interface Props {
-    data: FeedType;
+    data: IFeed;
 }
 const LongFeedTheme = ({ data }: Props) => {
     const { title, heart, comment, content, date } = data;
@@ -19,21 +19,21 @@ const LongFeedTheme = ({ data }: Props) => {
                 <S.FeedTitleWrapper isFeedUi={false}>
                     <SubTitle text={title} lan='KR' />
                 </S.FeedTitleWrapper>
-                <S.FeedButWrapper>
-                    <S.FeedBut>
+                <S.FeedButtonWrapper>
+                    <S.FeedButton>
                         <Icon name='i-heart' color={theme.color.purple[200]} />
                         <CaptionTag
                             text={heart.toString()}
                             as='M'
                             color={theme.color.purple[200]}
                         />
-                    </S.FeedBut>
+                    </S.FeedButton>
                     |
-                    <S.FeedBut>
+                    <S.FeedButton>
                         <Icon name='i-message' color='#d9d9d9' />
                         <CaptionTag text={comment.toString()} as='M' color='#d9d9d9' />
-                    </S.FeedBut>
-                </S.FeedButWrapper>
+                    </S.FeedButton>
+                </S.FeedButtonWrapper>
             </S.FeedWrapper>
             <S.FeedContent>
                 <ContentTag as='M' text={content} />

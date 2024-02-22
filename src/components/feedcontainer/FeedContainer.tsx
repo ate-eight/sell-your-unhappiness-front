@@ -1,18 +1,18 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 
-import Feed, { FeedType } from '../feed/Feed';
+import Feed, { IFeed } from '../feed/Feed';
 import Lnb from '../lnb/Lnb';
 import * as S from './style';
-export type LnbType = 'all' | 'company' | 'school' | 'friend' | 'family' | 'etc';
-export interface LnbObj {
+export type TLnb = 'all' | 'company' | 'school' | 'friend' | 'family' | 'etc';
+export interface ILnbObj {
     name: string;
-    type: LnbType;
+    type: TLnb;
 }
 export interface Props {
     isFeedUi: boolean;
 }
 const FeedContainer = memo(({ isFeedUi }: Props) => {
-    const LnbMenu: Array<LnbObj> = useMemo(
+    const LnbMenu: Array<ILnbObj> = useMemo(
         () => [
             { name: '전체', type: 'all' },
             { name: '회사', type: 'company' },
@@ -27,14 +27,14 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
     const [isClick, setIsClick] = useState(initialState);
 
     const saveIsClick = useMemo(() => isClick, [isClick]);
-    const handleBut = useCallback(
-        (type: LnbType) => () => {
+    const handleClick = useCallback(
+        (type: TLnb) => () => {
             if (isClick !== type) setIsClick(type);
         },
         [isClick],
     );
 
-    const feedArr: FeedType[] = [
+    const feedArr: IFeed[] = [
         {
             index: 0,
             title: '제목을 쓰는 공간입니다.',
@@ -57,7 +57,7 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
 
     return (
         <S.FeedContainer>
-            <Lnb handleBut={handleBut} isClick={saveIsClick as LnbType} LnbMenu={LnbMenu} />
+            <Lnb handleClick={handleClick} isClick={saveIsClick as TLnb} LnbMenu={LnbMenu} />
             {feedArr.map((data) => (
                 <Feed key={data.index} data={data} isFeedUi={isFeedUi} />
             ))}

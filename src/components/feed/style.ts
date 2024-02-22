@@ -16,7 +16,7 @@ export const FeedWrapper = styled.div`
     align-items: center;
 `;
 
-export const FeedButWrapper = styled.div`
+export const FeedButtonWrapper = styled.div`
     width: auto;
     display: flex;
     gap: 4px;
@@ -25,7 +25,7 @@ export const FeedButWrapper = styled.div`
     color: #d9d9d9;
 `;
 
-export const FeedBut = styled.button`
+export const FeedButton = styled.button`
     display: flex;
     gap: 3px;
     justify-content: center;

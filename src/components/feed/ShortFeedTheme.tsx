@@ -4,11 +4,11 @@ import SubTitle from '@components/common/text/SubTitle';
 
 import theme from '@/styles/theme';
 
-import { FeedType } from './Feed';
+import { IFeed } from './Feed';
 import * as S from './style';
 
 interface Props {
-    data: FeedType;
+    data: IFeed;
 }
 const ShortFeedTheme = ({ data }: Props) => {
     const { title, comment, date } = data;
@@ -19,13 +19,13 @@ const ShortFeedTheme = ({ data }: Props) => {
                 <S.FeedTitleWrapper isFeedUi={true}>
                     <SubTitle text={title} lan='KR' />
                 </S.FeedTitleWrapper>
-                <S.FeedButWrapper>
+                <S.FeedButtonWrapper>
                     <CaptionTag text='sold out' as='M' color={theme.color.purple[500]} />|
-                    <S.FeedBut>
+                    <S.FeedButton>
                         <Icon name='i-message' color='#d9d9d9' />
                         <CaptionTag text={comment.toString()} as='M' color='#d9d9d9' />
-                    </S.FeedBut>
-                </S.FeedButWrapper>
+                    </S.FeedButton>
+                </S.FeedButtonWrapper>
             </S.FeedWrapper>
 
             <S.FeedDate>

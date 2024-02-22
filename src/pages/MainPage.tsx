@@ -10,7 +10,7 @@ const MainPage = () => {
     const saveIsFeedUi = useMemo(() => isFeedUi, [isFeedUi]);
     const handleFeedUi = useCallback(() => setIsFeedUi((prev) => !prev), [isFeedUi]);
 
-    const moveWrite = useCallback(() => navigate('/contents/create'), []);
+    const handleMoveWrite = useCallback(() => navigate('/contents/create'), []);
 
     return (
         <>
@@ -21,7 +21,7 @@ const MainPage = () => {
                 iconName='i-edit-fill'
                 iconColor='#fff'
                 size='lg'
-                handleOnClick={moveWrite}
+                handleOnClick={handleMoveWrite}
             />
         </>
     );

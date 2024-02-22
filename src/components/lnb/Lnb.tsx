@@ -3,22 +3,22 @@ import { memo } from 'react';
 
 import theme from '@/styles/theme';
 
-import { LnbType } from '../feedcontainer/FeedContainer';
+import { TLnb } from '../feedcontainer/FeedContainer';
 import * as S from './style';
 interface Props {
-    handleBut: (type: LnbType) => () => void;
-    isClick: LnbType;
-    LnbMenu: Array<{ name: string; type: LnbType }>;
+    handleClick: (type: TLnb) => () => void;
+    isClick: TLnb;
+    LnbMenu: Array<{ name: string; type: TLnb }>;
 }
-const Lnb = memo(({ handleBut, isClick, LnbMenu }: Props) => {
+const Lnb = memo(({ handleClick, isClick, LnbMenu }: Props) => {
     return (
         <S.LnbContainer>
-            <S.ButWrapper id='slider'>
+            <S.ButtonWrapper id='slider'>
                 {LnbMenu.map((menu) => (
                     <Button
                         key={menu.type}
                         color={isClick === menu.type ? 'primary' : 'secondary'}
-                        handleOnClick={handleBut(menu.type as LnbType)}
+                        handleOnClick={handleClick(menu.type as TLnb)}
                         label={menu.name}
                         styleProps={{
                             width: '61px',
@@ -33,7 +33,7 @@ const Lnb = memo(({ handleBut, isClick, LnbMenu }: Props) => {
                         }}
                     />
                 ))}
-            </S.ButWrapper>
+            </S.ButtonWrapper>
         </S.LnbContainer>
     );
 });
