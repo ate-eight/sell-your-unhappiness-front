@@ -23,7 +23,7 @@ export const Button = styled.button<{ cursor?: string }>`
     `}
 `;
 
-export const HeaderLink = styled(Link)`
+export const HeaderLink = styled.a`
     width: auto;
     height: auto;
     text-decoration-line: none;
