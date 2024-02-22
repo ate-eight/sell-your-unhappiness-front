@@ -36,7 +36,7 @@ const Lnb = memo(({ handleBut, isClick, LnbMenu }: Props) => {
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
             const walk = (x - startX.current) * 0.002;
-            slider.scrollLeft = scrollLeftValue.current - walk;
+            slider.scrollLeft = scrollLeftValue.current + walk;
         });
     }, []);
 
