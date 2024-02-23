@@ -1,8 +1,7 @@
+import Icon from '@common/icon/Icon';
+import LinkNav from '@common/navigation/LinkNav';
+import * as S from '@common/navigation/style';
 import { memo } from 'react';
-
-import Icon from '../icon/Icon';
-import LinkNav from './LinkNav';
-import * as S from './style';
 
 interface Props {
     onHandleToggle: () => void;

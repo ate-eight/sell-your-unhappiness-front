@@ -3,7 +3,7 @@ import { render, RenderOptions } from '@testing-library/react';
 
 import theme from '../styles/theme';
 
-const Wrapper = ({ children }: { children: React.ReactElement }) => (
+const Wrapper = ({ children }: { children: React.ReactNode }) => (
     <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 

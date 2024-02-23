@@ -29,7 +29,8 @@
         "paths": {
             "@/*": ["./src/*"],
             "@components/*": ["./src/components/*"],
-            "@pages/*": ["./src/pages/*"]
+            "@pages/*": ["./src/pages/*"],
+            "@common/*": ["./src/components/common/*"]
         }
     },
     "include": ["src"],

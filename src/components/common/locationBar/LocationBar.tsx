@@ -11,7 +11,7 @@ interface Props {
 const Header = ({ location, onRegister, onBack }: Props) => {
     return (
         <S.LocationContainer>
-            <S.ButContainer>
+            <S.ButtonContainer>
                 {/* 뒤로 가기 */}
                 <S.Button onClick={onBack}>
                     <ContentTag text='취소' color='#fff' as='M' />
@@ -22,9 +22,9 @@ const Header = ({ location, onRegister, onBack }: Props) => {
                 <S.HeaderLink to='/'>
                     <Icon name='i-home' color='#fff' />
                 </S.HeaderLink>
-            </S.ButContainer>
+            </S.ButtonContainer>
             <SubTitle text={location as string} lan='ENG' color='#fff' />
-            <S.ButContainer>
+            <S.ButtonContainer>
                 <S.HeaderLink to='/user'>
                     <Icon name='i-user' color='#fff' />
                 </S.HeaderLink>
@@ -32,7 +32,7 @@ const Header = ({ location, onRegister, onBack }: Props) => {
                 <S.Button onClick={onRegister}>
                     <ContentTag text='등록' color='#fff' as='M' />
                 </S.Button>
-            </S.ButContainer>
+            </S.ButtonContainer>
         </S.LocationContainer>
     );
 };
