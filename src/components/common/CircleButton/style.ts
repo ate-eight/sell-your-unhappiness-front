@@ -29,5 +29,5 @@ export const Button = styled.button<{ $isPointer: boolean; $size: 'lg' | 'sm' }>
     border: none;
     border-radius: 50%;
 
-    background-color: ${(props) => props.theme.color?.purple[800]};
+    background-color: ${(props) => props.theme.color.purple[800]};
 `;

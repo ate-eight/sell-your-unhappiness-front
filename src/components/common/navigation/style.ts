@@ -6,7 +6,7 @@ export const LocationContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: ${(props) => props.theme.color?.navy[900]};
+    background-color: ${(props) => props.theme.color.navy[900]};
     padding: 16px 20px 16px 20px;
 `;
 

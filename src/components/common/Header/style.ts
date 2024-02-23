@@ -15,7 +15,7 @@ export const Header = styled.header`
 
     color: white;
 
-    background-color: ${(props) => props.theme.color?.navy[900]};
+    background-color: ${(props) => props.theme.color.navy[900]};
 
     & > h1 {
         cursor: pointer;
