@@ -11,12 +11,12 @@ export const Button = styled.button<{ $color: string; $full: boolean; $disabled:
 
     color: #fff;
     font-family: Pretendard;
-    font-size: ${(props) => props.theme.typography?.size.m2}px;
-    font-weight: ${(props) => props.theme.typography?.weight[500]};
+    font-size: ${(props) => props.theme.typography.size.m2}px;
+    font-weight: ${(props) => props.theme.typography.weight[500]};
     white-space: nowrap;
 
     &:lang(en) {
-        font-weight: ${(props) => props.theme.typography?.weight[600]};
+        font-weight: ${(props) => props.theme.typography.weight[600]};
     }
 
     border: none;
@@ -26,31 +26,31 @@ export const Button = styled.button<{ $color: string; $full: boolean; $disabled:
         if (props.$color === 'primary') {
             if (props.$disabled) {
                 return `
-                        background-color : ${props.theme.color?.navy[50]};
-                        color: ${props.theme.color?.gray[50]};
+                        background-color : ${props.theme.color.navy[50]};
+                        color: ${props.theme.color.gray[50]};
                     `;
             } else {
                 return `
-                        background-color : ${props.theme.color?.purple[800]};
-                        color: ${props.theme.color?.gray[50]};
+                        background-color : ${props.theme.color.purple[800]};
+                        color: ${props.theme.color.gray[50]};
                     `;
             }
         }
         if (props.$color === 'secondary') {
             if (props.$disabled) {
                 return `
-                        background-color : ${props.theme.color?.gray[50]};
-                        color: ${props.theme.color?.navy[50]};
+                        background-color : ${props.theme.color.gray[50]};
+                        color: ${props.theme.color.navy[50]};
 
-                        border: 1px solid ${props.theme.color?.navy[50]};
+                        border: 1px solid ${props.theme.color.navy[50]};
 
                     `;
             } else {
                 return `
-                        background-color : ${props.theme.color?.gray[50]};
-                        color: ${props.theme.color?.gray[700]};
+                        background-color : ${props.theme.color.gray[50]};
+                        color: ${props.theme.color.gray[700]};
                         
-                        border: 1px solid ${props.theme.color?.purple[800]};
+                        border: 1px solid ${props.theme.color.purple[800]};
                     `;
             }
         }
@@ -60,10 +60,10 @@ export const Button = styled.button<{ $color: string; $full: boolean; $disabled:
         ${(props) =>
             props.$disabled ||
             `
-                background-color : ${props.theme.color?.purple[900]};
-                color: ${props.theme.color?.gray[50]};
+                background-color : ${props.theme.color.purple[900]};
+                color: ${props.theme.color.gray[50]};
 
-                border-color: ${props.theme.color?.purple[900]};
+                border-color: ${props.theme.color.purple[900]};
             `}
     }
 `;
