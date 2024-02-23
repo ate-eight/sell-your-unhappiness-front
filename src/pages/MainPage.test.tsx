@@ -1,5 +1,7 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+
+import { render } from '@/test/CustomRender';
 
 import MainPage from './MainPage';
 
