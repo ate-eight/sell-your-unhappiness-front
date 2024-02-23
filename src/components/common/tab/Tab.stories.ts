@@ -10,7 +10,7 @@ const meta = {
     },
     tags: ['autodocs'],
     argTypes: {
-        Buttons: [
+        buttonInfo: [
             {
                 id: 0,
                 title: '내가 작성한 글',
@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
-        Buttons: [
+        buttonInfo: [
             {
                 id: 0,
                 title: '내가 작성한 글',

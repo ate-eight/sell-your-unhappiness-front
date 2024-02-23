@@ -5,13 +5,13 @@ import theme from '@/styles/theme';
 import SubTitle from '../text/SubTitle';
 import * as S from './style';
 interface Props {
-    Buttons: ButtonProps[];
+    buttonInfo: IButton[];
 }
-interface ButtonProps {
+export interface IButton {
     id: number;
     title: string;
 }
-const Tab = ({ Buttons }: Props) => {
+const Tab = ({ buttonInfo }: Props) => {
     const [isActive, setIsActive] = useState<number>(0);
     const onHandleActive = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
         const elem = e.target as HTMLElement;
@@ -20,7 +20,7 @@ const Tab = ({ Buttons }: Props) => {
 
     return (
         <S.TabContainer>
-            {Buttons.map((v) => (
+            {buttonInfo.map((v) => (
                 <S.TabItem
                     isActive={v.id === isActive ? true : false}
                     onClick={onHandleActive}
