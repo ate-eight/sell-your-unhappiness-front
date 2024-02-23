@@ -3,7 +3,7 @@ import CaptionTag from '../text/CaptionTag';
 import ContentTag from '../text/ContentTag';
 import * as S from './style';
 
-interface Props {
+export interface IAlert {
     text: string;
     date: string;
     icon: {
@@ -12,9 +12,12 @@ interface Props {
         iconText: string;
     };
 }
+interface Props {
+    data: IAlert;
+}
 
-const Alert = (props: Props) => {
-    const { text, date, icon } = props;
+const Alert = ({ data }: Props) => {
+    const { text, date, icon } = data;
     return (
         <S.AlertContainer>
             <S.ContentWrapper>

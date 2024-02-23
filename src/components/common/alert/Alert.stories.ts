@@ -10,11 +10,13 @@ const meta = {
     },
     tags: ['autodocs'],
     argTypes: {
-        text: {
-            description: '누군가 제목글을 샀어요',
-        },
-        date: {
-            description: '2024.01.01 12:00',
+        data: {
+            text: {
+                description: '누군가 제목글을 샀어요',
+            },
+            date: {
+                description: '2024.01.01 12:00',
+            },
         },
     },
 } satisfies Meta<typeof Alert>;
@@ -24,34 +26,40 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
-        text: '누군가 제목글을 샀어요',
-        date: '2024.01.01 12:00',
-        icon: {
-            iconName: 'i-heart',
-            iconColor: '#9747FF',
-            iconText: 'buy',
+        data: {
+            text: '누군가 제목글을 샀어요',
+            date: '2024.01.01 12:00',
+            icon: {
+                iconName: 'i-heart',
+                iconColor: '#9747FF',
+                iconText: 'buy',
+            },
         },
     },
 };
 
 export const Secondary: Story = {
     args: {
-        text: '새로운 댓글이 달렸어요',
-        date: '2024.01.01 12:00',
-        icon: {
-            iconName: 'i-message',
-            iconText: '댓글',
+        data: {
+            text: '새로운 댓글이 달렸어요',
+            date: '2024.01.01 12:00',
+            icon: {
+                iconName: 'i-message',
+                iconText: '댓글',
+            },
         },
     },
 };
 
 export const Third: Story = {
     args: {
-        text: '새로운 답글이 달렸어요',
-        date: '2024.01.01 12:00',
-        icon: {
-            iconName: 'i-reply',
-            iconText: '답글',
+        data: {
+            text: '새로운 답글이 달렸어요',
+            date: '2024.01.01 12:00',
+            icon: {
+                iconName: 'i-reply',
+                iconText: '답글',
+            },
         },
     },
 };

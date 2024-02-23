@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const AlertContainer = styled.div`
     width: 390px;
     height: 90px;
-    padding: 20px 0px 0px 0px;
+    padding: 2px 0px 0px 16px;
     display: flex;
     justify-contenter: flex-start;
     align-items: center;

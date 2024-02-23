@@ -1,7 +1,13 @@
-import React from 'react';
+import AlertContainer from '@/components/alertcontainer/AlertContainer';
+import Locator from '@/components/locator/Locator';
 
 const AlertPage = () => {
-    return <div>Alert Page</div>;
+    return (
+        <>
+            <Locator loc='알림' />
+            <AlertContainer />
+        </>
+    );
 };
 
 export default AlertPage;

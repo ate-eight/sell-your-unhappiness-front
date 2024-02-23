@@ -10,7 +10,7 @@ export const LocatorContainer = styled.div`
 `;
 
 export const LocatorTitle = styled.div`
-    width: 50%;
+    width: 46%;
 `;
 
 export const LocatorCloseButton = styled.button`

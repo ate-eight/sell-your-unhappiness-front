@@ -20,7 +20,7 @@ const MyPage = () => {
     );
     return (
         <>
-            <Locator />
+            <Locator loc='내 활동' />
             <Tab buttonInfo={tabButtons} />
             <MyFeedContainer />
         </>
