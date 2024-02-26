@@ -22,10 +22,12 @@ export const Input = styled.input`
     }
 `;
 
-export const DefaultInputWrapper = styled.div`
-    padding: 20px 14px;
+export const DefaultInputWrapper = styled.div<{ $height?: string; $padding?: string }>`
     border-radius: 10px;
     background-color: ${(props) => props.theme.color.gray[100]};
+    height: ${(props) => (props.$height ? `${props.$height}` : 'unset')};
+    display: flex;
+    padding: ${(props) => (props.$padding ? `${props.$padding}` : '20px 14px')};
 `;
 export const CommentInputWrapper = styled.div`
     display: flex;

@@ -1,7 +1,11 @@
-import * as S from '../../components/common/layout/style';
+import Create from '@/components/features/contents/create/content';
 
 const CreatePage = () => {
-    return <S.Container>Create Post</S.Container>;
+    return (
+        <>
+            <Create />
+        </>
+    );
 };
 
 export default CreatePage;
