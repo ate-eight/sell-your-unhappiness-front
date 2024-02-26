@@ -17,8 +17,6 @@ import { authState } from '@/store/atom/authState';
 const Paths = () => {
     const auth = useRecoilValue(authState);
 
-    console.log(auth);
-
     return (
         <Routes>
             <Route element={<Layout />}>

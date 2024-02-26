@@ -1,20 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-
 import ContentTag from '@/components/common/text/ContentTag';
 import Heading from '@/components/common/text/Heading';
+import useSignIn from '@/hooks/useSignIn';
 
 import * as S from './style';
 
 const SignIn = () => {
-    const navigate = useNavigate();
-
-    /**
-     * Google Login Logic
-     */
-    const googleLogin = () => {
-        alert('google Login');
-        navigate('/main');
-    };
+    const { googleLogin } = useSignIn();
 
     return (
         <S.Container>
