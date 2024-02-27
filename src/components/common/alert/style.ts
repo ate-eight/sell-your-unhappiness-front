@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const AlertContainer = styled.div`
-    width: 390px;
+    width: 100%;
     height: 90px;
     padding: 2px 0px 0px 16px;
     display: flex;

@@ -17,6 +17,7 @@ export const Button = styled.button<{ cursor?: string }>`
     cursor: pointer;
     background: transparent;
     ${(props) =>
+        props.cursor &&
         `
         cursor:${props.cursor};
     `}
@@ -26,6 +27,7 @@ export const HeaderLink = styled.a`
     width: auto;
     height: auto;
     text-decoration-line: none;
+    cursor: pointer;
 `;
 
 export const LinkContainer = styled.div`
