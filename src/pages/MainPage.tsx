@@ -1,20 +1,34 @@
+import CircleButton from '@components/common/CircleButton/CircleButton';
+import Nav from '@components/common/navigation/Nav';
+import FeedContainer from '@components/feedcontainer/FeedContainer';
+import { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import CircleButton from '@/components/common/CircleButton/CircleButton';
 
 const MainPage = () => {
     const navigate = useNavigate();
+    const [isFeedUi, setIsFeedUi] = useState(false);
+    const saveIsFeedUi = useMemo(() => isFeedUi, [isFeedUi]);
+    const handleFeedUi = useCallback(() => setIsFeedUi((prev) => !prev), [isFeedUi]);
+
+    const handleMoveWrite = useCallback(() => navigate('/contents/create'), []);
 
     return (
-        <div>
-            Main
+        <>
+            <Nav onHandleToggle={handleFeedUi} />
+            {/* 피드 리스트 모아보기  */}
+            <FeedContainer isFeedUi={saveIsFeedUi} />
             <CircleButton
-                iconName={'i-edit-fill'}
+                iconName='i-edit-fill'
                 iconColor='#fff'
                 size='lg'
-                handleOnClick={() => navigate('/contents/create')}
+                handleOnClick={handleMoveWrite}
+                styleProps={{
+                    position: 'fixed',
+                    bottom: '3%',
+                    right: '3%',
+                }}
             />
-        </div>
+        </>
     );
 };
 

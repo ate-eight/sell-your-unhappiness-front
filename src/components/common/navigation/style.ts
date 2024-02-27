@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
 export const LocationContainer = styled.div`
-    width: 390px;
-    height: 56px;
+    width: auto;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,7 +22,7 @@ export const Button = styled.button<{ cursor?: string }>`
     `}
 `;
 
-export const HeaderLink = styled(Link)`
+export const HeaderLink = styled.a`
     width: auto;
     height: auto;
     text-decoration-line: none;

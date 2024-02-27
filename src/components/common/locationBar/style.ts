@@ -11,7 +11,7 @@ export const LocationContainer = styled.div`
     padding: 14px 20px 14px 20px;
 `;
 
-export const ButContainer = styled.div`
+export const ButtonContainer = styled.div`
     gap: 5px;
     display: flex;
 `;
