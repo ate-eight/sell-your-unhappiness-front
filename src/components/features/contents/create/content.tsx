@@ -41,11 +41,11 @@ const ContentContainer = () => {
 
     const [textAreaValue, setTextAreaValue] = useState('');
     const handleValueChange = useCallback((value: string) => {
-        setTextAreaValue(value.slice(0, 100));
+        setTextAreaValue(value);
     }, []);
 
     const isDisabled = useMemo(() => {
-        return textAreaValue.length < 1;
+        return textAreaValue.length < 100;
     }, [textAreaValue]);
 
     return (
@@ -62,7 +62,6 @@ const ContentContainer = () => {
                                 '글의 내용을 쓰는 공간입니다. 상단의 카테고리를 선택하고, 공백을 포함하여 최소 100자 이상을 작성하여야 아래의 작성 완료 버튼이 활성화 됩니다.'
                             }
                             handleOnChange={handleValueChange}
-                            maxLength={100}
                         />
                     </S.ContentText>
                     <S.ContentCount>{textAreaValue.length} / 최소 100자</S.ContentCount>

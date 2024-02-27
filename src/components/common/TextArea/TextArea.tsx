@@ -4,17 +4,15 @@ interface Props {
     placeholder: string;
     value?: string;
     handleOnChange?: (value: string) => void;
-    maxLength?: number;
 }
 const TextArea = (props: Props) => {
-    const { placeholder, value, handleOnChange, maxLength } = props;
+    const { placeholder, value, handleOnChange } = props;
     return (
         <S1.DefaultInputWrapper>
             <S.TextArea
                 placeholder={placeholder}
                 defaultValue={value}
                 onChange={(e) => handleOnChange?.(e.target.value)}
-                maxLength={maxLength}
             />
         </S1.DefaultInputWrapper>
     );
