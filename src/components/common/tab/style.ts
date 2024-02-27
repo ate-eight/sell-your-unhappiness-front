@@ -23,7 +23,7 @@ export const TabItem = styled.li<{ isActive?: boolean }>`
     ${(props) =>
         props.isActive &&
         `
-    border-bottom: 2px solid ${props.theme.color.purple[500]};
+    border-bottom: 2px solid ${props.theme.color && props.theme.color.purple[500]};
     `}
 `;
 

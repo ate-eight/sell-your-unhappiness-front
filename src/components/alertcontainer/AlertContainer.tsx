@@ -20,7 +20,7 @@ const AlertContainer = () => {
         },
     ];
     return (
-        <S.AlertContainer>
+        <S.AlertContainer id='alert'>
             {alertMsgs.map((alert) => (
                 <Alert data={alert} key={alert.date} />
             ))}
