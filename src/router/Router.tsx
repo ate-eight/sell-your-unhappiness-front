@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import ContentLayout from '@/components/common/layout/ContentLayout';
@@ -22,7 +22,10 @@ const Paths = () => {
     return (
         <Routes>
             <Route element={<Layout />}>
-                <Route path='/' element={<LoginPage />} />
+                <Route
+                    path='/'
+                    element={auth.isLogin ? <Navigate replace to='/main' /> : <LoginPage />}
+                />
                 <Route element={<PrivateRouter isLogin={auth.isLogin} />}>
                     <Route path='/mypage' element={<MyPage />} />
                     <Route path='/alert' element={<AlertPage />} />
