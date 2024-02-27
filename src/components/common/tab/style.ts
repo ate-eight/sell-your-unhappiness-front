@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const TabContainer = styled.ul`
-    width: auto;
+    width: 100%;
     height: 52px;
     display: flex;
     border-bottom: 1px solid #e4e4e4;
@@ -9,7 +9,7 @@ export const TabContainer = styled.ul`
 `;
 
 export const TabItem = styled.li<{ isActive?: boolean }>`
-    width: 195px;
+    width: 50%;
     height: auto;
     outline: none;
     padding: 10px 20px 10px 20px;
