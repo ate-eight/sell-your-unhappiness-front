@@ -1,4 +1,4 @@
-import Create from '@/components/features/contents/create/content';
+import Create from '@/components/features/contents/create/create';
 
 const CreatePage = () => {
     return (

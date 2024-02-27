@@ -15,6 +15,9 @@ export const Button = styled.button<{ $color: string; $full: boolean; $disabled:
     font-weight: ${(props) => props.theme.typography.weight[500]};
     white-space: nowrap;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:lang(en) {
         font-weight: ${(props) => props.theme.typography.weight[600]};
     }

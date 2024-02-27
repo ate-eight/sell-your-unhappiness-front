@@ -37,3 +37,73 @@ export const ContentCount = styled.div`
     line-height: ${(props) => props.theme.typography.lineHeight.s2}px;
     color: ${(props) => props.theme.color.gray[400]};
 `;
+
+export const TitleWrapper = styled.div`
+    width: 100%;
+    padding: 30px 20px 20px;
+    gap: 10px 0;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]} !important;
+`;
+export const TopArea = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+`;
+
+export const ContentContainer = styled.div`
+    width: 100%;
+    padding: 20px 20px 60px 20px;
+    border-bottom: 1px solid ${(props) => props.theme.color.gray[300]} !important;
+`;
+
+export const CommentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]} !important;
+    padding: 20px 0;
+
+    & > h4 {
+        padding: 0 20px 20px;
+    }
+
+    & > div:has(input) {
+        margin: 0 20px;
+    }
+`;
+
+export const CommentArea = styled.div<{ paddingLeft?: string }>`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 0;
+    border-bottom: 1px solid ${(props) => props.theme.color.gray[100]};
+    padding: ${(props) =>
+        props.paddingLeft ? `16px 20px 16px ${props.paddingLeft}` : '16px 20px'};
+`;
+
+export const IconArea = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    color: ${(props) => props.theme.color.gray[300]};
+    border: 1px solid ${(props) => props.theme.color.gray[300]};
+    border-radius: 4px;
+    padding: 2px 10px;
+    gap: 0 4px;
+
+    & > svg {
+        width: 20px;
+        display: flex;
+    }
+`;
+export const ButtonWrapper = styled.div`
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    padding: 20px;
+    gap: 0 10px;
+    & > button {
+        flex-grow: 1;
+    }
+`;
