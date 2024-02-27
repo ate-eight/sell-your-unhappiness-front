@@ -1,6 +1,6 @@
 import { jwtDecode, JwtPayload } from 'jwt-decode';
 
-export const decoderToken = (token: string) => {
+export const tokenExpireCheck = (token: string) => {
     try {
         const decodedToken: JwtPayload = jwtDecode(token);
 

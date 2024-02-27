@@ -1,6 +1,6 @@
 import { selector } from 'recoil';
 
-import { decoderToken } from '@/utils/tokenUtil';
+import { tokenExpireCheck } from '@/utils/tokenUtil';
 
 import { authState } from '../atom/authState';
 
@@ -9,7 +9,7 @@ const authSelector = selector({
     get: ({ get }) => {
         const value = get(authState);
 
-        const isLogin = decoderToken(value.token) || false;
+        const isLogin = tokenExpireCheck(value.token) || false;
 
         return { ...value, isLogin: isLogin };
     },
