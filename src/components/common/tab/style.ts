@@ -8,7 +8,7 @@ export const TabContainer = styled.ul`
     padding: 0;
 `;
 
-export const TabItem = styled.li<{ isActive?: boolean }>`
+export const TabItem = styled.li<{ $isActive?: boolean }>`
     width: 50%;
     height: auto;
     outline: none;
@@ -21,7 +21,7 @@ export const TabItem = styled.li<{ isActive?: boolean }>`
         cursor: pointer;
     }
     ${(props) =>
-        props.isActive &&
+        props.$isActive &&
         `
     border-bottom: 2px solid ${props.theme.color && props.theme.color.purple[500]};
     `}
