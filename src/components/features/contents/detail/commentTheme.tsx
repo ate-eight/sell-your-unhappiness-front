@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 import Icon from '@/components/common/icon/Icon';
 import CaptionTag from '@/components/common/text/CaptionTag';
 import ContentTag from '@/components/common/text/ContentTag';
