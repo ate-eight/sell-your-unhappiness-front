@@ -12,7 +12,7 @@ const Input = (props: Props) => {
     const { as, placeholder, value } = props;
     if (as === 'Comment') {
         return (
-            <S.CommentInputWrapper>
+            <S.CommentInputWrapper $height={'51px'} $padding={'15px 14px'}>
                 <S.Input placeholder={placeholder} defaultValue={value} />
                 <ArrowCircleUpIcon color={value.length > 0 ? '#4700B9' : '#BDBCD9'} />
             </S.CommentInputWrapper>
