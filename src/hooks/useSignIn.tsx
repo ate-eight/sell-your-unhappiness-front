@@ -1,12 +1,12 @@
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
+import { fetchData } from '@/api';
 import { authState } from '@/store/atom/authState';
 
 const useSignIn = () => {
     const navigate = useNavigate();
-    const [auth, setAuth] = useRecoilState(authState);
+    const setAuth = useSetRecoilState(authState);
 
     /**
      * Google Login Logic
@@ -14,28 +14,33 @@ const useSignIn = () => {
     const googleLogin = async () => {
         alert('google Login');
 
-        const res = await axios({
-            method: 'POST',
-            url: '/api/v1/user/login-test',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            data: {
+        const res = await fetchData.post(
+            '/v1/user/login-test',
+            JSON.stringify({
                 email: 'test@email.com',
-            },
-        });
+            }),
+        );
 
         if (res) {
-            const { data } = res;
+            const { data, common } = res.data;
 
-            if (data.common.code === 200) {
-                alert('로그인 완');
-                setAuth({ ...auth, isLogin: true });
+            if (common.code === 200) {
+                setAuth({ isLogin: true, token: data.accessToken });
+                saveToken(data.accessToken, data.refreshToken);
+
                 navigate('/main');
             } else {
-                alert(data.common.message);
+                alert(common.message);
             }
         }
+    };
+
+    /**
+     * RefreshToken storage save
+     */
+    const saveToken = (access: string, refresh: string) => {
+        localStorage.setItem('access-token', access);
+        localStorage.setItem('refresh-token', refresh);
     };
 
     return { googleLogin };

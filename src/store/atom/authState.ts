@@ -1,8 +1,13 @@
 import { atom } from 'recoil';
 
-const initialValue = {
-    accessToken: '',
+interface IState {
+    isLogin: boolean;
+    token: string;
+}
+
+const initialValue: IState = {
     isLogin: false,
+    token: localStorage.getItem('access-token') || '',
 };
 
 export const authState = atom({

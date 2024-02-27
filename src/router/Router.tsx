@@ -12,30 +12,29 @@ import LoginPage from '@/pages/LoginPage';
 import MainPage from '@/pages/MainPage';
 import MyPage from '@/pages/MyPage';
 import NotFoundPage from '@/pages/NotFoundPage';
-import { authState } from '@/store/atom/authState';
+import authSelector from '@/store/selector/authSelector';
+
+import PrivateRouter from './PrivateRouter';
 
 const Paths = () => {
-    const auth = useRecoilValue(authState);
+    const auth = useRecoilValue(authSelector);
 
     return (
         <Routes>
             <Route element={<Layout />}>
-                {!auth.isLogin ? (
-                    <Route path='/' element={<LoginPage />} />
-                ) : (
-                    <>
-                        <Route path='/mypage' element={<MyPage />} />
-                        <Route path='/alert' element={<AlertPage />} />
-                        <Route element={<MainLayout />}>
-                            <Route path='/main' element={<MainPage />} />
-                        </Route>
-                        <Route element={<ContentLayout />}>
-                            <Route path='/contents/create' element={<CreatePage />} />
-                            <Route path='/contents/:id' element={<DetailPage />} />
-                            <Route path='/contents/:id/comment' element={<CommentPage />} />
-                        </Route>
-                    </>
-                )}
+                <Route path='/' element={<LoginPage />} />
+                <Route element={<PrivateRouter isLogin={auth.isLogin} />}>
+                    <Route path='/mypage' element={<MyPage />} />
+                    <Route path='/alert' element={<AlertPage />} />
+                    <Route element={<MainLayout />}>
+                        <Route path='/main' element={<MainPage />} />
+                    </Route>
+                    <Route element={<ContentLayout />}>
+                        <Route path='/contents/create' element={<CreatePage />} />
+                        <Route path='/contents/:id' element={<DetailPage />} />
+                        <Route path='/contents/:id/comment' element={<CommentPage />} />
+                    </Route>
+                </Route>
                 <Route path='*' element={<NotFoundPage />} />
             </Route>
         </Routes>
