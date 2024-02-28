@@ -3,18 +3,18 @@ import React from 'react';
 import * as S from '../style';
 import Comment from './commentTheme';
 
-interface Props {
+interface ICommentData {
     id: number;
     nickname: string;
     heart: number;
     comment: number;
     content: string;
     date: string;
-    recomment: Props[];
+    recomment: ICommentData[];
 }
 
 const CommentContainer = () => {
-    const ContArr: Props[] = [
+    const ContArr: ICommentData[] = [
         {
             id: 0,
             nickname: '익명1',

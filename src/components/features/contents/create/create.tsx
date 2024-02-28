@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import Button from '@/components/common/Button/Button';
 import Input from '@/components/common/Input/Input';
@@ -8,16 +7,13 @@ import Lnb from '@/components/lnb/Lnb';
 
 import * as S from '../style';
 
-export type LnbType = 'all' | 'company' | 'school' | 'friend' | 'family' | 'etc';
-export interface LnbObj {
+export type TLnbType = 'all' | 'company' | 'school' | 'friend' | 'family' | 'etc';
+export interface ILnbObj {
     name: string;
-    type: LnbType;
+    type: TLnbType;
 }
-
 const ContentContainer = () => {
-    const navigate = useNavigate();
-
-    const LnbMenu: Array<LnbObj> = useMemo(
+    const LnbMenu: Array<ILnbObj> = useMemo(
         () => [
             { name: '전체', type: 'all' },
             { name: '회사', type: 'company' },
@@ -33,7 +29,7 @@ const ContentContainer = () => {
     const saveIsClick = useMemo(() => isClick, [isClick]);
 
     const handleClick = useCallback(
-        (type: LnbType) => () => {
+        (type: TLnbType) => () => {
             if (isClick !== type) setIsClick(type);
         },
         [isClick],
@@ -48,10 +44,17 @@ const ContentContainer = () => {
         return textAreaValue.length < 100;
     }, [textAreaValue]);
 
+    const handleCreate = () => {
+        // 작성완료 로직 추가
+    };
     return (
         <S.Wrapper>
             <S.Container border={'none'}>
-                <Lnb handleClick={handleClick} isClick={saveIsClick as LnbType} LnbMenu={LnbMenu} />
+                <Lnb
+                    handleClick={handleClick}
+                    isClick={saveIsClick as TLnbType}
+                    LnbMenu={LnbMenu}
+                />
                 <S.ContentArea>
                     <S.ContentTitle>
                         <Input placeholder={'제목입니다.'} as={'Default'} value={''} />
@@ -67,7 +70,7 @@ const ContentContainer = () => {
                     <S.ContentCount>{textAreaValue.length} / 최소 100자</S.ContentCount>
                 </S.ContentArea>
                 <Button
-                    handleOnClick={() => navigate('/contents/create')}
+                    handleOnClick={handleCreate}
                     label='작성 완료'
                     styleProps={{
                         width: '100%',
