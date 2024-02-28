@@ -27,7 +27,6 @@ export const HeaderLink = styled.a`
     width: auto;
     height: auto;
     text-decoration-line: none;
-    cursor: pointer;
 `;
 
 export const LinkContainer = styled.div`

@@ -18,5 +18,4 @@ export const LocatorCloseButton = styled.button`
     height: auto;
     border: none;
     background: #fff;
-    cursor: pointer;
 `;
