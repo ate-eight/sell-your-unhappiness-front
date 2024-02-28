@@ -1,4 +1,4 @@
-import Icon, { IconNames } from '@/components/common/icon/Icon';
+import FeedButton from '@/components/common/FeedButton/FeedButton';
 import CaptionTag from '@/components/common/text/CaptionTag';
 import ContentTag from '@/components/common/text/ContentTag';
 import Heading from '@/components/common/text/Heading';
@@ -6,21 +6,6 @@ import * as S1 from '@/components/feed/style';
 import theme from '@/styles/theme';
 
 import * as S from '../style';
-interface Props {
-    icon: string;
-    color: string;
-    count: string;
-}
-
-const FeedButton = (props: Props) => {
-    const { icon, color, count } = props;
-    return (
-        <S1.FeedButton>
-            <Icon name={icon as IconNames} color={color} />
-            <CaptionTag text={count.toString()} as='M' color={color} />
-        </S1.FeedButton>
-    );
-};
 
 const TitleContainer = () => {
     const heart = '1';
