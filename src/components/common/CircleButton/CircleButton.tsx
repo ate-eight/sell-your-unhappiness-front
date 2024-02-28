@@ -9,7 +9,7 @@ interface Props {
     iconColor?: string;
     size?: 'lg' | 'sm';
     handleOnClick?: () => void;
-    styleProps: Interpolation<Theme>;
+    styleProps?: Interpolation<Theme>;
 }
 
 const CircleButton = memo((props: Props) => {
