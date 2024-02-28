@@ -50,7 +50,7 @@ const ContentContainer = () => {
 
     return (
         <S.Wrapper>
-            <S.Container>
+            <S.Container border={'none'}>
                 <Lnb handleClick={handleClick} isClick={saveIsClick as LnbType} LnbMenu={LnbMenu} />
                 <S.ContentArea>
                     <S.ContentTitle>

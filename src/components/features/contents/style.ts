@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
     background-color: ${(props) => props.theme.color.navy[900]};
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ border?: string }>`
     background-color: ${(props) => props.theme.color.gray[50]};
 
     height: 100%;
@@ -12,7 +12,7 @@ export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     & > div:nth-of-type(1) {
-        border-bottom: none;
+        border-bottom: ${(props) => props.border && `${props.border}`};
     }
 `;
 
@@ -44,7 +44,7 @@ export const TitleWrapper = styled.div`
     gap: 10px 0;
     display: flex;
     flex-direction: column;
-    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]} !important;
+    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
 `;
 export const TopArea = styled.div`
     width: 100%;
@@ -55,13 +55,13 @@ export const TopArea = styled.div`
 export const ContentContainer = styled.div`
     width: 100%;
     padding: 20px 20px 60px 20px;
-    border-bottom: 1px solid ${(props) => props.theme.color.gray[300]} !important;
+    border-bottom: 1px solid ${(props) => props.theme.color.gray[300]};
 `;
 
 export const CommentWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]} !important;
+    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
     padding: 20px 0;
 
     & > h4 {
@@ -69,7 +69,7 @@ export const CommentWrapper = styled.div`
     }
 
     & > div:has(input) {
-        margin: 0 20px;
+        margin: 10px 20px 0;
     }
 `;
 
