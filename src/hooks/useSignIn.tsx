@@ -4,6 +4,11 @@ import { useSetRecoilState } from 'recoil';
 import { fetchData } from '@/api';
 import { authState } from '@/store/atom/authState';
 
+interface ILoginResponse {
+    accessToken: string;
+    refreshToken: string;
+}
+
 const useSignIn = () => {
     const navigate = useNavigate();
     const setAuth = useSetRecoilState(authState);
@@ -14,7 +19,7 @@ const useSignIn = () => {
     const googleLogin = async () => {
         alert('google Login');
 
-        const res = await fetchData.post(
+        const res = await fetchData.post<ILoginResponse>(
             '/v1/user/login-test',
             JSON.stringify({
                 email: 'test@email.com',
@@ -22,7 +27,7 @@ const useSignIn = () => {
         );
 
         if (res) {
-            const { data, common } = res.data;
+            const { common, data } = res.data;
 
             if (common.code === 200) {
                 setAuth({ isLogin: true, token: data.accessToken });

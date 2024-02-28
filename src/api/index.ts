@@ -23,14 +23,23 @@ axiosInstance.interceptors.request.use((config) => {
     return config;
 });
 
+interface IFetchResponse<T> {
+    common: {
+        code: number;
+        message: string;
+        success: boolean;
+    };
+    data: T;
+}
+
 export const fetchData = {
-    get: async (url: string) => {
-        const res = await axiosInstance(url);
+    get: async <T>(url: string) => {
+        const res = await axiosInstance<IFetchResponse<T>>(url);
         return res;
     },
 
-    post: async (url: string, data: unknown) => {
-        const res = await axiosInstance({
+    post: async <T>(url: string, data: unknown) => {
+        const res = await axiosInstance<IFetchResponse<T>>({
             method: 'post',
             url: url,
             data,
@@ -38,8 +47,17 @@ export const fetchData = {
         return res;
     },
 
-    delete: async (url: string) => {
-        const res = await axiosInstance({
+    put: async <T>(url: string, data: unknown) => {
+        const res = await axiosInstance<IFetchResponse<T>>({
+            method: 'put',
+            url: url,
+            data,
+        });
+        return res;
+    },
+
+    delete: async <T>(url: string) => {
+        const res = await axiosInstance<IFetchResponse<T>>({
             method: 'delete',
             url: url,
         });
