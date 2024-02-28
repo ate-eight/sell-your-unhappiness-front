@@ -8,7 +8,10 @@ import CommentContainer from '@/components/features/contents/detail/commentConta
 import TitleContainer from '@/components/features/contents/detail/titleContainer';
 
 import * as S from '../style';
-
+export interface ButtonData {
+    label: string;
+    color: 'primary' | 'secondary';
+}
 const ContentContainer = () => {
     const [inputValue, setinputValue] = useState('');
     const handleValueChange = useCallback((value: string) => {
@@ -19,7 +22,7 @@ const ContentContainer = () => {
         '이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다.  이것은 글의 본문 내용입니다. ';
     const count = '0';
 
-    const buttonData = [
+    const buttonData: Array<ButtonData> = [
         { label: 'Skip', color: 'secondary' },
         { label: 'Buy', color: 'primary' },
     ];
