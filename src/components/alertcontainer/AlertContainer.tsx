@@ -12,7 +12,7 @@ const AlertContainer = () => {
         },
         {
             text: '새로운 답글이 달렸어요',
-            date: '2024.01.01 12:00',
+            date: '2024.01.11 12:00',
             icon: {
                 iconName: 'i-reply',
                 iconText: '답글',
