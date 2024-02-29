@@ -6,6 +6,7 @@ import * as S from './style';
 export interface IAlert {
     text: string;
     date: string;
+    id: number;
     icon: {
         iconName: IconNames;
         iconColor?: string;
