@@ -22,7 +22,7 @@ const Tab = ({ buttonInfo }: Props) => {
         <S.TabContainer>
             {buttonInfo.map((v) => (
                 <S.TabItem
-                    isActive={v.id === isActive ? true : false}
+                    $isActive={v.id === isActive ? true : false}
                     onClick={onHandleActive}
                     id={v.id.toString()}
                     key={v.id}

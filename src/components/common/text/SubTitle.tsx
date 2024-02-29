@@ -6,10 +6,10 @@ interface Props {
 }
 const SubTitle = ({ text, color, lan }: Props) => {
     if (lan === 'ENG') {
-        return <S.H4_ENG color={color}>{text}</S.H4_ENG>;
+        return <S.H4_ENG $color={color}>{text}</S.H4_ENG>;
     }
     if (lan === 'KR') {
-        return <S.H4_KR color={color}>{text}</S.H4_KR>;
+        return <S.H4_KR $color={color}>{text}</S.H4_KR>;
     }
 };
 

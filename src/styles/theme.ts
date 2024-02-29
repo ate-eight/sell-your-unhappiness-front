@@ -1,3 +1,14 @@
+// type TColorCode = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+// type IColorCode = {
+//     [type in TColorCode]?: string;
+// };
+// // type TColorPalette = 'purple' | 'navy' | 'gray' | 'red';
+// type IColor = {
+//     purple: IColorCode;
+//     navy: IColorCode;
+//     gray: IColorCode;
+//     red: IColorCode;
+// };
 export const color = {
     purple: {
         50: '#EFE5F9',
@@ -36,7 +47,7 @@ export const color = {
         900: '#1A1A1A',
     },
     red: {
-        red: '#FF0E00',
+        100: '#FF0E00',
     },
 };
 

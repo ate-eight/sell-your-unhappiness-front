@@ -17,6 +17,7 @@ export const Button = styled.button<{ cursor?: string }>`
     cursor: pointer;
     background: transparent;
     ${(props) =>
+        props.cursor &&
         `
         cursor:${props.cursor};
     `}
