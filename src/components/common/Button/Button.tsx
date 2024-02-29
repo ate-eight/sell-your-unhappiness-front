@@ -8,7 +8,7 @@ interface Props {
     full?: boolean;
     disabled?: boolean;
     handleOnClick?: () => void;
-    styleProps: Interpolation<Theme>;
+    styleProps?: Interpolation<Theme>;
 }
 
 const korean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;

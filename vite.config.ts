@@ -14,4 +14,13 @@ export default defineConfig({
             { find: '@common', replacement: path.resolve(__dirname, './src/components/common') },
         ],
     },
+    server: {
+        proxy: {
+            '/api': {
+                target: 'http://3.39.74.150:8080',
+                // changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, ''),
+            },
+        },
+    },
 });

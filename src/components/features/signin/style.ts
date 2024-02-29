@@ -45,10 +45,16 @@ export const InfoBox = styled.div`
 `;
 
 export const GoogleButton = styled.button`
+    cursor: pointer;
+
     width: 100%;
     height: 50px;
 
-    bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
 
     color: ${(props) => props.theme.color.gray[700]};
     font-size: ${(props) => props.theme.typography.size.m1}px;
