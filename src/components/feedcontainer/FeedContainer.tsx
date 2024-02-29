@@ -1,26 +1,24 @@
 import { memo, useCallback, useMemo, useState } from 'react';
+import { useRecoilValue } from 'recoil';
+
+import boardTypeSelector from '@/store/selector/boardSelector';
 
 import Feed, { IFeed } from '../feed/Feed';
 import Lnb from '../lnb/Lnb';
 import * as S from './style';
-export type TLnb = 'all' | 'company' | 'school' | 'friend' | 'family' | 'etc';
+
 export interface ILnbObj {
     name: string;
-    type: TLnb;
+    type: number;
 }
 export interface Props {
     isFeedUi: boolean;
 }
 const FeedContainer = memo(({ isFeedUi }: Props) => {
+    const boardType = useRecoilValue(boardTypeSelector);
+
     const LnbMenu: Array<ILnbObj> = useMemo(
-        () => [
-            { name: '전체', type: 'all' },
-            { name: '회사', type: 'company' },
-            { name: '학교', type: 'school' },
-            { name: '친구', type: 'friend' },
-            { name: '가족', type: 'family' },
-            { name: '기타', type: 'etc' },
-        ],
+        () => boardType.map((board, i) => ({ type: i, name: board })),
         [],
     );
     const initialState = () => LnbMenu[0].type;
@@ -28,7 +26,7 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
 
     const saveIsClick = useMemo(() => isClick, [isClick]);
     const handleClick = useCallback(
-        (type: TLnb) => () => {
+        (type: number) => () => {
             if (isClick !== type) setIsClick(type);
         },
         [isClick],
@@ -57,7 +55,7 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
 
     return (
         <S.FeedContainer>
-            <Lnb handleClick={handleClick} isClick={saveIsClick as TLnb} LnbMenu={LnbMenu} />
+            <Lnb handleClick={handleClick} isClick={saveIsClick as number} LnbMenu={LnbMenu} />
             {feedArr.map((data) => (
                 <Feed key={data.index} data={data} isFeedUi={isFeedUi} />
             ))}
