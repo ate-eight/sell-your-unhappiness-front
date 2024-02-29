@@ -6,6 +6,7 @@
         "lib": ["ES2020", "DOM", "DOM.Iterable"],
         "module": "ESNext",
         "skipLibCheck": true,
+        "noImplicitAny": false, // testing-library/user-event type을 인식못하여 any타입 무시 비활성화
 
         /* Bundler mode */
         "moduleResolution": "bundler",

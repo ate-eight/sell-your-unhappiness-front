@@ -1,13 +1,13 @@
-import { server } from './src/mocks/browser';
+// import { server } from './src/mocks/browser';
 
-beforeAll(() => {
-    server.listen();
-});
+// beforeAll(() => {
+//     server.listen();
+// });
 
-afterEach(() => {
-    server.resetHandlers();
-});
+// afterEach(() => {
+//     server.resetHandlers();
+// });
 
-afterAll(() => {
-    server.close();
-});
+// afterAll(() => {
+//     server.close();
+// });

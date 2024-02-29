@@ -6,10 +6,10 @@ interface Props {
 }
 const Heading = ({ text, color, as }: Props) => {
     if (as === 'h1') {
-        return <S.H1 color={color}>{text}</S.H1>;
+        return <S.H1 $color={color}>{text}</S.H1>;
     }
     if (as === 'h2') {
-        return <S.H2 color={color}>{text}</S.H2>;
+        return <S.H2 $color={color}>{text}</S.H2>;
     }
 };
 

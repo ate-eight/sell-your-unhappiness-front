@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
 
 export const TabContainer = styled.ul`
-    width: auto;
+    width: 100%;
     height: 52px;
     display: flex;
     border-bottom: 1px solid #e4e4e4;
     padding: 0;
 `;
 
-export const TabItem = styled.li<{ isActive?: boolean }>`
-    width: 195px;
+export const TabItem = styled.li<{ $isActive?: boolean }>`
+    width: 50%;
     height: auto;
     outline: none;
     padding: 10px 20px 10px 20px;
@@ -21,7 +21,7 @@ export const TabItem = styled.li<{ isActive?: boolean }>`
         cursor: pointer;
     }
     ${(props) =>
-        props.isActive &&
+        props.$isActive &&
         `
     border-bottom: 2px solid ${props.theme.color.purple[500]};
     `}

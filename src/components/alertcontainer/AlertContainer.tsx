@@ -5,6 +5,7 @@ const AlertContainer = () => {
         {
             text: '새로운 댓글이 달렸어요',
             date: '2024.01.01 12:00',
+            id: 0,
             icon: {
                 iconName: 'i-message',
                 iconText: '댓글',
@@ -13,6 +14,7 @@ const AlertContainer = () => {
         {
             text: '새로운 답글이 달렸어요',
             date: '2024.01.01 12:00',
+            id: 1,
             icon: {
                 iconName: 'i-reply',
                 iconText: '답글',
@@ -20,9 +22,9 @@ const AlertContainer = () => {
         },
     ];
     return (
-        <S.AlertContainer>
+        <S.AlertContainer id='alert'>
             {alertMsgs.map((alert) => (
-                <Alert data={alert} key={alert.date} />
+                <Alert data={alert} key={alert.id} />
             ))}
         </S.AlertContainer>
     );

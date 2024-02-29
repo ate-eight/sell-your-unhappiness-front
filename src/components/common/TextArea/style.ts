@@ -6,7 +6,7 @@ export const TextArea = styled.textarea`
     width: 100%;
     border: none;
     resize: none;
-    height: 55vh;
+    min-height: 40vh;
 
     color: ${(props) => props.theme.color.gray[800]};
     font-family: ${(props) => props.theme.typography.type.Regular};

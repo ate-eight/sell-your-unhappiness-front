@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
-export const FeedContainer = styled.div<{ isFeedUi: boolean }>`
+export const FeedContainer = styled.div<{ $isFeedUi: boolean }>`
     width: auto;
     display: flex;
     flex-direction: column;
     padding: 10px 10px;
-    gap: ${(props) => (props.isFeedUi ? '0px' : '30px')};
-    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
-    height: ${(props) => (props.isFeedUi ? '90px' : '284px')};
+    gap: ${(props) => (props.$isFeedUi ? '0px' : '30px')};
+    border-bottom: 8px solid ${({ theme }) => theme.color.gray[100]};
+    height: ${(props) => (props.$isFeedUi ? '90px' : '284px')};
 `;
 
 export const FeedWrapper = styled.div`
@@ -34,16 +34,16 @@ export const FeedButton = styled.button`
     background-color: #fff;
 `;
 
-export const FeedTitleWrapper = styled.div<{ isFeedUi: boolean }>`
+export const FeedTitleWrapper = styled.div<{ $isFeedUi: boolean }>`
     width: auto;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     ${(props) => {
-        if (!props.isFeedUi) {
+        if (!props.$isFeedUi) {
             return `
-            border-bottom: 1px solid ${props.theme.color.gray[100]}
+            border-bottom: 1px solid ${({ theme }) => theme.color.gray[100]}
             `;
         }
     }};

@@ -6,6 +6,7 @@ import * as S from './style';
 export interface IAlert {
     text: string;
     date: string;
+    id: number;
     icon: {
         iconName: IconNames;
         iconColor?: string;
@@ -19,7 +20,7 @@ interface Props {
 const Alert = ({ data }: Props) => {
     const { text, date, icon } = data;
     return (
-        <S.AlertContainer>
+        <S.AlertContainer id='alert-item'>
             <S.ContentWrapper>
                 <S.IconWrapper>
                     <Icon name={icon.iconName} color={icon.iconColor} />
