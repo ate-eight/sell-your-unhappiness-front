@@ -20,6 +20,8 @@ develop(개발) : 개발 브랜치
 feature(기능) : 각 기능 별 개발 브랜치
 ```
 
+-   feature -> develop -> main(master)
+
 ## 컨벤션
 
 ### 커밋
