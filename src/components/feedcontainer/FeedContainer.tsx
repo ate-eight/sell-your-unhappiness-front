@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState, useTransition } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import boardTypeSelector from '@/store/selector/boardSelector';
@@ -15,6 +15,7 @@ export interface Props {
     isFeedUi: boolean;
 }
 const FeedContainer = memo(({ isFeedUi }: Props) => {
+    const [isPending, startTransition] = useTransition();
     const boardType = useRecoilValue(boardTypeSelector);
 
     const LnbMenu: Array<ILnbObj> = useMemo(
@@ -27,7 +28,7 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
     const saveIsClick = useMemo(() => isClick, [isClick]);
     const handleClick = useCallback(
         (type: number) => () => {
-            if (isClick !== type) setIsClick(type);
+            if (isClick !== type) startTransition(() => setIsClick(type));
         },
         [isClick],
     );
@@ -56,9 +57,11 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
     return (
         <S.FeedContainer>
             <Lnb handleClick={handleClick} isClick={saveIsClick as number} LnbMenu={LnbMenu} />
-            {feedArr.map((data) => (
-                <Feed key={data.index} data={data} isFeedUi={isFeedUi} />
-            ))}
+            {isPending ? (
+                <div></div>
+            ) : (
+                feedArr.map((data) => <Feed key={data.index} data={data} isFeedUi={isFeedUi} />)
+            )}
         </S.FeedContainer>
     );
 });
