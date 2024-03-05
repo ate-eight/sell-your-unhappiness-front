@@ -20,6 +20,4 @@ export const getContentDetail = async (id: number) => {
     } catch (error) {
         console.error('Error occurred while fetching content detail:', error);
     }
-
-    return null;
 };
