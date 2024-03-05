@@ -24,5 +24,6 @@ export const getComment = async (id: number) => {
         }
     } catch (error) {
         console.error('Error occurred while fetching content detail:', error);
+        return null;
     }
 };
