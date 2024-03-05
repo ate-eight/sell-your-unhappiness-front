@@ -1,44 +1,72 @@
 import SubTitle from '@components/common/text/SubTitle';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
+import { getComment } from '@/api/comment';
+import { ICommentResponse } from '@/api/comment';
+import { getContentDetail } from '@/api/contents';
+import { IContentResponse } from '@/api/contents';
 import Button from '@/components/common/Button/Button';
 import Input from '@/components/common/Input/Input';
 import ContentTag from '@/components/common/text/ContentTag';
-import CommentContainer from '@/components/features/contents/detail/commentContainer';
+import CommentContainer from '@/components/features/contents/comment/commentContainer';
 import TitleContainer from '@/components/features/contents/detail/titleContainer';
 
 import * as S from '../style';
+
 export interface IButtonData {
     label: string;
     color: 'primary' | 'secondary';
 }
-const ContentContainer = () => {
-    const [inputValue, setinputValue] = useState('');
-    const handleValueChange = useCallback((value: string) => {
-        setinputValue(value);
-    }, []);
 
-    const content =
-        '이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다.  이것은 글의 본문 내용입니다. ';
-    const count = '0';
+const ContentContainer = () => {
+    const { id } = useParams();
+
+    const [commentData, setCommentData] = useState<ICommentResponse | null>(null);
+    const [contentsData, setContentsData] = useState<IContentResponse | null>(null);
+    const [inputValue, setInputValue] = useState('');
+
+    const handleValueChange = useCallback((value: string) => {
+        setInputValue(value);
+    }, []);
 
     const buttonData: Array<IButtonData> = [
         { label: 'Skip', color: 'secondary' },
         { label: 'Buy', color: 'primary' },
     ];
+
+    useEffect(() => {
+        const fetchContent = async () => {
+            try {
+                const contentApiData = await getContentDetail(Number(id));
+                const commentApiData = await getComment(Number(id));
+                setCommentData(commentApiData);
+                setContentsData(contentApiData);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchContent();
+    }, [id]);
+
+    // useEffect 함수 실행에 따른 contentsData null 처리
+    if (!contentsData || !commentData) {
+        return null;
+    }
     return (
         <S.Wrapper>
             <S.Container>
                 {/* 타이틀 영역 */}
-                <TitleContainer />
+                <TitleContainer contentsData={contentsData} />
                 {/* 글 영역 */}
                 <S.ContentContainer>
-                    <ContentTag as='M' text={content} />
+                    <ContentTag as='M' text={contentsData.content} />
                 </S.ContentContainer>
                 {/* 댓글 영역 */}
                 <S.CommentWrapper>
-                    <SubTitle lan='ENG' text={`댓글 ${count}`} />
-                    <CommentContainer />
+                    <SubTitle lan='ENG' text={`댓글 ${commentData.contents.length}`} />
+                    <CommentContainer commentData={commentData} />
                     <Input
                         placeholder={'댓글을 남겨보세요.'}
                         as={'Comment'}
@@ -47,6 +75,7 @@ const ContentContainer = () => {
                     />
                 </S.CommentWrapper>
             </S.Container>
+
             {/* 버튼 영역 */}
             <S.ButtonWrapper>
                 {buttonData.map((b, index) => (

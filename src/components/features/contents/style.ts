@@ -59,11 +59,11 @@ export const ContentContainer = styled.div`
 `;
 
 export const CommentWrapper = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
     padding: 20px 0;
-
     & > h4 {
         padding: 0 20px 20px;
     }
@@ -80,6 +80,12 @@ export const CommentArea = styled.div<{ paddingLeft?: string }>`
     border-bottom: 1px solid ${(props) => props.theme.color.gray[100]};
     padding: ${(props) =>
         props.paddingLeft ? `16px 20px 16px ${props.paddingLeft}` : '16px 20px'};
+    & > .tagArea {
+        width: 100%;
+        display: flex;
+        gap: 16px 0;
+        flex-direction: column;
+    }
 `;
 
 export const IconArea = styled.div`
