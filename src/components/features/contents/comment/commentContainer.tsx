@@ -4,15 +4,15 @@ import * as S from '../style';
 import Comment from './commentTheme';
 
 interface ICommentProps {
-    commentData: ICommentResponse;
+    commentsData: ICommentResponse;
 }
 
-const CommentContainer = ({ commentData }: ICommentProps) => {
+const CommentContainer = ({ commentsData }: ICommentProps) => {
     return (
         <>
-            {commentData.contents.map((commentData: ICommentResponse, idx: number) => (
+            {commentsData.contents.map((commentsData: ICommentResponse, idx: number) => (
                 <S.CommentArea key={idx}>
-                    <Comment commentData={commentData} />
+                    <Comment commentsData={commentsData} />
                 </S.CommentArea>
             ))}
         </>

@@ -12,22 +12,22 @@ interface IContentProps {
     contentsData: IContentResponse;
 }
 
-const TitleContainer = ({ contentsData }: IContentProps) => {
+const TitleContainer = ({ contentsData: { type, title, createTime } }: IContentProps) => {
     const heart = '1';
     const comment = '4';
-    const formattedCreateTime = new Date(contentsData.createTime).toISOString().split('T')[0];
+    const formattedCreateTime = new Date(createTime).toISOString().split('T')[0];
 
     return (
         <S.TitleWrapper>
             <S.TopArea>
-                <ContentTag text={contentsData.type} as='S' color={theme.color.purple[500]} />
+                <ContentTag text={type} as='S' color={theme.color.purple[500]} />
                 <S1.FeedButtonWrapper>
                     <FeedButton icon={'i-heart'} color={theme.color.purple[200]} count={heart} />
                     |
                     <FeedButton icon={'i-message'} color='#d9d9d9' count={comment} />
                 </S1.FeedButtonWrapper>
             </S.TopArea>
-            <Heading text={contentsData.title} as='h1' />
+            <Heading text={title} as='h1' />
             <CaptionTag as='M' text={formattedCreateTime} color={'#B6B6B6'} />
         </S.TitleWrapper>
     );

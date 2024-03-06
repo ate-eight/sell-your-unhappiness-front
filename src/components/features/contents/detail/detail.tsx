@@ -22,7 +22,7 @@ export interface IButtonData {
 const ContentContainer = () => {
     const { id } = useParams();
 
-    const [commentData, setCommentData] = useState<ICommentResponse | null>(null);
+    const [commentsData, setCommentsData] = useState<ICommentResponse | null>(null);
     const [contentsData, setContentsData] = useState<IContentResponse | null>(null);
     const [inputValue, setInputValue] = useState('');
 
@@ -40,7 +40,7 @@ const ContentContainer = () => {
             try {
                 const contentApiData = await getContentDetail(Number(id));
                 const commentApiData = await getComment(Number(id));
-                setCommentData(commentApiData);
+                setCommentsData(commentApiData);
                 setContentsData(contentApiData);
             } catch (error) {
                 console.error(error);
@@ -51,7 +51,7 @@ const ContentContainer = () => {
     }, [id]);
 
     // useEffect 함수 실행에 따른 contentsData null 처리
-    if (!contentsData || !commentData) {
+    if (!contentsData || !commentsData) {
         return null;
     }
     return (
@@ -65,8 +65,8 @@ const ContentContainer = () => {
                 </S.ContentContainer>
                 {/* 댓글 영역 */}
                 <S.CommentWrapper>
-                    <SubTitle lan='ENG' text={`댓글 ${commentData.contents.length}`} />
-                    <CommentContainer commentData={commentData} />
+                    <SubTitle lan='ENG' text={`댓글 ${commentsData.contents.length}`} />
+                    <CommentContainer commentsData={commentsData} />
                     <Input
                         placeholder={'댓글을 남겨보세요.'}
                         as={'Comment'}
