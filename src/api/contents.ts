@@ -1,6 +1,7 @@
 import { fetchData } from '@/api';
 
 export interface IContentResponse {
+    id: number;
     type: string;
     status: string;
     title: string;
