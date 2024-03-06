@@ -1,12 +1,6 @@
 import { fetchData } from '@/api';
 
 export interface ICommentResponse {
-    map(
-        arg0: (
-            commentData: ICommentResponse,
-            idx: number,
-        ) => import('@emotion/react/jsx-runtime').JSX.Element,
-    ): unknown;
     id: number;
     parentId: number;
     content: string;
