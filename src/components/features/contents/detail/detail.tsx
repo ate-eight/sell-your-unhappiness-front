@@ -22,8 +22,8 @@ export interface IButtonData {
 const ContentContainer = () => {
     const { id } = useParams();
 
-    const [commentsData, setCommentsData] = useState<ICommentResponse | null>(null);
-    const [contentsData, setContentsData] = useState<IContentResponse | null>(null);
+    const [commentsData, setCommentsData] = useState<ICommentResponse>();
+    const [contentsData, setContentsData] = useState<IContentResponse>();
     const [inputValue, setInputValue] = useState('');
 
     const handleValueChange = useCallback((value: string) => {
@@ -40,8 +40,10 @@ const ContentContainer = () => {
             try {
                 const contentApiData = await getContentDetail(Number(id));
                 const commentApiData = await getComment(Number(id));
-                setCommentsData(commentApiData);
-                setContentsData(contentApiData);
+                if (commentApiData != undefined && contentApiData != undefined) {
+                    setCommentsData(commentApiData);
+                    setContentsData(contentApiData);
+                }
             } catch (error) {
                 console.error(error);
             }
