@@ -44,7 +44,6 @@ export const TitleWrapper = styled.div`
     gap: 10px 0;
     display: flex;
     flex-direction: column;
-    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
 `;
 export const TopArea = styled.div`
     width: 100%;
@@ -55,29 +54,38 @@ export const TopArea = styled.div`
 export const ContentContainer = styled.div`
     width: 100%;
     padding: 20px 20px 60px 20px;
-    border-bottom: 1px solid ${(props) => props.theme.color.gray[300]};
 `;
 
-export const CommentWrapper = styled.div`
+export const CommentWrapper = styled.div<{ detail?: boolean }>`
     display: flex;
     flex-direction: column;
-    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
     padding: 20px 0;
-
+    cursor: ${(props) => !props.detail && 'pointer'};
+    position: relative;
+    height: ${(props) => props.detail && 'calc(100vh - 56px)'};
     & > h4 {
         padding: 0 20px 20px;
     }
 
     & > div:has(input) {
-        margin: 10px 20px 0;
+        width: calc(100% - 40px);
+        margin: ${(props) => !props.detail && '10px 20px 0'};
     }
+`;
+
+export const InputArea = styled.div`
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    gap: 10px 0;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const CommentArea = styled.div<{ paddingLeft?: string }>`
     display: flex;
     flex-wrap: wrap;
     gap: 12px 0;
-    border-bottom: 1px solid ${(props) => props.theme.color.gray[100]};
     padding: ${(props) =>
         props.paddingLeft ? `16px 20px 16px ${props.paddingLeft}` : '16px 20px'};
 `;
