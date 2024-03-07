@@ -58,16 +58,23 @@ export const ContentContainer = styled.div`
     border-bottom: 1px solid ${(props) => props.theme.color.gray[300]};
 `;
 
-export const CommentWrapper = styled.div`
+export const CommentWrapper = styled.div<{ detail?: boolean }>`
     display: flex;
     flex-direction: column;
-    border-bottom: 8px solid ${(props) => props.theme.color.gray[100]};
     padding: 20px 0;
+    border-bottom: ${(props) => !props.detail && `8px solid ${props.theme.color.gray[100]}`};
+    cursor: ${(props) => !props.detail && 'pointer'};
 
     & > h4 {
         padding: 0 20px 20px;
     }
 
+    & > div:nth-of-type(1) {
+        border-top: ${(props) => props.detail && `8px solid ${props.theme.color.gray[100]}`};
+    }
+    & > div:nth-last-child(2) {
+        border-bottom: ${(props) => props.detail && `1px solid ${props.theme.color.gray[300]}`};
+    }
     & > div:has(input) {
         margin: 10px 20px 0;
     }

@@ -1,5 +1,6 @@
 import SubTitle from '@components/common/text/SubTitle';
 import { useCallback, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Button from '@/components/common/Button/Button';
 import Input from '@/components/common/Input/Input';
@@ -13,10 +14,14 @@ export interface IButtonData {
     color: 'primary' | 'secondary';
 }
 const ContentContainer = () => {
+    const { id } = useParams();
     const [inputValue, setinputValue] = useState('');
     const handleValueChange = useCallback((value: string) => {
         setinputValue(value);
     }, []);
+
+    const navigate = useNavigate();
+    const handleMoveComment = useCallback(() => navigate(`/contents/${id}/comment`), []);
 
     const content =
         '이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다. 이것은 글의 본문 내용입니다.  이것은 글의 본문 내용입니다. ';
@@ -36,7 +41,7 @@ const ContentContainer = () => {
                     <ContentTag as='M' text={content} />
                 </S.ContentContainer>
                 {/* 댓글 영역 */}
-                <S.CommentWrapper>
+                <S.CommentWrapper onClick={handleMoveComment}>
                     <SubTitle lan='ENG' text={`댓글 ${count}`} />
                     <CommentContainer />
                     <Input
