@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import Button from '@/components/common/Button/Button';
+import Divider from '@/components/common/divider/divider';
 import Input from '@/components/common/Input/Input';
 import ContentTag from '@/components/common/text/ContentTag';
 import CommentContainer from '@/components/features/contents/detail/commentContainer';
@@ -36,10 +37,12 @@ const ContentContainer = () => {
             <S.Container>
                 {/* 타이틀 영역 */}
                 <TitleContainer />
+                <Divider size={6} />
                 {/* 글 영역 */}
                 <S.ContentContainer>
                     <ContentTag as='M' text={content} />
                 </S.ContentContainer>
+                <Divider color={300} />
                 {/* 댓글 영역 */}
                 <S.CommentWrapper onClick={handleMoveComment}>
                     <SubTitle lan='ENG' text={`댓글 ${count}`} />
@@ -51,6 +54,7 @@ const ContentContainer = () => {
                         handleOnChange={handleValueChange}
                     />
                 </S.CommentWrapper>
+                <Divider size={6} />
             </S.Container>
             {/* 버튼 영역 */}
             <S.ButtonWrapper>
