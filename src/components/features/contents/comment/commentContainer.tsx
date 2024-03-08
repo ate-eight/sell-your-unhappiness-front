@@ -10,8 +10,8 @@ interface ICommentProps {
 const CommentContainer = ({ commentsData }: ICommentProps) => {
     return (
         <>
-            {commentsData.contents.map((commentsData: ICommentResponse, idx: number) => (
-                <S.CommentArea key={idx}>
+            {commentsData.contents.map((commentsData: ICommentResponse) => (
+                <S.CommentArea key={commentsData.id}>
                     <Comment commentsData={commentsData} />
                 </S.CommentArea>
             ))}
