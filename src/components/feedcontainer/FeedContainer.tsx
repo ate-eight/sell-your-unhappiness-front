@@ -5,8 +5,10 @@ import { useRecoilValue } from 'recoil';
 import { getBoards } from '@/api/boards';
 import boardTypeSelector from '@/store/selector/boardSelector';
 
+import Loading from '../common/loading/Loading';
 import Feed from '../feed/Feed';
 import Lnb from '../lnb/Lnb';
+import EmptyFeedList from './EmptyFeedList';
 import * as S from './style';
 
 export interface ILnbObj {
@@ -38,10 +40,12 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
 
     console.log('saveIsClick', saveIsClick);
 
-    const { data, isLoading, isSuccess } = useQuery({
+    const { data, isSuccess, isFetching } = useQuery({
         queryKey: ['feedArr', isClick],
         queryFn: () => getBoards({ type: isClick, page: 1 }),
     });
+
+    const feedListLen: number = data?.contents.length || 0;
 
     // const feedArr: IFeed[] = [
     //     {
@@ -67,8 +71,12 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
     return (
         <S.FeedContainer>
             <Lnb handleClick={handleClick} isClick={saveIsClick as string} LnbMenu={LnbMenu} />
-            {isPending && isLoading && <div></div>}
+
+            {isPending && isFetching && <Loading />}
+            {isSuccess && feedListLen === 0 && <EmptyFeedList />}
+
             {isSuccess &&
+                feedListLen > 0 &&
                 data.contents?.map((data) => (
                     <Feed key={data.id} data={data} isFeedUi={isFeedUi} />
                 ))}
