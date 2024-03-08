@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Divider } from '@/components/common/divider/style';
+
 import * as S from '../style';
 import Comment from './commentTheme';
 
@@ -44,6 +46,7 @@ const CommentContainer = () => {
                 <React.Fragment key={data.id}>
                     <S.CommentArea>
                         <Comment nickname={data.nickname} content={data.content} date={data.date} />
+                        <Divider />
                     </S.CommentArea>
                     {data.recomment.map((rec, index) => (
                         <S.CommentArea key={index} paddingLeft={'40px'}>

@@ -1,7 +1,11 @@
-import * as S from '../../components/common/layout/style';
+import Comment from '@/components/features/contents/comment/comment';
 
 const CommentPage = () => {
-    return <S.Container>Comment</S.Container>;
+    return (
+        <>
+            <Comment />
+        </>
+    );
 };
 
 export default CommentPage;
