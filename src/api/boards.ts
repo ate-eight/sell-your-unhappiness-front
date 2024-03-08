@@ -44,7 +44,6 @@ export const getBoards: ({ type, status, page }: IBoardProps) => Promise<IBoardR
         const { data } = response.data;
 
         if (response.status === 200) {
-            console.log('여기니?', data);
             return { pageValue: data.pageValue, contents: data.contents || [] };
         }
     } catch (error) {
