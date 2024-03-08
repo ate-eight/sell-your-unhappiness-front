@@ -10,7 +10,8 @@ interface ICommentProps {
     commentsData: ICommentResponse;
 }
 
-const Comment = ({ commentsData: { id, content, createTime } }: ICommentProps) => {
+const Comment = ({ commentsData }: ICommentProps) => {
+    const { id, content, createTime } = commentsData;
     const formattedCreateTime = new Date(createTime).toISOString().split('T')[0];
 
     return (
