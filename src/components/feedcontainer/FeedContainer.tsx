@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { memo, useCallback, useMemo, useState, useTransition } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import { getBoards } from '@/api/boards';
@@ -21,7 +22,10 @@ export interface Props {
 const FeedContainer = memo(({ isFeedUi }: Props) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [, startTransition] = useTransition();
+
     const boardType = useRecoilValue(boardTypeSelector);
+
+    const { search } = useLocation();
 
     const LnbMenu: Array<ILnbObj> = useMemo(
         () => boardType.map((board, i) => ({ type: i, name: board })),
@@ -39,11 +43,13 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
         [isClick],
     );
 
-    console.log('saveIsClick', saveIsClick);
+    const boardObj = search.includes('sold')
+        ? { type: isClick, page: 1, status: '품절' }
+        : { type: isClick, page: 1 };
 
     const { data, isSuccess, isFetching } = useQuery({
-        queryKey: ['feedArr', isClick],
-        queryFn: () => getBoards({ type: isClick, page: 1 }),
+        queryKey: ['feedArr', isClick, search],
+        queryFn: () => getBoards(boardObj),
     });
 
     const feedListLen: number = data?.contents.length || 0;
