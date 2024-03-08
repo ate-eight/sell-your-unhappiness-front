@@ -11,19 +11,19 @@ interface Props {
     data: IBoardContent;
 }
 const ShortFeedTheme = ({ data }: Props) => {
-    const { title, content, createTime } = data;
+    const { title, createTime } = data;
 
     return (
         <S.FeedContainer $isFeedUi={true} id='short-feed'>
-            <S.FeedWrapper>
-                <S.FeedTitleWrapper $isFeedUi={true}>
+            <S.FeedWrapper $isFeedUi={true}>
+                <S.FeedTitleWrapper>
                     <SubTitle text={title} lan='KR' />
                 </S.FeedTitleWrapper>
                 <S.FeedButtonWrapper>
                     <CaptionTag text='sold out' as='M' color={theme.color.purple[500]} />|
                     <S.FeedButton>
                         <Icon name='i-message' color='#d9d9d9' />
-                        <CaptionTag text={content.toString()} as='M' color='#d9d9d9' />
+                        <CaptionTag text={'10'} as='M' color='#d9d9d9' />
                     </S.FeedButton>
                 </S.FeedButtonWrapper>
             </S.FeedWrapper>

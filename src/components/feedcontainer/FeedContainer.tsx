@@ -19,7 +19,8 @@ export interface Props {
     isFeedUi: boolean;
 }
 const FeedContainer = memo(({ isFeedUi }: Props) => {
-    const [isPending, startTransition] = useTransition();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [, startTransition] = useTransition();
     const boardType = useRecoilValue(boardTypeSelector);
 
     const LnbMenu: Array<ILnbObj> = useMemo(
@@ -72,7 +73,11 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
         <S.FeedContainer>
             <Lnb handleClick={handleClick} isClick={saveIsClick as string} LnbMenu={LnbMenu} />
 
-            {isPending && isFetching && <Loading />}
+            {isFetching && (
+                <S.FeedContents>
+                    <Loading />
+                </S.FeedContents>
+            )}
             {isSuccess && feedListLen === 0 && <EmptyFeedList />}
 
             {isSuccess &&

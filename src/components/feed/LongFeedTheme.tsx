@@ -15,8 +15,8 @@ const LongFeedTheme = ({ data }: Props) => {
 
     return (
         <S.FeedContainer $isFeedUi={false} id='long-feed'>
-            <S.FeedWrapper>
-                <S.FeedTitleWrapper $isFeedUi={false}>
+            <S.FeedWrapper $isFeedUi={false}>
+                <S.FeedTitleWrapper>
                     <SubTitle text={title} lan='KR' />
                 </S.FeedTitleWrapper>
                 <S.FeedButtonWrapper>

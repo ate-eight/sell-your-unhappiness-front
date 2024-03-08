@@ -10,10 +10,13 @@ export const FeedContainer = styled.div<{ $isFeedUi: boolean }>`
     height: ${(props) => (props.$isFeedUi ? '90px' : '284px')};
 `;
 
-export const FeedWrapper = styled.div`
+export const FeedWrapper = styled.div<{ $isFeedUi: boolean }>`
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
+    border-bottom: ${(props) =>
+        props.$isFeedUi === true ? 'none' : ` 2px solid ${props.theme.color.gray[100]}`};
 `;
 
 export const FeedButtonWrapper = styled.div`
@@ -34,19 +37,12 @@ export const FeedButton = styled.button`
     background-color: #fff;
 `;
 
-export const FeedTitleWrapper = styled.div<{ $isFeedUi: boolean }>`
-    width: auto;
+export const FeedTitleWrapper = styled.div`
+    width: 100%;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    ${(props) => {
-        if (!props.$isFeedUi) {
-            return `
-            border-bottom: 1px solid ${({ theme }) => theme.color.gray[100]}
-            `;
-        }
-    }};
 `;
 
 export const FeedTitle = styled.h2`
