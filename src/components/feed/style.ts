@@ -26,6 +26,7 @@ export const FeedButtonWrapper = styled.div`
     justify-content: center;
     align-items: center;
     color: #d9d9d9;
+    flex-shrink: 0;
 `;
 
 export const FeedButton = styled.button`
