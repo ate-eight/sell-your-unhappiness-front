@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 const prodMode = import.meta.env.PROD;
 const BASE_URL = prodMode ? 'http://3.39.74.150:8080' : '/api';
@@ -33,8 +33,11 @@ interface IFetchResponse<T> {
 }
 
 export const fetchData = {
-    get: async <T>(url: string) => {
-        const res = await axiosInstance<IFetchResponse<T>>(url);
+    get: async <T, R = AxiosResponse<IFetchResponse<T>>, D = unknown>(
+        url: string,
+        config?: AxiosRequestConfig<D>,
+    ): Promise<R> => {
+        const res = await axiosInstance.get<IFetchResponse<T>, R, D>(url, config);
         return res;
     },
 

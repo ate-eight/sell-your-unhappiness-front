@@ -1,3 +1,5 @@
+import { IBoardContent } from '@/api/boards';
+
 import LongFeedTheme from './LongFeedTheme';
 import ShortFeedTheme from './ShortFeedTheme';
 
@@ -10,7 +12,7 @@ export interface IFeed {
     date: string;
 }
 interface Props {
-    data: IFeed;
+    data: IBoardContent;
     isFeedUi: boolean;
 }
 const Feed = ({ data, isFeedUi }: Props) => {
