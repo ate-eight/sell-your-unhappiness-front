@@ -8,7 +8,7 @@ export interface ICommentResponse {
     contents: [];
 }
 
-export const getComment: (id: number) => void = async (id: number) => {
+export const getComment = async (id: number) => {
     try {
         const response = await fetchData.get<ICommentResponse>(`/v1/board-comments?boardId=${id}`);
         const { data } = response.data;
@@ -18,5 +18,4 @@ export const getComment: (id: number) => void = async (id: number) => {
     } catch (error) {
         console.error('Error occurred while fetching content detail:', error);
     }
-    return;
 };

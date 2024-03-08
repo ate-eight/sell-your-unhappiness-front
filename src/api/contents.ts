@@ -10,7 +10,7 @@ export interface IContentResponse {
     modifiedTime: string;
 }
 
-export const getContentDetail: (id: number) => void = async (id: number) => {
+export const getContentDetail = async (id: number) => {
     try {
         const response = await fetchData.get<IContentResponse>(`/v1/board/${id}`);
         const { data } = response.data;
