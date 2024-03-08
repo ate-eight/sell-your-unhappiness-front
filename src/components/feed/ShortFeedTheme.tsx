@@ -1,6 +1,7 @@
 import Icon from '@components/common/icon/Icon';
 import CaptionTag from '@components/common/text/CaptionTag';
 import SubTitle from '@components/common/text/SubTitle';
+import { useNavigate } from 'react-router-dom';
 
 import { IBoardContent } from '@/api/boards';
 import theme from '@/styles/theme';
@@ -11,12 +12,14 @@ interface Props {
     data: IBoardContent;
 }
 const ShortFeedTheme = ({ data }: Props) => {
-    const { title, createTime } = data;
+    const { id, title, createTime } = data;
+    const navigate = useNavigate();
+    const handleMoveDetail = () => navigate(`/contents/${id}`);
 
     return (
         <S.FeedContainer $isFeedUi={true} id='short-feed'>
             <S.FeedWrapper $isFeedUi={true}>
-                <S.FeedTitleWrapper>
+                <S.FeedTitleWrapper onClick={handleMoveDetail}>
                     <SubTitle text={title} lan='KR' />
                 </S.FeedTitleWrapper>
                 <S.FeedButtonWrapper>

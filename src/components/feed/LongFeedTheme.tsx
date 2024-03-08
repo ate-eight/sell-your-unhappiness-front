@@ -2,6 +2,7 @@ import Icon from '@components/common/icon/Icon';
 import CaptionTag from '@components/common/text/CaptionTag';
 import ContentTag from '@components/common/text/ContentTag';
 import SubTitle from '@components/common/text/SubTitle';
+import { useNavigate } from 'react-router-dom';
 
 import { IBoardContent } from '@/api/boards';
 import theme from '@/styles/theme';
@@ -11,12 +12,14 @@ interface Props {
     data: IBoardContent;
 }
 const LongFeedTheme = ({ data }: Props) => {
-    const { title, content, createTime } = data;
+    const { title, content, createTime, id } = data;
+    const navigate = useNavigate();
+    const handleMoveDetail = () => navigate(`/contents/${id}`);
 
     return (
         <S.FeedContainer $isFeedUi={false} id='long-feed'>
             <S.FeedWrapper $isFeedUi={false}>
-                <S.FeedTitleWrapper>
+                <S.FeedTitleWrapper onClick={handleMoveDetail}>
                     <SubTitle text={title} lan='KR' />
                 </S.FeedTitleWrapper>
                 <S.FeedButtonWrapper>
