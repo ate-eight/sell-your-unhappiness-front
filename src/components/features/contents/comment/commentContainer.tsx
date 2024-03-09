@@ -11,9 +11,10 @@ const CommentContainer = ({ commentsData }: ICommentProps) => {
     return (
         <>
             {commentsData &&
-                commentsData.contents.map((commentsData: ICommentResponse) => (
-                    <S.CommentArea key={commentsData.id}>
-                        <Comment commentsData={commentsData} />
+                Array.isArray(commentsData.contents) && // Check if contents is an array
+                commentsData.contents.map((comment: ICommentResponse) => (
+                    <S.CommentArea key={comment.id}>
+                        <Comment commentsData={comment} />
                     </S.CommentArea>
                 ))}
         </>
