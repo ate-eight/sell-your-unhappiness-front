@@ -10,7 +10,7 @@ interface ICommentProps {
     commentsData: ICommentResponse;
 }
 
-const Comment = ({ commentsData }: ICommentProps) => {
+const commentTheme = ({ commentsData }: ICommentProps) => {
     const { id, content, createTime } = commentsData;
     const formattedCreateTime = new Date(createTime).toISOString().split('T')[0];
 
@@ -29,4 +29,4 @@ const Comment = ({ commentsData }: ICommentProps) => {
     );
 };
 
-export default Comment;
+export default commentTheme;

@@ -1,10 +1,11 @@
 import SubTitle from '@components/common/text/SubTitle';
 import { useCallback, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { useCommentById } from '@/api/comment';
 import { useContentsById } from '@/api/contents';
 import Button from '@/components/common/Button/Button';
+import Divider from '@/components/common/divider/divider';
 import Input from '@/components/common/Input/Input';
 import ContentTag from '@/components/common/text/ContentTag';
 import CommentContainer from '@/components/features/contents/comment/commentContainer';
@@ -26,6 +27,9 @@ const ContentContainer = () => {
         setInputValue(value);
     }, []);
 
+    const navigate = useNavigate();
+    const handleMoveComment = useCallback(() => navigate(`/contents/${id}/comment`), []);
+
     const buttonData: Array<IButtonData> = [
         { label: 'Skip', color: 'secondary' },
         { label: 'Buy', color: 'primary' },
@@ -41,12 +45,14 @@ const ContentContainer = () => {
                     <>
                         {/* 타이틀 영역 */}
                         <TitleContainer contentsData={contentsData} />
+                        <Divider size={6} />
                         {/* 글 영역 */}
                         <S.ContentContainer>
                             <ContentTag as='M' text={contentsData.content} />
                         </S.ContentContainer>
+                        <Divider color={300} />
                         {/* 댓글 영역 */}
-                        <S.CommentWrapper>
+                        <S.CommentWrapper onClick={handleMoveComment}>
                             <SubTitle lan='ENG' text={`댓글 ${commentsData.contents.length}`} />
                             <CommentContainer commentsData={commentsData} />
                             <Input
@@ -56,6 +62,7 @@ const ContentContainer = () => {
                                 handleOnChange={handleValueChange}
                             />
                         </S.CommentWrapper>
+                        <Divider size={6} />
                     </>
                 )}
             </S.Container>
