@@ -32,5 +32,6 @@ export const useContentsById = (id: number) => {
     return useQuery<IContentResponse, Error>({
         queryKey: ['contents', id],
         queryFn: () => CONTENT_API.getDetail(id),
+        staleTime: 60000,
     });
 };
