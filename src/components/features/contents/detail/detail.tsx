@@ -7,6 +7,7 @@ import { useContentsById } from '@/api/contents';
 import Button from '@/components/common/Button/Button';
 import Divider from '@/components/common/divider/divider';
 import Input from '@/components/common/Input/Input';
+import Loading from '@/components/common/loading/Loading';
 import ContentTag from '@/components/common/text/ContentTag';
 import CommentContainer from '@/components/features/contents/comment/commentContainer';
 import TitleContainer from '@/components/features/contents/detail/titleContainer';
@@ -39,10 +40,10 @@ const ContentContainer = () => {
     const { data: commentsData } = useCommentById(Number(id));
 
     return (
-        <S.Wrapper>
-            <S.Container>
-                {contentsData && commentsData && (
-                    <>
+        <>
+            {contentsData && commentsData ? (
+                <S.Wrapper>
+                    <S.Container>
                         {/* 타이틀 영역 */}
                         <TitleContainer contentsData={contentsData} />
                         <Divider size={6} />
@@ -63,24 +64,28 @@ const ContentContainer = () => {
                             />
                         </S.CommentWrapper>
                         <Divider size={6} />
-                    </>
-                )}
-            </S.Container>
-            {/* 버튼 영역 */}
-            <S.ButtonWrapper>
-                {buttonData.map((b, index) => (
-                    <Button
-                        key={index}
-                        label={b.label}
-                        color={b.color as 'secondary' | 'primary'}
-                        styleProps={{
-                            height: '48px',
-                            fontSize: '18px',
-                        }}
-                    />
-                ))}
-            </S.ButtonWrapper>
-        </S.Wrapper>
+                    </S.Container>
+                    {/* 버튼 영역 */}
+                    <S.ButtonWrapper>
+                        {buttonData.map((b, index) => (
+                            <Button
+                                key={index}
+                                label={b.label}
+                                color={b.color as 'secondary' | 'primary'}
+                                styleProps={{
+                                    height: '48px',
+                                    fontSize: '18px',
+                                }}
+                            />
+                        ))}
+                    </S.ButtonWrapper>
+                </S.Wrapper>
+            ) : (
+                <S.LoadingContainer>
+                    <Loading />
+                </S.LoadingContainer>
+            )}
+        </>
     );
 };
 
