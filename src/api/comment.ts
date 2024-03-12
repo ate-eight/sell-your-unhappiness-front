@@ -32,6 +32,6 @@ export const useCommentById = (id: number) => {
     return useQuery<ICommentResponse, Error>({
         queryKey: ['comment', id],
         queryFn: () => COMMENT_API.getALL(id),
-        staleTime: 60000,
+        staleTime: 1000 * 60 * 5,
     });
 };

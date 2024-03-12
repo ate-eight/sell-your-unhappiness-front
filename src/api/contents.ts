@@ -20,11 +20,13 @@ export const CONTENT_API = {
 
             if (response.status === 200) {
                 return data as IContentResponse;
+            } else {
+                throw new Error('Failed to fetch content detail');
             }
         } catch (error) {
             console.error(error);
+            throw error;
         }
-        throw new Error('Failed to fetch content detail');
     },
 };
 
