@@ -18,6 +18,13 @@ const ContentContainer = () => {
 
     const count = '0';
 
+    /**
+     * react-query mutation으로 query-key update
+     */
+    const handleCommentSubmit = () => {
+        alert('댓글 저장');
+    };
+
     return (
         <S.Wrapper>
             <S.Container>
@@ -33,6 +40,7 @@ const ContentContainer = () => {
                             as={'Comment'}
                             value={inputValue}
                             handleOnChange={handleValueChange}
+                            handleOnClick={handleCommentSubmit}
                         />
                     </S.InputArea>
                 </S.CommentWrapper>

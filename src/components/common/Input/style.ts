@@ -27,14 +27,28 @@ export const DefaultInputWrapper = styled.div<{ $height?: string; $padding?: str
     background-color: ${(props) => props.theme.color.gray[100]};
     height: ${(props) => (props.$height ? `${props.$height}` : 'unset')};
     display: flex;
+    align-items: center;
     padding: ${(props) => (props.$padding ? `${props.$padding}` : '20px 14px')};
 `;
+
 export const CommentInputWrapper = styled.div<{ $height?: string; $padding?: string }>`
+    height: ${(props) => (props.$height ? `${props.$height}` : 'unset')};
+    padding: 0 14px;
+
     display: flex;
     justify-content: space-between;
-    padding: 20px 14px;
-    border-radius: 10px;
-    height: ${(props) => (props.$height ? `${props.$height}` : 'unset')};
-    padding: ${(props) => (props.$padding ? `${props.$padding}` : '20px 14px')};
+
     background-color: ${(props) => props.theme.color.gray[100]};
+    border-radius: 10px;
+`;
+
+export const SubmitButton = styled.button<{ $disabled?: boolean }>`
+    cursor: ${({ $disabled }) => ($disabled ? 'default' : 'pointer')};
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: inherit;
+    border: none;
 `;
