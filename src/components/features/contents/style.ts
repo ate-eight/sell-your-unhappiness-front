@@ -60,9 +60,9 @@ export const CommentWrapper = styled.div<{ detail?: boolean }>`
     display: flex;
     flex-direction: column;
     padding: 20px 0;
-    cursor: ${(props) => !props.detail && 'pointer'};
     position: relative;
     height: ${(props) => props.detail && 'calc(100vh - 56px)'};
+
     & > h4 {
         padding: 0 20px 20px;
     }

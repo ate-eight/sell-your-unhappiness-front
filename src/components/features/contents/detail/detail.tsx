@@ -44,15 +44,17 @@ const ContentContainer = () => {
                 </S.ContentContainer>
                 <Divider color={300} />
                 {/* 댓글 영역 */}
-                <S.CommentWrapper onClick={handleMoveComment}>
+                <S.CommentWrapper>
                     <SubTitle lan='ENG' text={`댓글 ${count}`} />
                     <CommentContainer />
-                    <Input
-                        placeholder={'댓글을 남겨보세요.'}
-                        as={'Comment'}
-                        value={inputValue}
-                        handleOnChange={handleValueChange}
-                    />
+                    <div onClick={handleMoveComment}>
+                        <Input
+                            placeholder={'댓글을 남겨보세요.'}
+                            as={'Default'}
+                            value={inputValue}
+                            handleOnChange={handleValueChange}
+                        />
+                    </div>
                 </S.CommentWrapper>
                 <Divider size={6} />
             </S.Container>
