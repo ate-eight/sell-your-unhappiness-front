@@ -7,7 +7,7 @@ const BASE_URL = prodMode ? 'http://3.39.74.150:8080' : '/api';
  * 커스텀 axios 인스턴스 생성
  * token, baseUrl, header 공통 처리
  */
-export const axiosInstance = axios.create({
+const axiosInstance = axios.create({
     baseURL: BASE_URL,
     headers: {
         'Content-Type': 'application/json',
