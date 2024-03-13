@@ -1,0 +1,25 @@
+{
+    "common": { "code": 200, "message": "", "success": true },
+    "data": {
+        "pageValue": {
+            "totalPage": 1,
+            "pageSize": 10,
+            "currentPage": 1,
+            "totalElements": 1,
+            "num": 1,
+            "block": [1],
+            "previous": null,
+            "after": null
+        },
+        "contents": [
+            {
+                "id": 1,
+                "type": "회사",
+                "status": "판매중",
+                "title": "회사에 대한 고민",
+                "content": "회사 고민 테스트 내용",
+                "createTime": "2024-03-07T09:47:49.621719"
+            }
+        ]
+    }
+}

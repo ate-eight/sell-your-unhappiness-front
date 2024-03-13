@@ -44,7 +44,7 @@ export const getBoards: ({ type, status, page }: IBoardProps) => Promise<IBoardR
         const { data } = response.data;
 
         if (response.status === 200) {
-            return { pageValue: data.pageValue, contents: data.contents || [] };
+            return { pageValue: data?.pageValue || {}, contents: data?.contents || [] };
         }
     } catch (error) {
         console.error('Error occurred while fetching content detail:', error);
