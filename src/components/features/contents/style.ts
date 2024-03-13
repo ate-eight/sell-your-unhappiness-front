@@ -16,6 +16,11 @@ export const Container = styled.div<{ border?: string }>`
     }
 `;
 
+export const LoadingContainer = styled.div`
+    & > div {
+        height: calc(100vh - 56px);
+    }
+`;
 export const ContentArea = styled.div`
     width: 100%;
     margin-bottom: 65px;
@@ -57,11 +62,12 @@ export const ContentContainer = styled.div`
 `;
 
 export const CommentWrapper = styled.div<{ detail?: boolean }>`
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 20px 0;
     position: relative;
-    height: ${(props) => props.detail && 'calc(100vh - 56px)'};
+    min-height: ${(props) => props.detail && 'calc(100vh - 56px)'};
 
     & > h4 {
         padding: 0 20px 20px;
@@ -75,11 +81,12 @@ export const CommentWrapper = styled.div<{ detail?: boolean }>`
 
 export const InputArea = styled.div`
     position: absolute;
-    bottom: 10px;
+    bottom: -57px;
     left: 20px;
     gap: 10px 0;
     display: flex;
     flex-direction: column;
+    padding: 10px 0;
 `;
 
 export const CommentArea = styled.div<{ paddingLeft?: string }>`
@@ -88,6 +95,12 @@ export const CommentArea = styled.div<{ paddingLeft?: string }>`
     gap: 12px 0;
     padding: ${(props) =>
         props.paddingLeft ? `16px 20px 16px ${props.paddingLeft}` : '16px 20px'};
+    & > .tagArea {
+        width: 100%;
+        display: flex;
+        gap: 16px 0;
+        flex-direction: column;
+    }
 `;
 
 export const IconArea = styled.div`

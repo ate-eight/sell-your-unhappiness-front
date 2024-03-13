@@ -1,10 +1,12 @@
 import SubTitle from '@components/common/text/SubTitle';
 import { useCallback, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { fetchData } from '@/api';
+import { useCommentById } from '@/api/comment';
 import Divider from '@/components/common/divider/divider';
 import Input from '@/components/common/Input/Input';
-import CommentContainer from '@/components/features/contents/detail/commentContainer';
+import CommentContainer from '@/components/features/contents/comment/commentContainer';
 
 import * as S from '../style';
 
@@ -17,12 +19,12 @@ export interface IButtonData {
     color: 'primary' | 'secondary';
 }
 const ContentContainer = () => {
+    const { id } = useParams();
+    const { data: commentsData } = useCommentById(Number(id));
     const [inputValue, setinputValue] = useState('');
     const handleValueChange = useCallback((value: string) => {
         setinputValue(value);
     }, []);
-
-    const count = '0';
 
     /**
      * react-query mutation으로 query-key update
@@ -57,9 +59,10 @@ const ContentContainer = () => {
             <S.Container>
                 {/* 댓글 영역 */}
                 <S.CommentWrapper detail={true}>
-                    <SubTitle lan='ENG' text={`댓글 ${count}`} />
+                    <SubTitle lan='ENG' text={`댓글 ${commentsData?.contents.length}`} />
                     <Divider size={6} />
-                    <CommentContainer />
+
+                    {commentsData && <CommentContainer commentsData={commentsData} />}
                     <S.InputArea>
                         <Divider color={300} />
                         <Input
