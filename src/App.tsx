@@ -6,7 +6,14 @@ import Router from './router/Router';
 import reset from './styles/reset';
 import theme from './styles/theme';
 
-export const queryClient = new QueryClient();
+export const queryClient = new QueryClient({
+    defaultOptions: {
+        mutations: {
+            onError: (error) => console.error(error.message),
+        },
+    },
+});
+
 function App() {
     return (
         <>

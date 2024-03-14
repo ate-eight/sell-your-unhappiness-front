@@ -58,7 +58,6 @@ export const useCommentById = (id: number) => {
 export const useCommentAdd = () => {
     return useMutation({
         mutationFn: (body: ICommentAdd) => COMMENT_API.add(body),
-        onError: (error) => console.error(error.message),
         onSuccess: (res, variables) => {
             const { common } = res;
             if (common.code === 200) {
