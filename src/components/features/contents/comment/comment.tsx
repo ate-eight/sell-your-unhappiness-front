@@ -1,18 +1,13 @@
 import SubTitle from '@components/common/text/SubTitle';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { fetchData } from '@/api';
-import { useCommentById } from '@/api/comment';
+import { ICommentAdd, useCommentAdd, useCommentById } from '@/api/comment';
 import Divider from '@/components/common/divider/divider';
 import Input from '@/components/common/Input/Input';
 import CommentContainer from '@/components/features/contents/comment/commentContainer';
 
 import * as S from '../style';
-
-interface ICommentAddResponse {
-    message: string;
-}
 
 export interface IButtonData {
     label: string;
@@ -26,33 +21,25 @@ const ContentContainer = () => {
         setinputValue(value);
     }, []);
 
+    const { mutate: addComment, isError, isSuccess } = useCommentAdd();
+
     /**
      * react-query mutation으로 query-key update
      */
     const handleCommentSubmit = async () => {
-        alert('댓글 저장');
+        const obj: ICommentAdd = {
+            boardId: Number(id),
+            content: inputValue,
+        };
 
-        if (!inputValue) return;
-
-        const response = await fetchData.post<ICommentAddResponse>(
-            '/v1/board-comment',
-            JSON.stringify({
-                // parentId: 0,
-                boardId: 1,
-                content: inputValue,
-            }),
-        );
-
-        if (response) {
-            const { data, common } = response.data;
-
-            if (common.success) {
-                console.log(data);
-            } else {
-                console.error(common.message);
-            }
-        }
+        addComment(obj);
     };
+
+    useEffect(() => {
+        if (!isError && isSuccess) {
+            setinputValue('');
+        }
+    }, [isError, isSuccess]);
 
     return (
         <S.Wrapper>

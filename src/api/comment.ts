@@ -1,6 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 
 import { fetchData } from '@/api';
+import { queryClient } from '@/App';
 
 export interface ICommentInfo {
     contents: string;
@@ -12,6 +13,16 @@ export interface ICommentInfo {
 
 export interface ICommentResponse {
     contents: ICommentInfo[];
+}
+
+export interface ICommentAdd {
+    boardId: number;
+    parentId?: number;
+    content: string;
+}
+
+interface ICommentAddResponse {
+    message: string;
 }
 
 export const COMMENT_API = {
@@ -27,6 +38,13 @@ export const COMMENT_API = {
         }
         throw new Error('Failed to fetch content detail');
     },
+    add: async (body: ICommentAdd) => {
+        const response = await fetchData.post<ICommentAddResponse>(
+            '/v1/board-comment',
+            JSON.stringify(body),
+        );
+        return response.data;
+    },
 };
 
 export const useCommentById = (id: number) => {
@@ -34,5 +52,25 @@ export const useCommentById = (id: number) => {
         queryKey: ['comment', id],
         queryFn: () => COMMENT_API.getALL(id),
         staleTime: 1000 * 60 * 5,
+    });
+};
+
+export const useCommentAdd = () => {
+    return useMutation({
+        mutationFn: (body: ICommentAdd) => COMMENT_API.add(body),
+        onError: (error) => console.error(error.message),
+        onSuccess: (res, variables) => {
+            const { common } = res;
+            if (common.code === 200) {
+                /**
+                 * 성공
+                 * 기존 query key를 invalid로 만들어 reFetch
+                 */
+                queryClient.invalidateQueries({ queryKey: ['comment', variables.boardId] });
+            } else {
+                // 실패
+                throw new Error(common.message);
+            }
+        },
     });
 };

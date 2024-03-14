@@ -17,7 +17,7 @@ const Input = (props: Props) => {
             <S.CommentInputWrapper $height={'51px'}>
                 <S.Input
                     placeholder={placeholder}
-                    defaultValue={value}
+                    value={value}
                     onChange={(e) => handleOnChange?.(e.target.value)}
                 />
                 <S.SubmitButton

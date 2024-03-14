@@ -6,7 +6,7 @@ import Router from './router/Router';
 import reset from './styles/reset';
 import theme from './styles/theme';
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 function App() {
     return (
         <>
