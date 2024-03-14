@@ -1,4 +1,4 @@
-import { ICommentResponse } from '@/api/comment';
+import { ICommentInfo, ICommentResponse } from '@/api/comment';
 
 import * as S from '../style';
 import Comment from './commentTheme';
@@ -12,7 +12,7 @@ const CommentContainer = ({ commentsData }: ICommentProps) => {
         <>
             {commentsData &&
                 Array.isArray(commentsData.contents) && // Check if contents is an array
-                commentsData.contents.map((comment: ICommentResponse) => (
+                commentsData.contents.map((comment: ICommentInfo) => (
                     <S.CommentArea key={comment.id}>
                         <Comment commentsData={comment} />
                     </S.CommentArea>

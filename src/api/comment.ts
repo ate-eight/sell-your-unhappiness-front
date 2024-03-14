@@ -2,17 +2,19 @@ import { useQuery } from '@tanstack/react-query';
 
 import { fetchData } from '@/api';
 
+export interface ICommentInfo {
+    contents: string;
+    id: number;
+    type: string;
+    status: string;
+    title: string;
+    content: string;
+    createTime: string;
+    modifiedTime: string;
+}
+
 export interface ICommentResponse {
-    contents: {
-        contents: string;
-        id: number;
-        type: string;
-        status: string;
-        title: string;
-        content: string;
-        createTime: string;
-        modifiedTime: string;
-    }[];
+    contents: ICommentInfo[];
 }
 
 export const COMMENT_API = {
