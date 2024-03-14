@@ -4,14 +4,14 @@ import * as S from './style';
 interface Props {
     as: 'Default' | 'Comment';
     placeholder: string;
-    value: string;
+    value?: string;
     height?: string;
     handleOnChange?: (value: string) => void;
     handleOnClick?: () => void;
 }
 
 const Input = (props: Props) => {
-    const { as, placeholder, value, handleOnChange, handleOnClick } = props;
+    const { as, placeholder, value = '', handleOnChange, handleOnClick } = props;
     if (as === 'Comment') {
         return (
             <S.CommentInputWrapper $height={'51px'}>

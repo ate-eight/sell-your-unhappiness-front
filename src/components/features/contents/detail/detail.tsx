@@ -1,8 +1,7 @@
 import SubTitle from '@components/common/text/SubTitle';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { useCommentById } from '@/api/comment';
 import { useContentsById } from '@/api/contents';
 import Button from '@/components/common/Button/Button';
 import Divider from '@/components/common/divider/divider';
@@ -11,6 +10,7 @@ import Loading from '@/components/common/loading/Loading';
 import ContentTag from '@/components/common/text/ContentTag';
 import CommentContainer from '@/components/features/contents/comment/commentContainer';
 import TitleContainer from '@/components/features/contents/detail/titleContainer';
+import useComment from '@/hooks/useComment';
 
 import * as S from '../style';
 
@@ -20,24 +20,18 @@ export interface IButtonData {
 }
 
 const ContentContainer = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
 
-    const [inputValue, setInputValue] = useState('');
+    const { data: contentsData } = useContentsById(Number(id));
+    const { commentsData } = useComment(id);
 
-    const handleValueChange = useCallback((value: string) => {
-        setInputValue(value);
-    }, []);
-
-    const navigate = useNavigate();
     const handleMoveComment = useCallback(() => navigate(`/contents/${id}/comment`), []);
 
     const buttonData: Array<IButtonData> = [
         { label: 'Skip', color: 'secondary' },
         { label: 'Buy', color: 'primary' },
     ];
-
-    const { data: contentsData } = useContentsById(Number(id));
-    const { data: commentsData } = useCommentById(Number(id));
 
     return (
         <>
@@ -57,12 +51,7 @@ const ContentContainer = () => {
                             <SubTitle lan='ENG' text={`댓글 ${commentsData.contents.length}`} />
                             <CommentContainer commentsData={commentsData} />
                             <div onClick={handleMoveComment}>
-                                <Input
-                                    placeholder={'댓글을 남겨보세요.'}
-                                    as={'Default'}
-                                    value={inputValue}
-                                    handleOnChange={handleValueChange}
-                                />
+                                <Input placeholder={'댓글을 남겨보세요.'} as={'Default'} />
                             </div>
                         </S.CommentWrapper>
                         <Divider size={6} />
