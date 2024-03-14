@@ -5,12 +5,9 @@ import { fetchData } from '@/api';
 export interface ICommentInfo {
     contents: string;
     id: number;
-    type: string;
-    status: string;
-    title: string;
+    parentId: number;
     content: string;
     createTime: string;
-    modifiedTime: string;
 }
 
 export interface ICommentResponse {
