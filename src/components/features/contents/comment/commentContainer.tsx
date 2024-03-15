@@ -8,15 +8,15 @@ interface ICommentProps {
 }
 
 const CommentContainer = ({ commentsData }: ICommentProps) => {
+    if (!Array.isArray(commentsData.contents) && commentsData) return;
+
     return (
         <>
-            {commentsData &&
-                Array.isArray(commentsData.contents) && // Check if contents is an array
-                commentsData.contents.map((comment: ICommentInfo) => (
-                    <S.CommentArea key={comment.id}>
-                        <Comment commentsData={comment} />
-                    </S.CommentArea>
-                ))}
+            {commentsData.contents.map((comment: ICommentInfo) => (
+                <S.CommentArea key={comment.id}>
+                    <Comment commentsData={comment} />
+                </S.CommentArea>
+            ))}
         </>
     );
 };

@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useSuspenseQuery } from '@tanstack/react-query';
 
 import { fetchData } from '@/api';
 import { queryClient } from '@/App';
@@ -48,7 +48,7 @@ export const COMMENT_API = {
 };
 
 export const useCommentById = (id: number) => {
-    return useQuery<ICommentResponse, Error>({
+    return useSuspenseQuery<ICommentResponse, Error>({
         queryKey: ['comment', id],
         queryFn: () => COMMENT_API.getALL(id),
         staleTime: 1000 * 60 * 5,

@@ -22,10 +22,10 @@ const ContentContainer = () => {
             <S.Container>
                 {/* 댓글 영역 */}
                 <S.CommentWrapper detail={true}>
-                    <SubTitle lan='ENG' text={`댓글 ${commentsData?.contents.length}`} />
+                    <SubTitle lan='ENG' text={`댓글 ${commentsData?.contents.length ?? 0}`} />
                     <Divider size={6} />
 
-                    {commentsData && <CommentContainer commentsData={commentsData} />}
+                    <CommentContainer commentsData={commentsData} />
                     <S.InputArea>
                         <Divider color={300} />
                         <Input
