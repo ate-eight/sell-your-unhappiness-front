@@ -19,7 +19,6 @@ const useComment = (id: TBoardId) => {
     const handleCommentSubmit = async () => {
         const obj: ICommentAdd = {
             boardId: Number(id),
-            parentId: 0,
             content: inputValue,
         };
 

@@ -9,11 +9,9 @@ import theme from './styles/theme';
 export const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            throwOnError: true,
             retry: 0,
         },
         mutations: {
-            throwOnError: true,
             retry: 0,
             onError: (error) => console.error(error.message),
         },
