@@ -38,9 +38,11 @@ export const getBoards: ({ type, status, page }: IBoardProps) => Promise<IBoardR
 }: IBoardProps) => {
     try {
         const params = { type, status, page };
+
         const response = await fetchData.get<IBoardResponse>(`/v1/boards`, {
             params,
         });
+
         const { data } = response.data;
 
         if (response.status === 200) {

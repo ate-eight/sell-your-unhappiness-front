@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import { memo, useCallback, useMemo, useState, useTransition } from 'react';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { memo, useCallback, useMemo, useRef, useState, useTransition } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
@@ -22,6 +22,7 @@ export interface Props {
 const FeedContainer = memo(({ isFeedUi }: Props) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [, startTransition] = useTransition();
+    const nextPage = useRef<HTMLDivElement>(null);
 
     const boardType = useRecoilValue(boardTypeSelector);
 
@@ -43,16 +44,29 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
         [isClick],
     );
 
-    const boardObj = search.includes('sold')
-        ? { type: isClick, page: 1, status: '품절' }
-        : { type: isClick, page: 1 };
+    const fetchBoards = async ({ pageParam }) => {
+        const res = await getBoards({
+            type: isClick,
+            page: pageParam,
+            status: search.includes('sold') ? '품절' : '',
+        });
+        return res;
+    };
 
-    const { data, isSuccess, isFetching } = useQuery({
+    const { data, status, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
         queryKey: ['feedArr', isClick, search],
-        queryFn: () => getBoards(boardObj),
+        queryFn: fetchBoards,
+        initialPageParam: 1,
+        getNextPageParam: (lastPage, allPages, lastPageParam) => {
+            if (lastPage.pageValue.totalPage === 0) return undefined;
+            if (lastPage.pageValue.totalPage === allPages.length) {
+                return undefined;
+            }
+            return lastPageParam + 1;
+        },
     });
 
-    const feedListLen: number = data?.contents.length || 0;
+    const feedListLen: number = data?.pages[0].pageValue.totalElements || 0;
 
     // const feedArr: IFeed[] = [
     //     {
@@ -78,19 +92,34 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
     return (
         <S.FeedContainer>
             <Lnb handleClick={handleClick} isClick={saveIsClick as string} LnbMenu={LnbMenu} />
-
-            {isFetching && (
+            {feedListLen === 0 && <EmptyFeedList />}
+            {status === 'pending' ? (
                 <S.FeedContents>
                     <Loading />
                 </S.FeedContents>
+            ) : status === 'error' ? (
+                <S.FeedContents>에러가 발생하였습니다..</S.FeedContents>
+            ) : (
+                <>
+                    {data?.pages.map((group) =>
+                        group.contents?.map((data) => (
+                            <Feed key={data.id} data={data} isFeedUi={isFeedUi} />
+                        )),
+                    )}
+                    <div ref={nextPage}>
+                        <button
+                            onClick={() => fetchNextPage()}
+                            disabled={!hasNextPage || isFetchingNextPage}
+                        >
+                            {isFetchingNextPage
+                                ? 'Loading more...'
+                                : hasNextPage
+                                  ? 'Load More'
+                                  : 'nothing to load more'}
+                        </button>
+                    </div>
+                </>
             )}
-            {isSuccess && feedListLen === 0 && <EmptyFeedList />}
-
-            {isSuccess &&
-                feedListLen > 0 &&
-                data.contents?.map((data) => (
-                    <Feed key={data.id} data={data} isFeedUi={isFeedUi} />
-                ))}
         </S.FeedContainer>
     );
 });
