@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { memo, useCallback, useMemo, useRef, useState, useTransition } from 'react';
+import { memo, useCallback, useMemo, useState, useTransition } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
