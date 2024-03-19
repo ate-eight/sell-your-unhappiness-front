@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import { getBoards } from '@/api/boards';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import boardTypeSelector from '@/store/selector/boardSelector';
 
 import Loading from '../common/loading/Loading';
@@ -22,7 +23,6 @@ export interface Props {
 const FeedContainer = memo(({ isFeedUi }: Props) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [, startTransition] = useTransition();
-    const nextPage = useRef<HTMLDivElement>(null);
 
     const boardType = useRecoilValue(boardTypeSelector);
 
@@ -53,15 +53,22 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
         return res;
     };
 
-    const { data, status, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
+    const { createObserver, disconnectObserver } = useIntersectionObserver(() => fetchNextPage());
+
+    const { data, status, fetchNextPage } = useInfiniteQuery({
         queryKey: ['feedArr', isClick, search],
         queryFn: fetchBoards,
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages, lastPageParam) => {
-            if (lastPage.pageValue.totalPage === 0) return undefined;
-            if (lastPage.pageValue.totalPage === allPages.length) {
+            if (lastPage.pageValue.totalPage === 0) {
+                disconnectObserver();
                 return undefined;
             }
+            if (lastPage.pageValue.totalPage === allPages.length) {
+                disconnectObserver();
+                return undefined;
+            }
+
             return lastPageParam + 1;
         },
     });
@@ -106,18 +113,7 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
                             <Feed key={data.id} data={data} isFeedUi={isFeedUi} />
                         )),
                     )}
-                    <div ref={nextPage}>
-                        <button
-                            onClick={() => fetchNextPage()}
-                            disabled={!hasNextPage || isFetchingNextPage}
-                        >
-                            {isFetchingNextPage
-                                ? 'Loading more...'
-                                : hasNextPage
-                                  ? 'Load More'
-                                  : 'nothing to load more'}
-                        </button>
-                    </div>
+                    <div ref={createObserver}></div>
                 </>
             )}
         </S.FeedContainer>
