@@ -10,8 +10,8 @@ const useIntersectionObserver = (fetchCallBack: () => void) => {
             rootMargin: '0px',
             threshold: 0.1,
         };
-        const callback = (entries) => {
-            entries.forEach((entry) => {
+        const callback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry: IntersectionObserverEntry) => {
                 if (entry.isIntersecting) {
                     fetchCallBack();
                 }
