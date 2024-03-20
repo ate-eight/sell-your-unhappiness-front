@@ -3,17 +3,20 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, RenderOptions } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 
 import theme from '../styles/theme';
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
     const queryClient = new QueryClient();
     return (
-        <ThemeProvider theme={theme}>
-            <QueryClientProvider client={queryClient}>
-                <BrowserRouter>{children}</BrowserRouter>
-            </QueryClientProvider>
-        </ThemeProvider>
+        <RecoilRoot>
+            <ThemeProvider theme={theme}>
+                <QueryClientProvider client={queryClient}>
+                    <BrowserRouter>{children}</BrowserRouter>
+                </QueryClientProvider>
+            </ThemeProvider>
+        </RecoilRoot>
     );
 };
 
