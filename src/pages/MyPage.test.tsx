@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
 
 import { fireEvent } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
 
 import { render } from '@/test/CustomRender';
 
@@ -9,11 +8,7 @@ import MyPage from './MyPage';
 
 describe('MyPage', () => {
     const setup = async () => {
-        const { container, getByText } = await render(
-            <BrowserRouter>
-                <MyPage />
-            </BrowserRouter>,
-        );
+        const { container, getByText } = await render(<MyPage />);
         const myFeedHistory = container.querySelectorAll('li');
         const backButton = container.querySelector('#loc > button');
 
