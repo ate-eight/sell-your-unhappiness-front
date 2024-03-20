@@ -6,13 +6,12 @@ import { render } from '@/test/CustomRender';
 import LoginPage from './LoginPage';
 
 describe('MainPage', () => {
-    const setup = () => {
-        render(
+    const setup = async () =>
+        await render(
             <BrowserRouter>
                 <LoginPage />
             </BrowserRouter>,
         );
-    };
 
     it('로고 이미지가 정상적으로 나오는가', () => {
         setup();

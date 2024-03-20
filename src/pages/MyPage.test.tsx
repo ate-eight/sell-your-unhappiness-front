@@ -8,8 +8,8 @@ import { render } from '@/test/CustomRender';
 import MyPage from './MyPage';
 
 describe('MyPage', () => {
-    const setup = () => {
-        const { container, getByText } = render(
+    const setup = async () => {
+        const { container, getByText } = await render(
             <BrowserRouter>
                 <MyPage />
             </BrowserRouter>,
@@ -20,13 +20,13 @@ describe('MyPage', () => {
         return { myFeedHistory, backButton, getByText };
     };
 
-    it('내 이력 버튼이 총 2개 존재한다.', () => {
-        const { myFeedHistory } = setup();
+    it('내 이력 버튼이 총 2개 존재한다.', async () => {
+        const { myFeedHistory } = await setup();
         expect(myFeedHistory.length).toEqual(2);
     });
 
     it('close 버튼을 누르면 뒤로 이동한다.', async () => {
-        const { backButton } = setup();
+        const { backButton } = await setup();
 
         expect(backButton).toBeInTheDocument();
 

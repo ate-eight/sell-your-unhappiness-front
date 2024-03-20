@@ -32,7 +32,7 @@ const LinkNav = () => {
     };
 
     return (
-        <S.LinkContainer>
+        <S.LinkContainer id='link'>
             {queryArr.map((query) => (
                 <S.HeaderLink key={query.name} onClick={handleMoveSearch(query.sortType)}>
                     <Heading
