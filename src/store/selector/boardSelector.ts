@@ -14,7 +14,6 @@ const boardTypeSelector = selector({
         console.log('boardList', boardList);
         return boardList;
     },
-    set: () => {},
 });
 
 export default boardTypeSelector;
