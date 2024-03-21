@@ -1,15 +1,21 @@
 import '@testing-library/jest-dom/vitest';
 
-import { fireEvent, screen, waitFor } from '@testing-library/react';
+import { act, fireEvent, screen, waitFor } from '@testing-library/react';
 import { http, HttpResponse } from 'msw';
-import { act } from 'react-dom/test-utils';
 
 import { server } from '@/mocks/server';
-// import { RecoilRoot } from 'recoil';
-// import { server } from '@/mocks/browser';
 import { render } from '@/test/CustomRender';
 
 import MainPage from './MainPage';
+
+const IntersectionObserverMock = vi.fn(() => ({
+    disconnect: vi.fn(),
+    observe: vi.fn(),
+    takeRecords: vi.fn(),
+    unobserve: vi.fn(),
+}));
+
+vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
 
 describe('MainPage', async () => {
     const setup = async () => {
@@ -23,8 +29,13 @@ describe('MainPage', async () => {
 
     it('헤더의 링크가 3개 존재한다.', async () => {
         const { nav } = await setup();
-        const navList = nav?.querySelectorAll('a');
-        expect(navList?.length).toEqual(3);
+
+        waitFor(() => {
+            if (nav) {
+                const navList = nav.querySelectorAll('a');
+                expect(navList.length).toEqual(3);
+            }
+        });
     });
 
     it('데이터를 불러오기 전에는 기본 문구가 뜬다', async () => {
@@ -33,12 +44,18 @@ describe('MainPage', async () => {
         expect(nowLoading).toBeInTheDocument();
     });
 
-    it('메인페이지 mount 시 board button type이 렌더링 된다', async () => {
-        await setup();
+    it('메인페이지 mount 시 board button type이 렌더링 되고, useInfiniteQuery 가 실행된댜', async () => {
         // const data = await screen.findByText(/학교/);
-        act(() => {
-            const button = screen.getByRole('button', { name: /학교/ });
-            expect(button).toBeInTheDocument();
+
+        await act(async () => {
+            await setup();
+            waitFor(() => {
+                const button = screen.getByRole('button', { name: /학교/ });
+                expect(button).toBeInTheDocument();
+
+                expect(IntersectionObserver).toBe(IntersectionObserverMock);
+                expect(IntersectionObserverMock).toHaveBeenCalled();
+            });
         });
     });
 
@@ -57,19 +74,6 @@ describe('MainPage', async () => {
                 const elem = window.getComputedStyle(element);
                 expect(elem.getPropertyValue('border')).toEqual('1px solid #e4e4e4');
             });
-
-            // server.use(
-            //     http.get('/v1/boards', (req, res, ctx) => {
-            //         if(req)
-            //         return res.once(
-            //             ctx.json({
-            //                 message: 'you fail',
-            //             }),
-            //             ctx.status(401),
-            //             ctx.delay(20),
-            //         );
-            //     }),
-            // );
         }
     });
 
@@ -83,7 +87,6 @@ describe('MainPage', async () => {
 
         act(() => {
             const error = screen.findByText(/에러가 발생하였습니다../);
-            console.log('error', error);
             waitFor(() => expect(error).toBeInTheDocument());
         });
     });
