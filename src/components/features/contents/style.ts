@@ -16,11 +16,6 @@ export const Container = styled.div<{ border?: string }>`
     }
 `;
 
-export const LoadingContainer = styled.div`
-    & > div {
-        height: calc(100vh - 56px);
-    }
-`;
 export const ContentArea = styled.div`
     width: 100%;
     margin-bottom: 65px;

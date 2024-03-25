@@ -51,7 +51,6 @@ export const useCommentById = (id: number) => {
     return useSuspenseQuery<ICommentResponse, Error>({
         queryKey: ['comment', id],
         queryFn: () => COMMENT_API.getALL(id),
-        staleTime: 1000 * 60 * 5,
     });
 };
 
