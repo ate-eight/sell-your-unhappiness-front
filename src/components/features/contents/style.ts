@@ -16,11 +16,6 @@ export const Container = styled.div<{ border?: string }>`
     }
 `;
 
-export const LoadingContainer = styled.div`
-    & > div {
-        height: calc(100vh - 56px);
-    }
-`;
 export const ContentArea = styled.div`
     width: 100%;
     margin-bottom: 65px;
@@ -63,30 +58,38 @@ export const ContentContainer = styled.div`
 
 export const CommentWrapper = styled.div<{ detail?: boolean }>`
     width: 100%;
+
+    padding: ${({ detail }) => (detail ? '20px 0 83px' : '20px 0')};
+
+    position: relative;
+
     display: flex;
     flex-direction: column;
-    padding: 20px 0;
-    position: relative;
-    min-height: ${(props) => props.detail && 'calc(100vh - 56px)'};
 
     & > h4 {
         padding: 0 20px 20px;
     }
 
     & > div:has(input) {
-        width: calc(100% - 40px);
         margin: ${(props) => !props.detail && '10px 20px 0'};
     }
 `;
 
 export const InputArea = styled.div`
-    position: absolute;
-    bottom: -57px;
-    left: 20px;
-    gap: 10px 0;
+    max-width: 475px;
+    width: 100%;
+
+    position: fixed;
+    bottom: 0;
+
     display: flex;
     flex-direction: column;
-    padding: 10px 0;
+
+    background-color: #fff;
+
+    & > div {
+        margin: 10px 20px;
+    }
 `;
 
 export const CommentArea = styled.div<{ paddingLeft?: string }>`
@@ -95,6 +98,9 @@ export const CommentArea = styled.div<{ paddingLeft?: string }>`
     gap: 12px 0;
     padding: ${(props) =>
         props.paddingLeft ? `16px 20px 16px ${props.paddingLeft}` : '16px 20px'};
+
+    border-bottom: 1px solid ${({ theme }) => theme.color.gray[100]};
+
     & > .tagArea {
         width: 100%;
         display: flex;

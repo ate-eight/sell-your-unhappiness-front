@@ -1,18 +1,12 @@
 import SubTitle from '@components/common/text/SubTitle';
-import { useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { fetchData } from '@/api';
-import { useCommentById } from '@/api/comment';
 import Divider from '@/components/common/divider/divider';
 import Input from '@/components/common/Input/Input';
 import CommentContainer from '@/components/features/contents/comment/commentContainer';
+import useComment from '@/hooks/useComment';
 
 import * as S from '../style';
-
-interface ICommentAddResponse {
-    message: string;
-}
 
 export interface IButtonData {
     label: string;
@@ -20,49 +14,18 @@ export interface IButtonData {
 }
 const ContentContainer = () => {
     const { id } = useParams();
-    const { data: commentsData } = useCommentById(Number(id));
-    const [inputValue, setinputValue] = useState('');
-    const handleValueChange = useCallback((value: string) => {
-        setinputValue(value);
-    }, []);
 
-    /**
-     * react-query mutation으로 query-key update
-     */
-    const handleCommentSubmit = async () => {
-        alert('댓글 저장');
-
-        if (!inputValue) return;
-
-        const response = await fetchData.post<ICommentAddResponse>(
-            '/v1/board-comment',
-            JSON.stringify({
-                // parentId: 0,
-                boardId: 1,
-                content: inputValue,
-            }),
-        );
-
-        if (response) {
-            const { data, common } = response.data;
-
-            if (common.success) {
-                console.log(data);
-            } else {
-                console.error(common.message);
-            }
-        }
-    };
+    const { commentsData, inputValue, handleValueChange, handleCommentSubmit } = useComment(id);
 
     return (
         <S.Wrapper>
             <S.Container>
                 {/* 댓글 영역 */}
                 <S.CommentWrapper detail={true}>
-                    <SubTitle lan='ENG' text={`댓글 ${commentsData?.contents.length}`} />
+                    <SubTitle lan='ENG' text={`댓글 ${commentsData?.contents.length ?? 0}`} />
                     <Divider size={6} />
 
-                    {commentsData && <CommentContainer commentsData={commentsData} />}
+                    <CommentContainer commentsData={commentsData} />
                     <S.InputArea>
                         <Divider color={300} />
                         <Input

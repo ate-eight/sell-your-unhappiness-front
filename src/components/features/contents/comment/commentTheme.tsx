@@ -1,4 +1,4 @@
-import { ICommentResponse } from '@/api/comment';
+import { ICommentInfo } from '@/api/comment';
 import Icon from '@/components/common/icon/Icon';
 import CaptionTag from '@/components/common/text/CaptionTag';
 import ContentTag from '@/components/common/text/CaptionTag';
@@ -7,7 +7,7 @@ import theme from '@/styles/theme';
 
 import * as S from '../style';
 interface ICommentProps {
-    commentsData: ICommentResponse;
+    commentsData: ICommentInfo;
 }
 
 const commentTheme = ({ commentsData }: ICommentProps) => {

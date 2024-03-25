@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
 import { fetchData } from '@/api';
 
@@ -31,7 +31,7 @@ export const CONTENT_API = {
 };
 
 export const useContentsById = (id: number) => {
-    return useQuery<IContentResponse, Error>({
+    return useSuspenseQuery<IContentResponse, Error>({
         queryKey: ['contents', id],
         queryFn: () => CONTENT_API.getDetail(id),
         staleTime: 60000,
