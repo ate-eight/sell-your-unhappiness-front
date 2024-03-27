@@ -99,7 +99,6 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
     return (
         <S.FeedContainer>
             <Lnb handleClick={handleClick} isClick={saveIsClick as string} LnbMenu={LnbMenu} />
-            {feedListLen === 0 && <EmptyFeedList />}
             {status === 'pending' ? (
                 <S.FeedContents>
                     <Loading />
@@ -108,6 +107,7 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
                 <S.FeedContents>에러가 발생하였습니다..</S.FeedContents>
             ) : (
                 <>
+                    {feedListLen === 0 && <EmptyFeedList />}
                     {data?.pages.map((group) =>
                         group.contents?.map((data) => (
                             <Feed key={data.id} data={data} isFeedUi={isFeedUi} />
