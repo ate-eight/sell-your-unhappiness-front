@@ -57,29 +57,39 @@ export const ContentContainer = styled.div`
 `;
 
 export const CommentWrapper = styled.div<{ detail?: boolean }>`
+    width: 100%;
+
+    padding: ${({ detail }) => (detail ? '20px 0 83px' : '20px 0')};
+
+    position: relative;
+
     display: flex;
     flex-direction: column;
-    padding: 20px 0;
-    cursor: ${(props) => !props.detail && 'pointer'};
-    position: relative;
-    height: ${(props) => props.detail && 'calc(100vh - 56px)'};
+
     & > h4 {
         padding: 0 20px 20px;
     }
 
     & > div:has(input) {
-        width: calc(100% - 40px);
         margin: ${(props) => !props.detail && '10px 20px 0'};
     }
 `;
 
 export const InputArea = styled.div`
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    gap: 10px 0;
+    max-width: 475px;
+    width: 100%;
+
+    position: fixed;
+    bottom: 0;
+
     display: flex;
     flex-direction: column;
+
+    background-color: #fff;
+
+    & > div {
+        margin: 10px 20px;
+    }
 `;
 
 export const CommentArea = styled.div<{ paddingLeft?: string }>`
@@ -88,6 +98,15 @@ export const CommentArea = styled.div<{ paddingLeft?: string }>`
     gap: 12px 0;
     padding: ${(props) =>
         props.paddingLeft ? `16px 20px 16px ${props.paddingLeft}` : '16px 20px'};
+
+    border-bottom: 1px solid ${({ theme }) => theme.color.gray[100]};
+
+    & > .tagArea {
+        width: 100%;
+        display: flex;
+        gap: 16px 0;
+        flex-direction: column;
+    }
 `;
 
 export const IconArea = styled.div`
