@@ -19,15 +19,16 @@ export const queryClient = new QueryClient({
 });
 
 function App() {
+    const queryClient = new QueryClient();
     return (
         <>
             <RecoilRoot>
-                <QueryClientProvider client={queryClient}>
-                    <ThemeProvider theme={theme}>
-                        <Global styles={reset} />
+                <ThemeProvider theme={theme}>
+                    <Global styles={reset} />
+                    <QueryClientProvider client={queryClient}>
                         <Router />
-                    </ThemeProvider>
-                </QueryClientProvider>
+                    </QueryClientProvider>
+                </ThemeProvider>
             </RecoilRoot>
         </>
     );

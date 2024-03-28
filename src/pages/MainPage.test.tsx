@@ -1,6 +1,8 @@
 import { fireEvent } from '@testing-library/react';
+// import { http } from 'msw';
 import { BrowserRouter } from 'react-router-dom';
 
+// import { server } from '@/mocks/browser';
 import { render } from '@/test/CustomRender';
 
 import MainPage from './MainPage';
@@ -38,6 +40,19 @@ describe('MainPage', () => {
                 const elem = window.getComputedStyle(element);
                 expect(elem.getPropertyValue('border')).toEqual('1px solid #e4e4e4');
             });
+
+            // server.use(
+            //     http.get('/v1/boards', (req, res, ctx) => {
+            //         if(req)
+            //         return res.once(
+            //             ctx.json({
+            //                 message: 'you fail',
+            //             }),
+            //             ctx.status(401),
+            //             ctx.delay(20),
+            //         );
+            //     }),
+            // );
         }
     });
 });

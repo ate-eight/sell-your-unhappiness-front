@@ -1,0 +1,16 @@
+{
+    "common": { "code": 200, "message": "", "success": true },
+    "data": {
+        "pageValue": {
+            "totalPage": 1,
+            "pageSize": 10,
+            "currentPage": 1,
+            "totalElements": 0,
+            "num": 0,
+            "block": [1],
+            "previous": null,
+            "after": null
+        },
+        "contents": []
+    }
+}
