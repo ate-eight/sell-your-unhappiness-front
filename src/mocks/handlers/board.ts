@@ -9,3 +9,14 @@ export const getBoard = http.get('/api/v1/boards', async ({ request }) => {
     }
     return HttpResponse.json(empty_board, { status: 200 });
 });
+
+export const getBoardButtonTypes = http.get('/api/v1/board/types', async () => {
+    return HttpResponse.json(
+        {
+            data: {
+                types: ['회사', '학교', '친구', '부모님', '세상'],
+            },
+        },
+        { status: 200 },
+    );
+});

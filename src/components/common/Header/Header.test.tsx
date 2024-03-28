@@ -1,16 +1,11 @@
 import { screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
 
 import { render } from '@/test/CustomRender';
 
 import Header from './Header';
 
 beforeEach(() => {
-    render(
-        <BrowserRouter>
-            <Header />
-        </BrowserRouter>,
-    );
+    render(<Header />);
 });
 
 describe('헤더 컴포넌트', () => {

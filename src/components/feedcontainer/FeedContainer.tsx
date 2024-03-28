@@ -114,7 +114,7 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
                             <Feed key={data.id} data={data} isFeedUi={isFeedUi} />
                         )),
                     )}
-                    <div ref={createObserver}></div>
+                    <div ref={createObserver} id='target'></div>
                 </>
             )}
         </S.FeedContainer>
