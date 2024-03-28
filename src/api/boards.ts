@@ -35,7 +35,7 @@ export const getBoards: ({ type, status, page }: IBoardProps) => Promise<IBoardR
     type,
     status,
     page,
-}: IBoardProps) => {
+}) => {
     try {
         const params = { type, status, page };
 

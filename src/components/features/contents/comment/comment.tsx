@@ -1,31 +1,31 @@
 import SubTitle from '@components/common/text/SubTitle';
-import { useCallback, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Divider from '@/components/common/divider/divider';
 import Input from '@/components/common/Input/Input';
-import CommentContainer from '@/components/features/contents/detail/commentContainer';
+import CommentContainer from '@/components/features/contents/comment/commentContainer';
+import useComment from '@/hooks/useComment';
 
 import * as S from '../style';
+
 export interface IButtonData {
     label: string;
     color: 'primary' | 'secondary';
 }
 const ContentContainer = () => {
-    const [inputValue, setinputValue] = useState('');
-    const handleValueChange = useCallback((value: string) => {
-        setinputValue(value);
-    }, []);
+    const { id } = useParams();
 
-    const count = '0';
+    const { commentsData, inputValue, handleValueChange, handleCommentSubmit } = useComment(id);
 
     return (
         <S.Wrapper>
             <S.Container>
                 {/* 댓글 영역 */}
                 <S.CommentWrapper detail={true}>
-                    <SubTitle lan='ENG' text={`댓글 ${count}`} />
+                    <SubTitle lan='ENG' text={`댓글 ${commentsData?.contents.length ?? 0}`} />
                     <Divider size={6} />
-                    <CommentContainer />
+
+                    <CommentContainer commentsData={commentsData} />
                     <S.InputArea>
                         <Divider color={300} />
                         <Input
@@ -33,6 +33,7 @@ const ContentContainer = () => {
                             as={'Comment'}
                             value={inputValue}
                             handleOnChange={handleValueChange}
+                            handleOnClick={handleCommentSubmit}
                         />
                     </S.InputArea>
                 </S.CommentWrapper>

@@ -111,10 +111,14 @@ const nomalizeStyle = css`
     ul {
         list-style: none;
     }
-    ,
+
     button,
     a {
         cursor: pointer;
+    }
+
+    hr {
+        margin: 0;
     }
 `;
 

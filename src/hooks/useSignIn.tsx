@@ -1,13 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 
-import { fetchData } from '@/api';
+import { fetchAuthLogin } from '@/api/auth';
 import { authState } from '@/store/atom/authState';
-
-interface ILoginResponse {
-    accessToken: string;
-    refreshToken: string;
-}
 
 const useSignIn = () => {
     const navigate = useNavigate();
@@ -19,15 +14,10 @@ const useSignIn = () => {
     const googleLogin = async () => {
         alert('google Login');
 
-        const res = await fetchData.post<ILoginResponse>(
-            '/v1/user/login-test',
-            JSON.stringify({
-                email: 'test@email.com',
-            }),
-        );
+        const res = await fetchAuthLogin();
 
         if (res) {
-            const { common, data } = res.data;
+            const { common, data } = res;
 
             if (common.code === 200) {
                 setAuth({ isLogin: true, token: data.accessToken });

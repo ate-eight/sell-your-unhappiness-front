@@ -99,6 +99,7 @@ const FeedContainer = memo(({ isFeedUi }: Props) => {
     return (
         <S.FeedContainer>
             <Lnb handleClick={handleClick} isClick={saveIsClick as string} LnbMenu={LnbMenu} />
+
             {status === 'pending' ? (
                 <S.FeedContents>
                     <Loading />

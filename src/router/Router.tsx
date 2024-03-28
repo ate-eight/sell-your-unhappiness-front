@@ -36,9 +36,11 @@ const Paths = () => {
                     <Route path='/mypage' element={<MyPage />} />
                     <Route path='/alert' element={<AlertPage />} />
                     <Route element={<ContentLayout />}>
-                        <Route path='/contents/create' element={<CreatePage />} />
-                        <Route path='/contents/:id' element={<DetailPage />} />
-                        <Route path='/contents/:id/comment' element={<CommentPage />} />
+                        <Route path='contents'>
+                            <Route path='create' element={<CreatePage />} />
+                            <Route path=':id' element={<DetailPage />} />
+                            <Route path=':id/comment' element={<CommentPage />} />
+                        </Route>
                     </Route>
                 </Route>
 
